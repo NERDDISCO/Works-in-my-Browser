@@ -1,0 +1,50 @@
+{
+  "name": "works-in-my-browser",
+  "version": "1.0.0",
+  "description": "Collaboration talk from Gregor and Tim",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NERDDISCO/Works-in-my-Browser.git"
+  },
+  "keywords": [
+    "dekk"
+  ],
+  "author": "Tim Pietrusky & Gregor Adams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NERDDISCO/Works-in-my-Browser/issues"
+  },
+  "homepage": "https://github.com/NERDDISCO/Works-in-my-Browser#readme",
+  "dependencies": {
+    "@dekk/deck": "^0.1.0-beta.5cbe4f15",
+    "@dekk/fragment": "^0.1.0-beta.5cbe4f15",
+    "@dekk/image": "^0.1.0-beta.5cbe4f15",
+    "@dekk/master": "^0.1.0-beta.5cbe4f15",
+    "@dekk/speaker-notes": "^0.1.0-beta.5cbe4f15",
+    "@dekk/text": "^0.1.0-beta.5cbe4f15",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@dekk/paging": "^0.1.0-beta.5cbe4f15",
+    "@dekk/slide": "^0.1.0-beta.5cbe4f15",
+    "@dekk/store": "^0.1.0-beta.5cbe4f15",
+    "@dekk/utils": "^0.1.0-beta.5cbe4f15",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "favicons-webpack-plugin": "^0.0.7",
+    "html-webpack-harddisk-plugin": "^0.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "mobx": "^3.5.1",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
