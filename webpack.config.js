@@ -28,8 +28,7 @@ module.exports = {
   devServer: {
     contentBase: DOCS,
     compress: false,
-    historyApiFallback: true,
-    hot: false
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -2,89 +2,96 @@
 # yarn lockfile v1
 
 
-"@dekk/deck@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/deck/-/deck-0.1.0-beta.5cbe4f15.tgz#76726fc170b420162533f73347f9b34f61445b73"
+"@dekk/deck@^1.0.0-1":
+  version "1.0.0-1"
+  resolved "https://registry.yarnpkg.com/@dekk/deck/-/deck-1.0.0-1.tgz#dfefd9d622e49a78f719405ab73cf9ae21dd704b"
   dependencies:
+    "@dekk/paging" "^1.0.0-1"
+    "@dekk/slide" "^1.0.0-0"
+    "@dekk/store" "^1.0.0-0"
+    "@dekk/utils" "^1.0.0-0"
     mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/fragment@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/fragment/-/fragment-0.1.0-beta.5cbe4f15.tgz#f03e986779adb8f07713710329c0aff895d1df8a"
+"@dekk/fragment@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/fragment/-/fragment-1.0.0-0.tgz#d011383395ab78655ce88cc5a9e31ef101970079"
   dependencies:
-    mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/image@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/image/-/image-0.1.0-beta.5cbe4f15.tgz#83795f1a60940f6d953d71c7b2f5c9f4c4aa480f"
+"@dekk/image@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/image/-/image-1.0.0-0.tgz#5e5a6146640a8a2a06ac13f239d303a1b09aedf1"
   dependencies:
-    mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/master@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/master/-/master-0.1.0-beta.5cbe4f15.tgz#ec63d04838428f799f167dfcd4cc1d88f8e41d3f"
+"@dekk/master@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/master/-/master-1.0.0-0.tgz#fc875413bef799f0ff41eb3bb4563dd46d135210"
   dependencies:
-    mobx-react "^4.3.5"
+    "@dekk/fragment" "^1.0.0-0"
+    "@dekk/slide" "^1.0.0-0"
+    "@dekk/speaker-notes" "^1.0.0-0"
     prop-types "^15.6.0"
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/paging@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/paging/-/paging-0.1.0-beta.5cbe4f15.tgz#6cc1cf42d389373123d7e1b1c514991af7287d15"
+"@dekk/paging@^1.0.0-1":
+  version "1.0.0-1"
+  resolved "https://registry.yarnpkg.com/@dekk/paging/-/paging-1.0.0-1.tgz#ec697be35f35ecd8f6b6b986e57a6cd93d22fc81"
   dependencies:
-    mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/slide@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/slide/-/slide-0.1.0-beta.5cbe4f15.tgz#9661e8fd725d7448f1a5f3d9c655229f9c7a2b53"
+"@dekk/slide@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/slide/-/slide-1.0.0-0.tgz#262c7cf44be9f475b13807ca858d03c3b69ecaea"
   dependencies:
-    mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     react-motion "^0.5.2"
     styled-components "^3.0.2"
 
-"@dekk/speaker-notes@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/speaker-notes/-/speaker-notes-0.1.0-beta.5cbe4f15.tgz#a82c8b4442dc66ceb063f65842437af8f2271473"
+"@dekk/speaker-notes@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/speaker-notes/-/speaker-notes-1.0.0-0.tgz#e7458e97961a2fbd25b518633737ea723f298642"
   dependencies:
-    mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/store@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/store/-/store-0.1.0-beta.5cbe4f15.tgz#4161450b94c0c602e82f141b1232a8c48e5296f3"
+"@dekk/store@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/store/-/store-1.0.0-0.tgz#addea64eb1fb72e3cb2f763e8f913adb7cc8be81"
   dependencies:
     mobx "^3.4.1"
+    uuid "^3.2.1"
 
-"@dekk/text@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/text/-/text-0.1.0-beta.5cbe4f15.tgz#4b942bdf8e40e1b5f1472a49fa5360675dd32d24"
+"@dekk/text@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/text/-/text-1.0.0-0.tgz#5f632b935d269d9a9f712e0164bd574204363f79"
   dependencies:
-    mobx-react "^4.3.5"
     prop-types "^15.6.0"
     react "^16.2.0"
     react-syntax-highlighter "^7.0.0"
     styled-components "^3.0.2"
 
-"@dekk/utils@^0.1.0-beta.5cbe4f15":
-  version "0.1.0-beta.5cbe4f15"
-  resolved "https://registry.yarnpkg.com/@dekk/utils/-/utils-0.1.0-beta.5cbe4f15.tgz#82949c06808c1e159843d7f0af1f26abbb06d731"
+"@dekk/url@^1.0.0-1":
+  version "1.0.0-1"
+  resolved "https://registry.yarnpkg.com/@dekk/url/-/url-1.0.0-1.tgz#913e00152a838163b7085fc57172d98e8cb484fe"
+  dependencies:
+    "@dekk/utils" "^1.0.0-0"
+
+"@dekk/utils@^1.0.0-0":
+  version "1.0.0-0"
+  resolved "https://registry.yarnpkg.com/@dekk/utils/-/utils-1.0.0-0.tgz#7ac38b0012f496a0aaf51a059dd73b00da311f2f"
 
 abbrev@1:
   version "1.1.1"
@@ -5428,7 +5435,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
+uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
