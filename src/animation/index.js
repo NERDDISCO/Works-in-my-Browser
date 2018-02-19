@@ -5,22 +5,13 @@ import {css, injectGlobal} from 'styled-components'
  * Slide
  *
  */
-export const cube = css`
+export const cube = (dir = 'x') => css`
   transform:
-    perspective(200vmax)
-    translate3d(0, 0, -50vh)
-    rotate3d(1, 0, 0, calc(90deg * var(--time) * var(--direction)))
-    translate3d(0, 0, -50vh);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-`
-
-export const cube2 = css`
-  transform:
-    perspective(100vmax)
-    translate3d(0, 0, 30vh)
-    rotate3d(0, 1, 0, calc(180deg * var(--time) * var(--direction)))
-    translate3d(0, 0, -60vh);
+    perspective(200${dir === 'x' ? 'vw' : 'vh'})
+    translate3d(0, 0, -50${dir === 'x' ? 'vw' : 'vh'})
+    rotate3d(${dir === 'x' ? 0 : 1}, ${dir === 'x' ? 1 : 0}, 0,
+             calc(90deg * var(--time) * var(--direction)))
+    translate3d(0, 0, 50${dir === 'x' ? 'vw' : 'vh'});
     backface-visibility: hidden;
     transform-style: preserve-3d;
 `
@@ -38,15 +29,15 @@ export const zoom = css`
 export const fadeIn = css`
    transition:
      transform 0.25s ease-${props => props.active ? 'out' : 'in'},
-     opacity 1s ease-${props => props.active ? 'in' : 'out'};
+     opacity 0.25s ease-${props => props.active ? 'in' : 'out'};
    opacity: ${props => props.active ? 1 : 0};
    transform: translate3d(0, ${props => props.active ? 0 : 100}%, 0);
  `
 
 export const zoomIn = css`
    transition:
-     transform 4.25s ease-${props => props.active ? 'out' : 'in'},
-     opacity 5s ease-${props => props.active ? 'in' : 'out'};
+     transform 0.25s ease-${props => props.active ? 'out' : 'in'},
+     opacity 0.25s ease-${props => props.active ? 'in' : 'out'};
    opacity: ${props => props.active ? 1 : 0};
    transform: scale3d(${props => props.active ? 1 : 0}, ${props => props.active ? 1 : 0}, 1);
  `

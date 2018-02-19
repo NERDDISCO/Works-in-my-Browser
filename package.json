@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/NERDDISCO/Works-in-my-Browser#readme",
   "dependencies": {
-    "@dekk/deck": "^1.0.0-1",
+    "@dekk/deck": "^1.0.0-4",
     "@dekk/url": "^1.0.0-1",
     "@dekk/fragment": "^1.0.0-0",
     "@dekk/image": "^1.0.0-0",

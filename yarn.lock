@@ -2,13 +2,15 @@
 # yarn lockfile v1
 
 
-"@dekk/deck@^1.0.0-1":
-  version "1.0.0-1"
-  resolved "https://registry.yarnpkg.com/@dekk/deck/-/deck-1.0.0-1.tgz#dfefd9d622e49a78f719405ab73cf9ae21dd704b"
+"@dekk/deck@^1.0.0-4":
+  version "1.0.0-4"
+  resolved "https://registry.yarnpkg.com/@dekk/deck/-/deck-1.0.0-4.tgz#367ae6193f8dc31ed48e0f361ded680e3f342f82"
   dependencies:
-    "@dekk/paging" "^1.0.0-1"
+    "@dekk/listener" "^1.0.0-2"
+    "@dekk/paging" "^1.0.0-2"
     "@dekk/slide" "^1.0.0-0"
-    "@dekk/store" "^1.0.0-0"
+    "@dekk/store" "^1.0.0-2"
+    "@dekk/url" "^1.0.0-4"
     "@dekk/utils" "^1.0.0-0"
     mobx-react "^4.3.5"
     prop-types "^15.6.0"
@@ -31,6 +33,13 @@
     react "^16.2.0"
     styled-components "^3.0.2"
 
+"@dekk/listener@^1.0.0-2":
+  version "1.0.0-2"
+  resolved "https://registry.yarnpkg.com/@dekk/listener/-/listener-1.0.0-2.tgz#88ed7ffd8ff63c119bec6f5b28d7b89541d1150e"
+  dependencies:
+    "@dekk/utils" "^1.0.0-0"
+    react "^16.2.0"
+
 "@dekk/master@^1.0.0-0":
   version "1.0.0-0"
   resolved "https://registry.yarnpkg.com/@dekk/master/-/master-1.0.0-0.tgz#fc875413bef799f0ff41eb3bb4563dd46d135210"
@@ -42,9 +51,9 @@
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/paging@^1.0.0-1":
-  version "1.0.0-1"
-  resolved "https://registry.yarnpkg.com/@dekk/paging/-/paging-1.0.0-1.tgz#ec697be35f35ecd8f6b6b986e57a6cd93d22fc81"
+"@dekk/paging@^1.0.0-2":
+  version "1.0.0-2"
+  resolved "https://registry.yarnpkg.com/@dekk/paging/-/paging-1.0.0-2.tgz#443e3c107901202444f7cbc361c94f8c217f5f60"
   dependencies:
     prop-types "^15.6.0"
     react "^16.2.0"
@@ -67,9 +76,9 @@
     react "^16.2.0"
     styled-components "^3.0.2"
 
-"@dekk/store@^1.0.0-0":
-  version "1.0.0-0"
-  resolved "https://registry.yarnpkg.com/@dekk/store/-/store-1.0.0-0.tgz#addea64eb1fb72e3cb2f763e8f913adb7cc8be81"
+"@dekk/store@^1.0.0-2":
+  version "1.0.0-2"
+  resolved "https://registry.yarnpkg.com/@dekk/store/-/store-1.0.0-2.tgz#2279d67b5eb5a75d57ddae98ce7e99a969636a74"
   dependencies:
     mobx "^3.4.1"
     uuid "^3.2.1"
@@ -88,6 +97,13 @@
   resolved "https://registry.yarnpkg.com/@dekk/url/-/url-1.0.0-1.tgz#913e00152a838163b7085fc57172d98e8cb484fe"
   dependencies:
     "@dekk/utils" "^1.0.0-0"
+
+"@dekk/url@^1.0.0-4":
+  version "1.0.0-4"
+  resolved "https://registry.yarnpkg.com/@dekk/url/-/url-1.0.0-4.tgz#849986312a9a186bac0ad2b93249407f2db57410"
+  dependencies:
+    "@dekk/utils" "^1.0.0-0"
+    react "^16.2.0"
 
 "@dekk/utils@^1.0.0-0":
   version "1.0.0-0"
