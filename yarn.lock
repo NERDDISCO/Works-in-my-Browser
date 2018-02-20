@@ -92,12 +92,6 @@
     react-syntax-highlighter "^7.0.0"
     styled-components "^3.0.2"
 
-"@dekk/url@^1.0.0-1":
-  version "1.0.0-1"
-  resolved "https://registry.yarnpkg.com/@dekk/url/-/url-1.0.0-1.tgz#913e00152a838163b7085fc57172d98e8cb484fe"
-  dependencies:
-    "@dekk/utils" "^1.0.0-0"
-
 "@dekk/url@^1.0.0-4":
   version "1.0.0-4"
   resolved "https://registry.yarnpkg.com/@dekk/url/-/url-1.0.0-4.tgz#849986312a9a186bac0ad2b93249407f2db57410"

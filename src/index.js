@@ -2,9 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import {injectGlobal} from 'styled-components'
 
-import Deck from '@dekk/deck'
-import {hash} from '@dekk/url'
-
+import Deck, {Config} from '@dekk/deck'
 
 import {cover, fire, thankYou} from './slides'
 
@@ -18,7 +16,8 @@ injectGlobal`
 `
 
 const App = () => (
-  <Deck url={hash}>
+  <Deck>
+    <Config paging={false} url='hash'/>
     {cover}
     {fire}
     {thankYou}
