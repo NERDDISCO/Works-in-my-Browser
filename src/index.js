@@ -1,31 +1,13 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {injectGlobal} from 'styled-components'
+import styled, {css} from 'styled-components'
 
-import Deck, {Plugins} from '@dekk/deck'
-import Url from '@dekk/url'
-import Paging from '@dekk/paging'
-
+import Deck, {Slide, Elements, Plugins} from '@dekk/dekk'
 import {cover, fire, thankYou} from './slides'
 
-injectGlobal`
-  :root {
-    --main-bg: #111;
-    font-family: sans-serif;
-    background: var(--main-bg);
-    color: #fff;
-  }
-`
-
 const App = () => (
-  <Deck>
-    <Plugins>
-      <Url type="hash"/>
-      <Paging trigger="keydown"/>
-    </Plugins>
-
+  <Deck timer={50}>
     {cover}
-    {fire}
     {thankYou}
   </Deck>
 )

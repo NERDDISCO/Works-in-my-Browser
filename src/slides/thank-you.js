@@ -2,9 +2,8 @@ import React from 'react'
 import Fragment from '@dekk/fragment'
 import {Title} from '@dekk/text'
 import Notes from '@dekk/speaker-notes'
-
-import {ChapterSlide, Chapter} from '../masters'
-import {zoomIn} from '../animation'
+import {Chapter} from '@dekk/master-slides'
+import {zoom} from '../animation'
 
 const notes = (
   <Notes>
@@ -14,13 +13,13 @@ const notes = (
 )
 
 export default (
-  <ChapterSlide background='var(--main-bg)'>
+  <Chapter.Slide background='var(--main-bg)'>
     {notes}
-    <Chapter.Top>
+    <Chapter.A>
       <Fragment order={0}
-                animation={zoomIn}>
+                animation={zoom.in}>
         <Title>Thank you</Title>
       </Fragment>
-    </Chapter.Top>
-  </ChapterSlide>
+    </Chapter.A>
+  </Chapter.Slide>
 )

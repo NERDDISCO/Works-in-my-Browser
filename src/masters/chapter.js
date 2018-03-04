@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import createMaster, {Master, Slot, Static} from '@dekk/master'
 import Text, {Title, Subtitle, Uppercase} from '@dekk/text'
 import {Header} from '../components'
-import {cube} from '../animation'
+import {cube} from '@dekk/animation'
 
 const Footer = () => (
   <footer>
-    <Uppercase>© 2018 Gregy Ätom & Tirn Perusky</Uppercase>
+    <Uppercase>© 2018 Gregor Adams & Tim Pietrusky</Uppercase>
   </footer>
 )
 
@@ -58,5 +58,5 @@ export const ChapterSlide = styled(Chapter)`
     justify-content: flex-end;
   }
 
-  ${cube('x')}
+  ${cube.slideX}
 `
