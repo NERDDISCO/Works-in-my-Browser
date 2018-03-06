@@ -1,0 +1,365 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+#
+
+'.source.js':
+
+
+  'cover':
+    'prefix': 'dekk-cover'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+// Text, Title, Subtitle, Uppercase, Bold, Center, Code
+import {Title, Subtitle} from '@dekk/text'
+// import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+// Cover, Chapter, Half, Collage, Grid, ImageGrid
+import {Cover} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+
+const {Slide, A, B} = Cover
+
+const notes = (
+  <Notes>
+    <h3>$3</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <Title>$1</Title>
+    </A>
+
+    <B>
+      <Subtitle>$2</Subtitle>
+    </B>
+
+  </Slide>
+)
+
+    """
+
+######################################
+
+  'chapter':
+    'prefix': 'dekk-chapter'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+// Text, Title, Subtitle, Uppercase, Bold, Center, Code
+import {Title, Subtitle, Text} from '@dekk/text'
+// import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+// Cover, Chapter, Half, Collage, Grid, ImageGrid
+import {Chapter} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+
+const {Slide, A, B} = Chapter
+
+const notes = (
+  <Notes>
+    <h3>$3</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <Title>$1</Title>
+    </A>
+
+    <B>
+      <Subtitle>$2</Subtitle>
+    </B>
+
+  </Slide>
+)
+
+    """
+
+######################################
+
+  'half':
+    'prefix': 'dekk-half'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+// Text, Title, Subtitle, Uppercase, Bold, Center, Code
+import {Title, Subtitle, Text} from '@dekk/text'
+import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+// Cover, Chapter, Half, Collage, Grid, ImageGrid
+import {Half} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+
+const {Slide, A, B} = Half
+
+const notes = (
+  <Notes>
+    <h3>$3</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <FitImage>$1</FitImage>
+    </A>
+
+    <B>
+      <Subtitle>$2</Subtitle>
+    </B>
+
+  </Slide>
+)
+
+    """
+
+######################################
+
+  'collage':
+    'prefix': 'dekk-collage'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+// Text, Title, Subtitle, Uppercase, Bold, Center, Code
+import {Title, Subtitle, Text} from '@dekk/text'
+import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+// Cover, Chapter, Half, Collage, Grid, ImageGrid
+import {Collage} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+
+const {Slide, A, B, C} = Collage
+
+const notes = (
+  <Notes>
+    <h3>$3</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <Subtitle>$1</Subtitle>
+    </A>
+
+    <B>
+      <FitImage>$2</FitImage>
+    </B>
+
+    <C>
+      <FitImage>$3</FitImage>
+    </C>
+
+  </Slide>
+)
+
+    """
+
+######################################
+
+  'grid':
+    'prefix': 'dekk-grid'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+// Text, Title, Subtitle, Uppercase, Bold, Center, Code
+import {Title, Subtitle, Text} from '@dekk/text'
+import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+// Cover, Chapter, Half, Collage, Grid, ImageGrid
+import {Collage} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+
+const {Slide, A, B, C, D} = Grid
+
+const notes = (
+  <Notes>
+    <h3>$3</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <Code>Any element</Code>
+    </A>
+
+    <B>
+      <Code>Any element</Code>
+    </B>
+
+    <C>
+      <Code>Any element</Code>
+    </C>
+
+    <D>
+      <Code>Any element</Code>
+    </D>
+  </Slide>
+)
+
+    """
+
+######################################
+
+  'imageGrid':
+    'prefix': 'dekk-imageGrid'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+// Text, Title, Subtitle, Uppercase, Bold, Center, Code
+import {Title, Subtitle, Text} from '@dekk/text'
+import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+// Cover, Chapter, Half, Collage, Grid, ImageGrid
+import {Collage} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+
+const {Slide, A, B, C, D} = ImageGrid
+
+const notes = (
+  <Notes>
+    <h3>$5</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <FitImage>$1</FitImage>
+    </A>
+
+    <B>
+      <FitImage>$2</FitImage>
+    </B>
+
+    <C>
+      <FitImage>$3</FitImage>
+    </C>
+
+    <D>
+      <FitImage>$4</FitImage>
+    </D>
+  </Slide>
+)
+
+    """
+
+######################################
+
+  'fragment':
+    'prefix': 'dekk-fragment'
+    'body': '<Fragment order={$1}>$2</Fragment>'
+
+######################################
+
+  'animation':
+    'prefix': 'dekk-animation'
+    'body': 'animation={$1}'
+
+######################################
+
+  'slide':
+    'prefix': 'dekk-slide'
+    'body': '{slide.$1}'
+
+######################################
+
+  'text':
+    'prefix': 'dekk-text'
+    'body': '<Text>$1</Text>'
+
+######################################
+
+  'title':
+    'prefix': 'dekk-title'
+    'body': '<Title>$1</Title>'
+
+######################################
+
+  'subtitle':
+    'prefix': 'dekk-subtitle'
+    'body': '<Subtitle>$1</Subtitle>'
+
+######################################
+
+  'uppercase':
+    'prefix': 'dekk-uppercase'
+    'body': '<Uppercase>$1</Uppercase>'
+
+######################################
+
+  'bold':
+    'prefix': 'dekk-bold'
+    'body': '<Bold>$1</Bold>'
+
+######################################
+
+  'center':
+    'prefix': 'dekk-center'
+    'body': '<Center>$1</Center>'
+
+######################################
+
+  'code':
+    'prefix': 'dekk-code'
+    'body': '<Code>$1</Code>'
+
+######################################
+
+  'export default as':
+    'prefix': 'export-default-as'
+    'body': 'export {default as $1} from \'./$2\''
