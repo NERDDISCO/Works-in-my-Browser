@@ -2,15 +2,16 @@ import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
 // Text, Title, Subtitle, Uppercase, Bold, Center, Code
-import {Title, Subtitle, Text} from '@dekk/text'
+import {Title, Subtitle} from '@dekk/text'
 // import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
-import {Chapter} from '@dekk/master-slides'
+import {Cover} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+import SuperTimer from '../components/timer'
 
-const {Slide, A, B} = Chapter
+const {Slide, A, B} = Cover
 
 const notes = (
   <Notes>
@@ -24,11 +25,14 @@ export default (
     {notes}
 
     <A>
-      <Title>Thank You!</Title>
+      <Title>
+        {' '}
+        <SuperTimer isPlaying={true}></SuperTimer>
+      </Title>
     </A>
 
     <B>
-      <Subtitle>❤️❤️❤️❤️❤️❤️❤️❤️❤️</Subtitle>
+      <Subtitle></Subtitle>
     </B>
 
   </Slide>

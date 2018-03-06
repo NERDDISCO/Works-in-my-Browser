@@ -24,12 +24,13 @@ export default (
     {notes}
 
     <A>
-      <Title>Thank You!</Title>
-    </A>
+      <Title>Gregor Adams</Title>
 
-    <B>
-      <Subtitle>❤️❤️❤️❤️❤️❤️❤️❤️❤️</Subtitle>
-    </B>
+      <Fragment order={1}>
+        <Title>&</Title>
+        <Title>Tim Pietrusky</Title>
+      </Fragment>
+    </A>
 
   </Slide>
 )
