@@ -9,7 +9,7 @@ const {Slide, A, B} = Cover
 
 const notes = (
   <Notes>
-    <p>We can predict the future</p>
+    <p>We can predict the Future</p>
   </Notes>
 )
 
@@ -18,7 +18,7 @@ export default (
     {notes}
 
     <A>
-      <Title>Predit the future</Title>
+      <Title>Predict the Future 👀</Title>
     </A>
   </Slide>
 )
