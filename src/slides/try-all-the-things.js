@@ -9,6 +9,7 @@ import Notes from '@dekk/speaker-notes'
 import {Cover} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B} = Cover
 
@@ -24,11 +25,24 @@ export default (
     {notes}
 
     <A>
-      <Title>🤓</Title>
       <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+        <Uppercase>Try All The Things</Uppercase>
+      </Title>
     </A>
+
+    <B>
+      <Fragment order={1}>
+        <Subtitle>
+          <Uppercase>🔥 Really 🔥</Uppercase>
+        </Subtitle>
+      </Fragment>
+
+      <Fragment order={2}>
+        <Subtitle>
+          <Uppercase>🦄 Everything 🦄</Uppercase>
+        </Subtitle>
+      </Fragment>
+    </B>
 
   </Slide>
 )

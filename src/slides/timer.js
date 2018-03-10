@@ -9,7 +9,7 @@ import Notes from '@dekk/speaker-notes'
 import {Cover} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import SuperTimer from '../components/timer'
+import {SuperTimer} from '../components'
 
 const {Slide, A, B} = Cover
 

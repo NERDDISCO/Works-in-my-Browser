@@ -2,6 +2,12 @@ import React, {cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import Timer, {renderCountdown} from '@dekk/countdown'
 
+/*
+ * @TODO: Automatically stop when time is over and trigger event (so that other actions like "next slide" can be triggered)
+ * @TODO: Start timer on click
+ * @TODO: Start timer on slide active
+ * @TODO: Use WebAudio + mic and literally clap hands to activate the timer + auto change to next slide
+ */
 export default class SuperTimer extends Timer {
   /**
    * @private
@@ -19,7 +25,7 @@ export default class SuperTimer extends Timer {
    */
   static get defaultProps() {
     return {
-      timer: 5,
+      timer: 0.5,
       timerWarning: 0
     }
   }

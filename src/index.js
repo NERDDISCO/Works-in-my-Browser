@@ -13,7 +13,23 @@ const App = () => (
 
     {slide.predictTheFuture}
 
-    {slide.timer}
+    {slide.inTheNext30s}
+
+    {slide.livePerformance}
+
+    {slide.everythingAtTheSameTime}
+
+    {slide.travelInTime}
+
+    {slide.timeTravelTheories}
+
+    {slide.code}
+
+    {slide.inTheNext30sClapHands}
+
+    {slide.tryAllTheThings}
+
+    {slide.livePerformance}
 
     {slide.thankYou}
   </Deck>

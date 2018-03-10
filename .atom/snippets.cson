@@ -38,6 +38,7 @@ import Notes from '@dekk/speaker-notes'
 import {Cover} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B} = Cover
 
@@ -81,6 +82,7 @@ import Notes from '@dekk/speaker-notes'
 import {Chapter} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B} = Chapter
 
@@ -124,6 +126,7 @@ import Notes from '@dekk/speaker-notes'
 import {Half} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B} = Half
 
@@ -167,6 +170,7 @@ import Notes from '@dekk/speaker-notes'
 import {Collage} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B, C} = Collage
 
@@ -211,9 +215,10 @@ import {Title, Subtitle, Text} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
-import {Collage} from '@dekk/master-slides'
+import {Grid} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B, C, D} = Grid
 
@@ -261,9 +266,10 @@ import {Title, Subtitle, Text} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
-import {Collage} from '@dekk/master-slides'
+import {ImageGrid} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
 
 const {Slide, A, B, C, D} = ImageGrid
 
