@@ -13,7 +13,7 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
+    <h3></h3>
     <p></p>
   </Notes>
 )
@@ -23,9 +23,8 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <FitImage src="https://scontent-frt3-2.cdninstagram.com/vp/4c513a73e2ef4d6b41e12152fa06ed80/5B3110A7/t51.2885-15/e35/25039427_845945382243248_4831747347966853120_n.jpg"
+                alt="Neon Fabienne" />
     </A>
 
   </Slide>

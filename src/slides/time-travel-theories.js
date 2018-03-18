@@ -28,13 +28,15 @@ export default (
     {notes}
 
     <A>
+      <Fragment fit order={1}>
         <FitImage
           src="http://placehold.it/600"
           alt="this is a placeholder image. please adjust the alt accordingly"/>
+      </Fragment>
     </A>
 
     <B>
-      <Fragment order={2}>
+      <Fragment fit order={2}>
         <FitImage
           src="https://placehold.it/600"
           alt="this is a placeholder image. please adjust the alt accordingly"/>
@@ -42,7 +44,7 @@ export default (
     </B>
 
     <C>
-      <Fragment order={3}>
+      <Fragment fit order={3}>
         <FitImage
           src="https://placehold.it/600"
           alt="this is a placeholder image. please adjust the alt accordingly"/>
@@ -50,7 +52,7 @@ export default (
     </C>
 
     <D>
-      <Fragment order={4}>
+      <Fragment fit order={4}>
         <FitImage
           src="https://placehold.it/600"
           alt="this is a placeholder image. please adjust the alt accordingly"/>

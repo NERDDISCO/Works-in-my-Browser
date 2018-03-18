@@ -13,8 +13,11 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>Different projects</h3>
+    <p>Many attempts in the last years</p>
+    <p>All with the purpose to create my own software</p>
+    <p>To create visualsations</p>
+    <p>or talk to LEDs</p>
   </Notes>
 )
 
@@ -23,9 +26,7 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <Title>TODO: Add all the projects</Title>
     </A>
 
   </Slide>

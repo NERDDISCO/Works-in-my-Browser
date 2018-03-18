@@ -13,8 +13,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>Party Hard</h3>
+    <p>Escalated quickly</p>
+    <p>Everything is neon</p>
+    <p>Olli as the VJ and Patrick as the DJ</p>
   </Notes>
 )
 
@@ -23,9 +25,9 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+    <img
+      src="https://media.giphy.com/media/C8oxNfUVi5Mh7kEEi4/giphy.gif"
+      alt="Party Hard"/>
     </A>
 
   </Slide>

@@ -5,15 +5,18 @@ import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
+import styled, {css} from 'styled-components'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
+
+// import newyearsEve2017 from './/media/newyears_eve_2017.jpg'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
+    <h3></h3>
     <p></p>
   </Notes>
 )
@@ -23,9 +26,8 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <FitImage src="media/newyears_eve_2017.jpg"
+                alt="Full New Years Eve 2017 setup: Frontal" />
     </A>
 
   </Slide>

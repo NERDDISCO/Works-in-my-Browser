@@ -7,13 +7,13 @@ import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {SuperTimer} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
+    <h3>Travel in Time</h3>
     <p></p>
   </Notes>
 )
@@ -24,8 +24,10 @@ export default (
 
     <A>
       <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+        <Fragment order={1}>
+          {(t, a) => {return <SuperTimer isPlaying={a} timer={0.25}></SuperTimer>}}
+        </Fragment>
+      </Title>
     </A>
 
   </Slide>

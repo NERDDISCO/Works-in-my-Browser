@@ -13,8 +13,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>Background Tim</h3>
+    <p>CTO at my own company, doing enterprise Integration with Microservices in Java</p>
+    <p>Has a family</p>
+    <p>Interested in ligths and visualizations</p>
   </Notes>
 )
 
@@ -23,9 +25,7 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <Title>Tim?</Title>
     </A>
 
   </Slide>

@@ -13,8 +13,12 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>First contact with Gregor</h3>
+    <p>After my talk he came to me</p>
+    <p>Talking something about creating his own synth</p>
+    <p>Be became best friends instantly</p>
+    <p>Doing awesome stuff like CodePenDay together</p>
+    <p>What was missing is a collaboration talk</p>
   </Notes>
 )
 
@@ -23,9 +27,7 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <Title>#1 contact with Gregor</Title>
     </A>
 
   </Slide>

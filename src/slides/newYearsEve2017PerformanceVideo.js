@@ -13,7 +13,7 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
+    <h3></h3>
     <p></p>
   </Notes>
 )
@@ -23,9 +23,7 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=1" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
     </A>
 
   </Slide>

@@ -14,8 +14,12 @@ const {Slide, A, B} = Chapter
 
 const notes = (
   <Notes>
-    <h3></h3>
-    <p></p>
+    <h3>Intro</h3>
+    <p>My Name is Gregor Adams</p>
+    <p>And my name is Tim Pietrusky</p>
+    <p>We are here today to show you what the Web is capable of</p>
+    <p>That you can use the web for anything</p>
+    <p>Even beyond your imagination</p>
   </Notes>
 )
 

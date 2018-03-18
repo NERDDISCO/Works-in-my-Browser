@@ -16,7 +16,9 @@ const {Slide, A, B} = Cover
 const notes = (
   <Notes>
     <h3>We can Travel in Time</h3>
-    <p></p>
+    <p>Like we did before, but instead of only predicting the future, we will jump into the future</p>
+    <p>But where do we jump to?</p>
+    <p>Let's find out</p>
   </Notes>
 )
 

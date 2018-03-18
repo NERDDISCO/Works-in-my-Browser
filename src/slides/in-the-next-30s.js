@@ -26,8 +26,9 @@ export default (
 
     <A>
       <Title>
-        <SuperTimer isPlaying={true} timer="0.5"></SuperTimer>
-        {' '}
+        <Fragment order={1}>
+            {(t, a) => {return <SuperTimer isPlaying={a} timer={0.5}></SuperTimer>}}
+        </Fragment>
       </Title>
     </A>
 
@@ -35,7 +36,7 @@ export default (
       <Fragment order={1}>
         <Subtitle>I will clap my hands</Subtitle>
       </Fragment>
-      <Fragment order={2}>
+      <Fragment order={3}>
         <Subtitle>It will happen</Subtitle>
       </Fragment>
     </B>

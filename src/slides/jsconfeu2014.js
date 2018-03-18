@@ -13,8 +13,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>JSConf EU 2014</h3>
+    <p>First full talk at a conference ever</p>
+    <p>World exclusive demo of the first version of NERDDISCO in the public</p>
+    <p>One part was the LED wall</p>
   </Notes>
 )
 
@@ -24,8 +26,14 @@ export default (
 
     <A>
       <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+        JSConf EU 2014
+      </Title>
+
+      <Fragment order={1}>
+        <Subtitle>
+          My #1 full talk at a conference
+        </Subtitle>
+      </Fragment>
     </A>
 
   </Slide>

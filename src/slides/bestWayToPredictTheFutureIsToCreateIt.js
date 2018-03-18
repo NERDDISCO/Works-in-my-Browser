@@ -13,8 +13,9 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>Best way to predict your future</h3>
+    <p>That is very true</p>
+    <p>If we don't go out and invent, there will be no future</p>
   </Notes>
 )
 
@@ -23,9 +24,8 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <Title>The best way to predict your future is to create it</Title>
+      <Subtitle>Abraham Lincoln</Subtitle>
     </A>
 
   </Slide>

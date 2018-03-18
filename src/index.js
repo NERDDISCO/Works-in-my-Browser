@@ -1,15 +1,29 @@
-import React from 'react'
+import React, {cloneElement} from 'react'
 import {render} from 'react-dom'
 import styled, {css} from 'styled-components'
 
 import Deck, {Slide, Elements, Plugins} from '@dekk/dekk'
 import * as slide from './slides'
+import uuid from 'uuid/v4'
+
+import Sockette from 'sockette'
+
+const ws = new Sockette('ws://localhost:3001/dekk', {
+  timeout: 5e3,
+  maxAttempts: 500,
+  onopen: e => {
+    ws.send(JSON.stringify(['JSFest_Static', 'shit fuck']))
+  },
+  onmessage: e => console.log('Received:', e),
+  onreconnect: e => console.log('Reconnecting...', e),
+  onmaximum: e => console.log('Stop Attempting!', e),
+  onclose: e => console.log('Closed!', e),
+  onerror: e => console.log('Error:', e)
+});
 
 const App = () => (
   <Deck timer={50}>
-    {slide.worksInMyBrowser}
-
-    {slide.gregorAdamsTimPietrusky}
+    {cloneElement(slide.worksInMyBrowser,{key : uuid()})}
 
     {slide.predictTheFuture}
 
@@ -18,10 +32,52 @@ const App = () => (
     {slide.livePerformance}
 
     {slide.everythingAtTheSameTime}
-
+    {slide.timeTravelTheories}
     {slide.travelInTime}
 
-    {slide.timeTravelTheories}
+    {/* Maybe this is too much in general? Just show the video of the end, but that's it? */}
+    {cloneElement(slide.timeTraveling, {key : uuid()})}
+    {/* Should we add more here? Do we switch over to my NoteBook for the performance? */}
+    {cloneElement(slide.timeTraveling, {key : uuid()})}
+
+
+    {slide.gregorAdamsTimPietrusky}
+    {slide.bestWayToPredictTheFutureIsToCreateIt}
+
+    {slide.backgroundGregor}
+    {slide.drawingsFromGregor}
+
+
+
+
+    {slide.backgroundTim}
+    {slide.flashingLights}
+    {slide.familyTim}
+    {slide.nerddisco}
+    {slide.jsconfeu2014}
+    {slide.jsconfeu2014PerformanceTim}
+    {slide.jsconfeu2014FirstContactWithGregor}
+    {slide.newYearsEve2017}
+    {/* Fabienne as the backround of newYearsEve2017 */}
+    {slide.newYearsEve2017NeonFabienne}
+
+    {slide.newYearsEve2017VjAndDjDance}
+    {slide.newYearsEve2017Performance}
+    {slide.newYearsEve2017PerformanceVideo}
+    {slide.loveLightsTim}
+
+    {/*   But I came to the conculsion that what I can do best
+          Is to combine exsiting software with each other */}
+    {/* {slide.manyDifferentProjectsTim} */}
+
+    {/* pre-analyze the music for audio control */}
+    {slide.luminave}
+
+    {slide.letsDoACollaborationTalk}
+
+
+
+
 
     {slide.code}
 

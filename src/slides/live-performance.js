@@ -27,6 +27,9 @@ export default (
     <A>
       <Title>Live Performance</Title>
     </A>
+    <B>
+      <Subtitle>Add video / picture here</Subtitle>
+    </B>
 
   </Slide>
 )

@@ -13,8 +13,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Works in my Browser</h3>
-    <p></p>
+    <h3>In love with</h3>
+    <p>Lights</p>
+    <p>visualisations</p>
+    <p>Music</p>
   </Notes>
 )
 
@@ -23,9 +25,16 @@ export default (
     {notes}
 
     <A>
-      <Title>
-         <Uppercase>Works in my Browser</Uppercase>
-       </Title>
+      <Title>❤️</Title>
+      <Fragment order={1}>
+        <Title>Lights</Title>
+      </Fragment>
+      <Fragment order={2}>
+        <Title>Visualisations</Title>
+      </Fragment>
+      <Fragment order={3}>
+        <Title>Music</Title>
+      </Fragment>
     </A>
 
   </Slide>
