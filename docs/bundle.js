@@ -9294,6 +9294,9 @@ exports.default = layouts;
 "use strict";
 
 
+var _templateObject = _taggedTemplateLiteral(['\n  background: var(--header-background);\n  color: var(--header-color);\n  height: var(--header-height);\n  display: flex;\n  align-items: center;\n  align-content: center;\n  padding: 0 1rem;\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  font-size: 1rem;\n'], ['\n  background: var(--header-background);\n  color: var(--header-color);\n  height: var(--header-height);\n  display: flex;\n  align-items: center;\n  align-content: center;\n  padding: 0 1rem;\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  font-size: 1rem;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  background: var(--footer-background);\n  color: var(--footer-color);\n  height: var(--footer-height);\n  display: flex;\n  align-items: center;\n  align-content: center;\n  padding: 0 1rem;\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  font-size: 1rem;\n'], ['\n  background: var(--footer-background);\n  color: var(--footer-color);\n  height: var(--footer-height);\n  display: flex;\n  align-items: center;\n  align-content: center;\n  padding: 0 1rem;\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  font-size: 1rem;\n']);
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -9324,6 +9327,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 var ws = new _sockette2.default('ws://localhost:3001/dekk', {
   timeout: 5e3,
   maxAttempts: 500,
@@ -9347,10 +9352,30 @@ var ws = new _sockette2.default('ws://localhost:3001/dekk', {
   }
 });
 
+var StyledHeader = _styledComponents2.default.header(_templateObject);
+
+var Header = function Header() {
+  return _react2.default.createElement(StyledHeader, null);
+};
+
+var StyledFooter = _styledComponents2.default.footer(_templateObject2);
+
+var Footer = function Footer() {
+  return _react2.default.createElement(StyledFooter, null);
+};
+
+var elements = _react2.default.createElement(
+  _dekk.Elements,
+  null,
+  _react2.default.createElement(Header, null),
+  _react2.default.createElement(Footer, null)
+);
+
 var App = function App() {
   return _react2.default.createElement(
     _dekk2.default,
     { timer: 50 },
+    elements,
     (0, _react.cloneElement)(slide.worksInMyBrowser, { key: (0, _v2.default)() }),
     slide.predictTheFuture,
     slide.inTheNext30s,
@@ -9358,7 +9383,6 @@ var App = function App() {
     slide.everythingAtTheSameTime,
     slide.timeTravelTheories,
     slide.travelInTime,
-    (0, _react.cloneElement)(slide.timeTraveling, { key: (0, _v2.default)() }),
     (0, _react.cloneElement)(slide.timeTraveling, { key: (0, _v2.default)() }),
     slide.gregorAdamsTimPietrusky,
     slide.bestWayToPredictTheFutureIsToCreateIt,
@@ -63687,8 +63711,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
 
-var Slide = _masterSlides.Main.Slide,
-    A = _masterSlides.Main.A;
+var Slide = _masterSlides.Cover.Slide,
+    A = _masterSlides.Cover.A,
+    B = _masterSlides.Cover.B;
 
 
 var notes = _react2.default.createElement(
@@ -63717,6 +63742,25 @@ exports.default = _react2.default.createElement(
         null,
         'Works in my Browser'
       )
+    )
+  ),
+  _react2.default.createElement(
+    B,
+    null,
+    _react2.default.createElement(
+      _text.Subtitle,
+      null,
+      _react2.default.createElement('br', null),
+      '@',
+      _react2.default.createElement('br', null),
+      _react2.default.createElement('br', null)
+    ),
+    _react2.default.createElement(
+      _text.Subtitle,
+      null,
+      ' ',
+      _react2.default.createElement('img', { src: 'media/JSfest2018_logo.png',
+        alt: 'JS Fest 2018 Logo' })
     )
   )
 );
