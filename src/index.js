@@ -21,8 +21,55 @@ const ws = new Sockette('ws://localhost:3001/dekk', {
   onerror: e => console.log('Error:', e)
 });
 
+
+
+const StyledHeader = styled.header`
+  background: var(--header-background);
+  color: var(--header-color);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 0 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 1rem;
+`
+
+const Header = () => <StyledHeader></StyledHeader>
+
+const StyledFooter = styled.footer`
+  background: var(--footer-background);
+  color: var(--footer-color);
+  height: var(--footer-height);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 0 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 1rem;
+`
+
+const Footer = () => <StyledFooter></StyledFooter>
+
+const elements = (
+  <Elements>
+    <Header />
+    <Footer />
+  </Elements>
+)
+
+
+
 const App = () => (
   <Deck timer={50}>
+    {elements}
+
     {cloneElement(slide.worksInMyBrowser,{key : uuid()})}
 
     {slide.predictTheFuture}
@@ -38,16 +85,12 @@ const App = () => (
     {/* Maybe this is too much in general? Just show the video of the end, but that's it? */}
     {cloneElement(slide.timeTraveling, {key : uuid()})}
     {/* Should we add more here? Do we switch over to my NoteBook for the performance? */}
-    {cloneElement(slide.timeTraveling, {key : uuid()})}
-
 
     {slide.gregorAdamsTimPietrusky}
     {slide.bestWayToPredictTheFutureIsToCreateIt}
 
     {slide.backgroundGregor}
     {slide.drawingsFromGregor}
-
-
 
 
     {slide.backgroundTim}
