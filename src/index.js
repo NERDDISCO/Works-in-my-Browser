@@ -151,11 +151,11 @@ const slides = [
   slide.webusbArduinoSketchIncludeAndDefine,
   slide.webusbArduinoSketchSetup,
   slide.webusbArduinoSketchLoop,
-  slide.webusbDmx512Data,
   slide.webusbArduinoSketchUploadDone,
+  slide.webusbArduinoHowDoesItWork,
+  slide.webusbDmx512Data,
 
   slide.luminaveDemo,
-  slide.webusbArduinoHowDoesItWork,
 
   slide.dekkProject,
 

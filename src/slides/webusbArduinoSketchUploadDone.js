@@ -14,7 +14,8 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Upload Sketch Statistics</h3>
+    <h3>Sketch Statistics</h3>
+    <p>Interesting feature</p>
     <p>When compiling and uploading the code to the Arduino is done, you get a summary of how much memory you occupied with the code.</p>
     <p>This lets you optimize your code over and over again, because you want it to be a optimized as possible. Why? so that you can add more Code in the future if you can add more features. And it's easier to understand </p>
   </Notes>

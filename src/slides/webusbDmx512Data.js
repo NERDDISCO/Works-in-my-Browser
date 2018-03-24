@@ -14,8 +14,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>WebMIDI in JS</h3>
-    <p></p>
+    <h3>Exchange data</h3>
+    <p>This array has 512 values, each value represents one channel</p>
+    <p>This data is send between the Browser and the WebUSB DMX Controller</p>
+    <p>Which is then send into the DMX universe</p>
   </Notes>
 )
 

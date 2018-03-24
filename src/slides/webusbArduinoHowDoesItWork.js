@@ -14,18 +14,20 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does it work?</h3>
+    <h3>What is happening?</h3>
     <p>So what exactly is happening?</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} light={["JSFest_static", "COLOR GREEN"]}>
+  <Slide key={uuid()} light={["JSFest_Static", "COLOR GREEN"]}>
     {notes}
 
     <A>
-      <Title>How does it work?</Title>
-      <Subtitle>TODO: Add diagram</Subtitle>
+      <Title>What is happening?</Title>
+      <img src="media/dmx512_controller_communication_webusb.svg"
+                  alt="WebUSB DMX Controller communication"
+                  style={{height: 60 + "vh"}} />
     </A>
 
   </Slide>

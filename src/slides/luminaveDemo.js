@@ -34,7 +34,7 @@ const FocusPoint = styled.a.attrs({href:"#"})`
 `
 
 export default (
-  <Slide key={uuid()} light={["JSFest_static", "COLOR RED"]}>
+  <Slide key={uuid()} light={["JSFest_Static", "COLOR RED"]}>
     {notes}
 
     <A>
