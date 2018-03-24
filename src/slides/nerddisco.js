@@ -7,7 +7,7 @@ import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
@@ -19,11 +19,13 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} background={`#14171e`}>
     {notes}
 
     <A>
-      <Title>NERDDISCO</Title>
+      <LargeImage src="media/nerddisco_logo_white.svg"
+                  alt="NERDDISCO"
+                  style={{width: 80 + "vw"}} />
     </A>
 
   </Slide>

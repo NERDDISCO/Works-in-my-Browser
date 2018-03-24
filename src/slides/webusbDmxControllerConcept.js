@@ -7,14 +7,14 @@ import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>WebUSB DMX controller</h3>
+    <p>Talk directly to the DMX controller using DMX, no server needed</p>
   </Notes>
 )
 
@@ -23,7 +23,9 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <img src="media/dmx512_controller_communication_webusb.svg"
+                  alt="WebUSB DMX Controller communication"
+                  style={{width: 90 + "vw"}} />
     </A>
 
   </Slide>

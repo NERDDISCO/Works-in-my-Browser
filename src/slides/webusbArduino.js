@@ -8,13 +8,16 @@ import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>Arduino Leonardo</h3>
+    <p>Microcrontroller that comes in different shapes and sizes</p>
+    <p>All of them have different specs</p>
+    <p>The stuff you need for WebUSB is an Arduino that can be ues as an external USB device</p>
   </Notes>
 )
 
@@ -23,7 +26,8 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <LargeImage src="media/arduino_leonardo.png"
+                  alt="Arduino Leonardo" />
     </A>
 
   </Slide>

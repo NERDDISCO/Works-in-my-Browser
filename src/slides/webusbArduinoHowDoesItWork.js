@@ -1,20 +1,21 @@
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, Code, colorSchemes} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+// import {CodeJs} from '../components'
+
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>How does it work?</h3>
+    <p>So what exactly is happening?</p>
   </Notes>
 )
 
@@ -23,7 +24,8 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <Title>How does it work?</Title>
+      <Subtitle>TODO: Add diagram</Subtitle>
     </A>
 
   </Slide>

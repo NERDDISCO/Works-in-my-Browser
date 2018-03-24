@@ -27,7 +27,7 @@ export default (
     {notes}
 
     <A>
-      <Title>#1 contact with Gregor</Title>
+      <Title style={{filter: 'drop-shadow(5px 5px 0 red)'}}>#1 contact with Gregor</Title>
     </A>
 
   </Slide>

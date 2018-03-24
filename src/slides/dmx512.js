@@ -13,8 +13,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>DMX512</h3>
+    <p>DMX stands for Digital Miultiplex</p>
+    <p>The 512 stands for 512 channels</p>
+    <p>In general, it is used for professional stage lightning, but you can use it for anything you want</p>
   </Notes>
 )
 
@@ -23,7 +25,7 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <Title>DMX512</Title>
     </A>
 
   </Slide>

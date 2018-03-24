@@ -26,6 +26,9 @@ export default (
 
     <A>
       <Title>luminave</Title>
+      <a href="https://github.com/NERDDISCO/luminave">
+        <Subtitle>github.com/NERDDISCO/luminave</Subtitle>
+      </a>
     </A>
 
   </Slide>

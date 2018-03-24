@@ -20,13 +20,22 @@ const notes = (
   </Notes>
 )
 
+const handleRest = (fragmentIndex, fragmentOrder) => {
+  // The animation is done
+  console.log(fragmentIndex, fragmentOrder)
+}
+
 export default (
   <Slide key={uuid()}>
     {notes}
 
     <A>
       <Title>
-        <Fragment order={1}>
+        <Fragment order={0}>
+            {(t, a) => {return <SuperTimer isPlaying={a} timer={0.5}></SuperTimer>}}
+        </Fragment>
+
+        <Fragment order={0} onRest={handleRest}>
             {(t, a) => {return <SuperTimer isPlaying={a} timer={0.5}></SuperTimer>}}
         </Fragment>
       </Title>

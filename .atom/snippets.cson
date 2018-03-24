@@ -23,6 +23,44 @@
 
 '.source.js':
 
+  'main':
+    'prefix': 'dekk-main'
+    'body': """
+import React from 'react'
+import uuid from 'uuid/v4'
+import Fragment from '@dekk/fragment'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
+import {default as MaskedImage, FitImage} from '@dekk/image'
+import Notes from '@dekk/speaker-notes'
+import {Main} from '@dekk/master-slides'
+// import * as wimbAnimation from '../animation'
+// import * as dekkAnimation from '@dekk/animation'
+// import {SuperTimer} from '../components'
+
+const {Slide, A} = Main
+
+const notes = (
+  <Notes>
+    <h3>$2</h3>
+    <p></p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    {notes}
+
+    <A>
+      <Title>$1</Title>
+    </A>
+
+  </Slide>
+)
+
+    """
+
+######################################
+
 
   'cover':
     'prefix': 'dekk-cover'
@@ -366,6 +404,46 @@ export default (
 
 ######################################
 
+  'supertimer':
+    'prefix': 'dekk-supertimer'
+    'body': """
+<Fragment order={1}>
+  {(t, a) => {return <SuperTimer isPlaying={a} timer={$1}></SuperTimer>}}
+</Fragment>
+    """
+
+######################################
+
+  'fitimage':
+    'prefix': 'dekk-fitimage'
+    'body': """
+<FitImage src="$1"
+          alt="$2" />
+    """
+
+######################################
+
+  'larageimage':
+    'prefix': 'dekk-largeimage'
+    'body': """
+<LargeImage src="$1"
+            alt="$2" />
+    """
+
+######################################
+
+  'cloneElement':
+    'prefix': 'dekk-cloneelement'
+    'body': '{cloneElement(slide.$1, {key : uuid()})}'
+
+######################################
+
+  'comment':
+    'prefix': 'dekk-comment'
+    'body': '{/* $1 */}'
+
+######################################
+
   'export default as':
-    'prefix': 'export-default-as'
+    'prefix': 'dekk-export'
     'body': 'export {default as $1} from \'./$2\''

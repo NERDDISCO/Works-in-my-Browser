@@ -7,14 +7,16 @@ import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>How to control the DMX512 network?</h3>
+    <p>In the past you had to use a DMX512 controller that was attachted over USB</p>
+    <p>Create a server that can talk over USB with the controller</p>
+    <p>And create a connection to the server from the Browser to exchange data</p>
   </Notes>
 )
 
@@ -23,7 +25,9 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <img src="media/dmx512_controller_communication_websocketserver.svg"
+                  alt="Communication with DMX Controller over USB and local WebSocket Server"
+                  style={{width: 90 + "vw"}}/>
     </A>
 
   </Slide>

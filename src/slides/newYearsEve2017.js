@@ -21,12 +21,11 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} background={`url("media/newyearseve2017_neon_fabienne.jpg")`}>
     {notes}
 
     <A>
-      <Title>New Years Eve 2017</Title>
-      <Title>🎆</Title>
+      <Title style={{filter: 'invert(100%) drop-shadow(5px 5px 0 red)'}}>New Years Eve 2017</Title>
     </A>
 
   </Slide>

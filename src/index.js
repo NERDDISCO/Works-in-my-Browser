@@ -64,10 +64,13 @@ const elements = (
   </Elements>
 )
 
+const baseStyles = css`
+  ${'' /* --font-size: calc(var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) * calc(1vw + 1vh); */}
+`
 
 
 const App = () => (
-  <Deck timer={50}>
+  <Deck timer={50} mixin={baseStyles}>
     {elements}
 
     {cloneElement(slide.worksInMyBrowser,{key : uuid()})}
@@ -101,11 +104,7 @@ const App = () => (
     {slide.jsconfeu2014PerformanceTim}
     {slide.jsconfeu2014FirstContactWithGregor}
     {slide.newYearsEve2017}
-    {/* Fabienne as the backround of newYearsEve2017 */}
-    {slide.newYearsEve2017NeonFabienne}
-
     {slide.newYearsEve2017VjAndDjDance}
-    {slide.newYearsEve2017Performance}
     {slide.newYearsEve2017PerformanceVideo}
     {slide.loveLightsTim}
 
@@ -114,12 +113,41 @@ const App = () => (
     {/* {slide.manyDifferentProjectsTim} */}
 
     {/* pre-analyze the music for audio control */}
-    {slide.luminave}
+
 
     {slide.letsDoACollaborationTalk}
 
 
 
+
+    {slide.luminave}
+    {slide.webmidi}
+    {slide.novationLaunchpadMini}
+    {slide.webmidiCode}
+    {slide.dmx512}
+    {slide.newYearsEve2017Performance}
+    {slide.dmx512Network}
+    {slide.dmx512Plug}
+    {slide.dmx512LightForJsfestExplained}
+    {slide.dmx512Manual}
+    {slide.dmx512HowToControlIt}
+    {slide.webusb}
+    {slide.webusbDmxControllerConcept}
+    {slide.webusbNotAsEasyAsYouThink}
+    {slide.webusbCustomDevice}
+    {slide.webusbArduino}
+    {slide.webusbArduinoDmxShield}
+    {slide.webusbArduinoSketch}
+    {slide.webusbArduinoSketchIncludeAndDefine}
+    {slide.webusbArduinoSketchSetup}
+    {slide.webusbArduinoSketchLoop}
+    {slide.webusbArduinoSketchUploadDone}
+    {slide.webusbDmxController}
+    {slide.webusbDmx512Data}
+    {slide.luminaveDemo}
+    {slide.webusbArduinoHowDoesItWork}
+
+    {slide.dekkProject}
 
 
     {slide.code}

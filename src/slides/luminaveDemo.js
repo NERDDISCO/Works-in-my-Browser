@@ -5,6 +5,7 @@ import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
+import styled from 'styled-components'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
@@ -13,17 +14,38 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
+    <h3>Luminave Demo</h3>
     <p></p>
   </Notes>
 )
+
+const FocusPoint = styled.a.attrs({href:"#"})`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background: red;
+  height: 1em;
+  width: 1em;
+
+  &:focus {
+    background: green;
+  }
+`
 
 export default (
   <Slide key={uuid()}>
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <FocusPoint></FocusPoint>
+      <Title>luminave Demo</Title>
+
+      {/* <iframe src="https://localhost:1337"
+              allow="midi, usb"
+              sandbox="allow-same-origin allow-scripts"
+              style={{width: 100 + "vw", height: 100 + "vh"}}
+              frameBorder="0" /> */}
     </A>
 
   </Slide>

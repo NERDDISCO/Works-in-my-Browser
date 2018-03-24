@@ -8,13 +8,17 @@ import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>Arduino Sketch</h3>
+    <p>To use the DMX512 shield</p>
+    <p>Register the Arduino to whitelist the URL + port</p>
+    <p>Receive messages from the browser via WebUSB</p>
+    <p>Send that data into DMX universe</p>
   </Notes>
 )
 
@@ -23,7 +27,9 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <img src="media/arduino_ide_webusb_sketch.png"
+                  alt="Arduino IDE: Sketch for WebUSB & DMX512"
+                 style={{height: 105 + "vh"}} />
     </A>
 
   </Slide>

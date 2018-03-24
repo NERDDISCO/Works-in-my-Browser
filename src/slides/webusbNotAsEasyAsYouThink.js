@@ -13,8 +13,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>Not as easy as you think</h3>
+    <p>First of all: https only</p>
+    <p>URL whitelisting, which means that the device itself has to allow which pages it is allowed to be used with</p>
+    <p>So I can't add just any USB device and talk with it? Nope, but what do we do now?</p>
   </Notes>
 )
 
@@ -23,7 +25,11 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <Title>https only</Title>
+      
+      <Fragment order={1}>
+        <Title>URL whitelisting</Title>
+      </Fragment>
     </A>
 
   </Slide>

@@ -7,14 +7,14 @@ import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <h3>DMX512 connector</h3>
+    <p>DMX is using these XLR-3 connectors</p>
   </Notes>
 )
 
@@ -23,7 +23,8 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <LargeImage src="media/dmx512_connector.jpg"
+                  alt="DMX512 plug" />
     </A>
 
   </Slide>
