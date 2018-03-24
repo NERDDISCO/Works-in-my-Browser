@@ -1,46 +1,58 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 
-const ROOT = __dirname
-const DOCS = path.resolve(ROOT, 'docs')
+const ROOT = __dirname;
+const DOCS = path.resolve(ROOT, "docs");
 
 module.exports = {
   entry: {
-    'bundle': './src/index.js'
+    bundle: "./src/index.js"
   },
   output: {
     path: DOCS,
-    filename: '[name].js',
-    libraryTarget: 'umd'
+    filename: "[name].js",
+    libraryTarget: "umd"
   },
-  devtool: 'source-map',
+  mode: process.env.NODE_ENV || "development",
+  devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.js?$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules)/
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {}
+          }
+        ]
       }
     ]
   },
   devServer: {
     contentBase: DOCS,
     compress: false,
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Works in my Browser',
-      filename: 'index.html',
-      template: 'src/index.html',
+      title: "Works in my Browser",
+      filename: "index.html",
+      template: "src/index.html",
       alwaysWriteToDisk: true,
       minify: {
         collapseWhitespace: true,
         html5: true,
         minifyCSS: true,
-        quoteCharacter: "\"",
+        quoteCharacter: '"',
         removeComments: true,
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
@@ -48,11 +60,10 @@ module.exports = {
         sortClassName: true,
         sortAttributes: true,
         useShortDoctype: true
-
       }
     }),
     new HtmlWebpackHarddiskPlugin({
       outputPath: DOCS
     })
   ]
-}
+};

@@ -2,7 +2,10 @@ import React, {cloneElement} from 'react'
 import {render} from 'react-dom'
 import styled, {css} from 'styled-components'
 
-import Deck, {Slide, Elements, Plugins} from '@dekk/dekk'
+import Deck, {Elements, Plugins} from '@dekk/deck'
+import Slide from '@dekk/slide'
+import Paging from '@dekk/paging'
+import Url from '@dekk/url'
 import * as slide from './slides'
 import uuid from 'uuid/v4'
 
@@ -19,9 +22,7 @@ const ws = new Sockette('ws://localhost:3001/dekk', {
   onmaximum: e => console.log('Stop Attempting!', e),
   onclose: e => console.log('Closed!', e),
   onerror: e => console.log('Error:', e)
-});
-
-
+})
 
 const StyledHeader = styled.header`
   background: var(--header-background);
@@ -38,7 +39,7 @@ const StyledHeader = styled.header`
   font-size: 1rem;
 `
 
-const Header = () => <StyledHeader></StyledHeader>
+const Header = () => <StyledHeader />
 
 const StyledFooter = styled.footer`
   background: var(--footer-background);
@@ -55,7 +56,7 @@ const StyledFooter = styled.footer`
   font-size: 1rem;
 `
 
-const Footer = () => <StyledFooter></StyledFooter>
+const Footer = () => <StyledFooter />
 
 const elements = (
   <Elements>
@@ -64,16 +65,23 @@ const elements = (
   </Elements>
 )
 
+const plugins = (
+  <Plugins>
+    <Paging />
+    <Url />
+  </Plugins>
+)
+
 const baseStyles = css`
-  ${'' /* --font-size: calc(var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) * calc(1vw + 1vh); */}
+  ${'' /* --font-size: calc(var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) * calc(1vw + 1vh); */};
 `
 
-
 const App = () => (
-  <Deck timer={50} mixin={baseStyles}>
+  <Deck mixin={baseStyles}>
     {elements}
+    {plugins}
 
-    {cloneElement(slide.worksInMyBrowser,{key : uuid()})}
+    {cloneElement(slide.worksInMyBrowser, {key: uuid()})}
 
     {slide.predictTheFuture}
 
@@ -86,7 +94,7 @@ const App = () => (
     {slide.travelInTime}
 
     {/* Maybe this is too much in general? Just show the video of the end, but that's it? */}
-    {cloneElement(slide.timeTraveling, {key : uuid()})}
+    {cloneElement(slide.timeTraveling, {key: uuid()})}
     {/* Should we add more here? Do we switch over to my NoteBook for the performance? */}
 
     {slide.gregorAdamsTimPietrusky}
@@ -94,7 +102,6 @@ const App = () => (
 
     {slide.backgroundGregor}
     {slide.drawingsFromGregor}
-
 
     {slide.backgroundTim}
     {slide.flashingLights}
@@ -114,11 +121,7 @@ const App = () => (
 
     {/* pre-analyze the music for audio control */}
 
-
     {slide.letsDoACollaborationTalk}
-
-
-
 
     {slide.luminave}
     {slide.webmidi}
@@ -148,7 +151,6 @@ const App = () => (
     {slide.webusbArduinoHowDoesItWork}
 
     {slide.dekkProject}
-
 
     {slide.code}
 

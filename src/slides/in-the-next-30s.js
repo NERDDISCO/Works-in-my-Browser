@@ -15,7 +15,7 @@ const {Slide, A, B} = Cover
 
 const notes = (
   <Notes>
-    <h3></h3>
+    <h3 />
     <p>In 30s I will clap my hands</p>
   </Notes>
 )
@@ -31,12 +31,16 @@ export default (
 
     <A>
       <Title>
-        <Fragment order={0}>
-            {(t, a) => {return <SuperTimer isPlaying={a} timer={0.5}></SuperTimer>}}
+        <Fragment order={0} plain>
+          {(t, a) => {
+            return <SuperTimer isPlaying={a} timer={0.5} />
+          }}
         </Fragment>
 
-        <Fragment order={0} onRest={handleRest}>
-            {(t, a) => {return <SuperTimer isPlaying={a} timer={0.5}></SuperTimer>}}
+        <Fragment order={0} plain onRest={handleRest}>
+          {(t, a) => {
+            return <SuperTimer isPlaying={a} timer={0.5} />
+          }}
         </Fragment>
       </Title>
     </A>
@@ -49,6 +53,5 @@ export default (
         <Subtitle>It will happen</Subtitle>
       </Fragment>
     </B>
-
   </Slide>
 )
