@@ -13,6 +13,7 @@ import * as slide from './slides'
 import uuid from 'uuid/v4'
 
 import Sockette from 'sockette'
+import Luminave from './plugins/luminave'
 
 let luminaveConnected = false
 
@@ -45,17 +46,17 @@ const StyledHeader = styled.header`
   font-size: 1rem;
   overflow: hidden;
   ${props => {
-      if (props.isActive) {
-        return `
+    if (props.isActive) {
+      return `
           z-index: 1337;
           height: 100vh;
           overflow: auto;
         `
-      }
+    }
   }};
 `
 
-const Header = (props) => <StyledHeader {...props} />
+const Header = props => <StyledHeader {...props} />
 
 const StyledFooter = styled.footer`
   background: var(--footer-background);
@@ -77,11 +78,13 @@ const Footer = () => <StyledFooter />
 const elements = (
   <Elements>
     <Header>
-      <iframe src="https://localhost:1337"
-              allow="midi, usb"
-              sandbox="allow-same-origin allow-scripts"
-              style={{width: 100 + "vw", height: 100 + "vh"}}
-              frameBorder="0" />
+      <iframe
+        src="https://localhost:1337"
+        allow="midi, usb"
+        sandbox="allow-same-origin allow-scripts"
+        style={{width: 100 + 'vw', height: 100 + 'vh'}}
+        frameBorder="0"
+      />
     </Header>
     <Footer />
   </Elements>
@@ -175,8 +178,7 @@ const luminave = {
   }
 }
 
-
-const doLuminave = (fragmentIndex,fragmentOrder) => {
+const doLuminave = (fragmentIndex, fragmentOrder) => {
   // talk to luminave
   if (fragmentOrder === 1) {
     // Connect luminave
@@ -192,9 +194,8 @@ const doLuminave = (fragmentIndex,fragmentOrder) => {
   } else if (fragmentOrder > 1) {
     // doLuminave Stuff based on order
     if (luminave.connected) {
-
-    console.log(`do luminave for ${fragmentOrder}`)
-  }
+      console.log(`do luminave for ${fragmentOrder}`)
+    }
   } else {
     // when arrow back goes before luminave calls
     // kill luminave
@@ -204,20 +205,14 @@ const doLuminave = (fragmentIndex,fragmentOrder) => {
   }
 }
 
-const handleSlide = (
-  slideIndex,
-  slideCount
-) => {
+const handleSlide = (slideIndex, slideCount) => {
   if (luminaveConnected) {
-
     if (slides[slideIndex].props.light !== undefined) {
       console.log(slides[slideIndex].props.light)
       ws.send(JSON.stringify(slides[slideIndex].props.light))
     }
-
   }
 }
-
 
 const Button = styled.button`
   z-index: 1337;
@@ -226,61 +221,74 @@ const Button = styled.button`
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {isActive : true}
-    this.toggleIframe = this.toggleIframe.bind(this)
+    this.state = {}
+    this.handleFrame = this.handleFrame.bind(this)
+    this.setFrame = this.setFrame.bind(this)
   }
 
-  toggleIframe() {
+  handleFrame(showFrame) {
+    this.setState({
+      showFrame
+    })
+  }
+
+  setFrame() {
     this.setState(prevState => ({
-      isActive: !prevState.isActive
+      showFrame: !prevState.showFrame
     }))
   }
 
   render() {
     return present ? (
-    <SpeakerDeck mixin={baseStyles} timer={50}>
-      <Elements>
-        <Button onClick={this.toggleIframe}>luminave</Button>
-      </Elements>
+      <SpeakerDeck mixin={baseStyles} timer={50}>
+        <Elements>
+          <Button onClick={this.setFrame}>luminave</Button>
+        </Elements>
 
-      <Plugins>
-        <Listener onSlide={handleSlide} />
-        <Paging />
-        <Url />
-        <LocalStorage publish />
-      </Plugins>
-      {slides}
-    </SpeakerDeck>
+        <Plugins>
+          <Listener onSlide={handleSlide} />
+          <Paging />
+          <Url />
+          <LocalStorage publish />
+          <Luminave
+            publish
+            showFrame={this.state.showFrame}
+            handleFrame={this.setFrame}
+          />
+        </Plugins>
+        {slides}
+      </SpeakerDeck>
+    ) : live ? (
+      <Deck mixin={baseStyles}>
+        <Elements>
+          <StyledHeader isActive={this.state.showFrame}>
+            <iframe
+              src="https://localhost:1337"
+              allow="midi, usb"
+              sandbox="allow-same-origin allow-scripts"
+              style={{width: 100 + 'vw', height: 100 + 'vh'}}
+              frameBorder="0"
+            />
+          </StyledHeader>
+        </Elements>
 
-  ) : live ? (
-    <Deck mixin={baseStyles}>
-
-      <Elements>
-        <StyledHeader isActive={this.state.isActive}>
-          <iframe src="https://localhost:1337"
-                  allow="midi, usb"
-                  sandbox="allow-same-origin allow-scripts"
-                  style={{width: 100 + "vw", height: 100 + "vh"}}
-                  frameBorder="0" />
-        </StyledHeader>
-      </Elements>
-
-      <Plugins>
-        <LocalStorage subscribe />
-      </Plugins>
-      {slides}
-    </Deck>
-
-  ) : (
-    <Deck mixin={baseStyles}>
-      <Plugins>
-        <Paging />
-        <Url />
-      </Plugins>
-      {slides}
-    </Deck>
-  )
-}}
+        <Plugins>
+          <LocalStorage subscribe />
+          <Luminave subscribe handleFrame={this.handleFrame} />
+        </Plugins>
+        {slides}
+      </Deck>
+    ) : (
+      <Deck mixin={baseStyles}>
+        <Plugins>
+          <Paging />
+          <Url />
+        </Plugins>
+        {slides}
+      </Deck>
+    )
+  }
+}
 
 const mountPoint = document.getElementById('mount-point')
 
