@@ -14,8 +14,10 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>WebMIDI in JS</h3>
-    <p></p>
+    <p>Usually you have a setup() method to initialize stuff when the Arduino is started</p>
+    <p>In our case we initialize the incoming bytes</p>
+    <p>And whait until the WebUSB connection is established to start the DMXMaster</p>
+    <p>Once this is done we can receive data over WebUSB and send it to the DMX shield</p>
   </Notes>
 )
 
@@ -25,7 +27,7 @@ export default (
 
     <A>
       <Fragment order={0}>
-        
+
         <ViewportSize>
           <Code language='arduino' style={colorSchemes.docco}>
           {`// Run once on startup

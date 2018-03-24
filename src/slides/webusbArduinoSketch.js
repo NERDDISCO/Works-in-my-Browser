@@ -15,10 +15,9 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Arduino Sketch</h3>
-    <p>To use the DMX512 shield</p>
-    <p>Register the Arduino to whitelist the URL + port</p>
-    <p>Receive messages from the browser via WebUSB</p>
-    <p>Send that data into DMX universe</p>
+    <p>Use the Arduino IDE to upload code, the code is inspiried by C</p>
+    <p>Code gets uploaded via USB to the Arduino</p>
+    <p>Let's break this down in detail</p>
   </Notes>
 )
 

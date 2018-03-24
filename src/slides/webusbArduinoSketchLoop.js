@@ -14,8 +14,11 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>WebMIDI in JS</h3>
-    <p></p>
+    <p>The second important part of an Arduino sketch is the loop method</p>
+    <p>Once setup is done this is executed over and over again</p>
+    <p>In this case we also wait until WebUSB is available</p>
+    <p>Then we read the incoming bytes from WebUSB</p>
+    <p>And iterate over every of the 512 channel values, to set them on the DMXMaster</p>
   </Notes>
 )
 

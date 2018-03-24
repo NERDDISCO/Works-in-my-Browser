@@ -14,8 +14,9 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>WebMIDI in JS</h3>
-    <p></p>
+    <p>Define the allowed website, in my case it's localhost on port 1337</p>
+    <p>A universe has 512 channels, the Arduino will handle one universe</p>
+    <p>DMX_master is the module to control the DMX shield</p>
   </Notes>
 )
 
@@ -45,7 +46,7 @@ DMX_Master dmx_master(channels, 2);
 byte incoming[channels];`}
           </Code>
         </ViewportSize>
-        
+
       </Fragment>
     </A>
 

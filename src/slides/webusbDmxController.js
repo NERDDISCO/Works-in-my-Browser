@@ -15,6 +15,7 @@ const notes = (
   <Notes>
     <h3>WebUSB DMX512 controller</h3>
     <p>The fully assembeled controller, connected to the DMX512 universe with the DMX cable and connected to the Browser over WebUSB</p>
+    <p>Put code onto the Arduino</p>
   </Notes>
 )
 

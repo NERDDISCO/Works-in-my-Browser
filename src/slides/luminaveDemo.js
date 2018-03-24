@@ -34,13 +34,11 @@ const FocusPoint = styled.a.attrs({href:"#"})`
 `
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} light={["JSFest_static", "COLOR RED"]}>
     {notes}
 
     <A>
-      <FocusPoint></FocusPoint>
       <Title>luminave Demo</Title>
-
       {/* <iframe src="https://localhost:1337"
               allow="midi, usb"
               sandbox="allow-same-origin allow-scripts"

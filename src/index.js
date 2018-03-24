@@ -1,4 +1,4 @@
-import React, {cloneElement} from 'react'
+import React, {cloneElement, Component} from 'react'
 import {render} from 'react-dom'
 import styled, {css} from 'styled-components'
 
@@ -6,6 +6,7 @@ import Deck, {Elements, Plugins} from '@dekk/deck'
 import Slide from '@dekk/slide'
 import Paging from '@dekk/paging'
 import LocalStorage from '@dekk/local-storage'
+import Listener from '@dekk/listener'
 import SpeakerDeck from '@dekk/speaker-deck'
 import Url, {search} from '@dekk/url'
 import * as slide from './slides'
@@ -13,11 +14,14 @@ import uuid from 'uuid/v4'
 
 import Sockette from 'sockette'
 
+let luminaveConnected = false
+
 const ws = new Sockette('ws://localhost:3001/dekk', {
   timeout: 5e3,
   maxAttempts: 500,
+
   onopen: e => {
-    ws.send(JSON.stringify(['JSFest_Static', 'shit fuck']))
+    luminaveConnected = true
   },
   onmessage: e => console.log('Received:', e),
   onreconnect: e => console.log('Reconnecting...', e),
@@ -29,7 +33,7 @@ const ws = new Sockette('ws://localhost:3001/dekk', {
 const StyledHeader = styled.header`
   background: var(--header-background);
   color: var(--header-color);
-  height: var(--header-height);
+  height: 0;
   display: flex;
   align-items: center;
   align-content: center;
@@ -39,9 +43,19 @@ const StyledHeader = styled.header`
   right: 0;
   left: 0;
   font-size: 1rem;
+  overflow: hidden;
+  ${props => {
+      if (props.isActive) {
+        return `
+          z-index: 1337;
+          height: 100vh;
+          overflow: auto;
+        `
+      }
+  }};
 `
 
-const Header = () => <StyledHeader />
+const Header = (props) => <StyledHeader {...props} />
 
 const StyledFooter = styled.footer`
   background: var(--footer-background);
@@ -62,7 +76,13 @@ const Footer = () => <StyledFooter />
 
 const elements = (
   <Elements>
-    <Header />
+    <Header>
+      <iframe src="https://localhost:1337"
+              allow="midi, usb"
+              sandbox="allow-same-origin allow-scripts"
+              style={{width: 100 + "vw", height: 100 + "vh"}}
+              frameBorder="0" />
+    </Header>
     <Footer />
   </Elements>
 )
@@ -86,14 +106,10 @@ const slides = [
   slide.everythingAtTheSameTime,
   slide.timeTravelTheories,
   slide.travelInTime,
-
-  ,
-  /* Maybe this is too much in general? Just show the video of the end, but that's it? */ cloneElement(
-    slide.timeTraveling,
-    {key: uuid()}
-  ),
-  ,
-  /* Should we add more here? Do we switch over to my NoteBook for the performance? */ slide.gregorAdamsTimPietrusky,
+  /* Maybe this is too much in general? Just show the video of the end, but that's it? */
+  cloneElement(slide.timeTraveling, {key: uuid()}),
+  /* Should we add more here? Do we switch over to my NoteBook for the performance? */
+  slide.gregorAdamsTimPietrusky,
   slide.bestWayToPredictTheFutureIsToCreateIt,
 
   slide.backgroundGregor,
@@ -130,13 +146,14 @@ const slides = [
   slide.webusbCustomDevice,
   slide.webusbArduino,
   slide.webusbArduinoDmxShield,
+  slide.webusbDmxController,
   slide.webusbArduinoSketch,
   slide.webusbArduinoSketchIncludeAndDefine,
   slide.webusbArduinoSketchSetup,
   slide.webusbArduinoSketchLoop,
-  slide.webusbArduinoSketchUploadDone,
-  slide.webusbDmxController,
   slide.webusbDmx512Data,
+  slide.webusbArduinoSketchUploadDone,
+
   slide.luminaveDemo,
   slide.webusbArduinoHowDoesItWork,
 
@@ -149,28 +166,113 @@ const slides = [
 
 const {present, live} = search.parse(window.location.href)
 
-const App = () =>
-  present ? (
-    <SpeakerDeck mixin={baseStyles}>
-      {elements}
+const luminave = {
+  connect() {
+    luminave.connected = true
+  },
+  disconnect() {
+    luminave.connected = false
+  }
+}
+
+
+const doLuminave = (fragmentIndex,fragmentOrder) => {
+  // talk to luminave
+  if (fragmentOrder === 1) {
+    // Connect luminave
+    if (!luminave.connected) {
+      // connectLuminave()
+      console.log('connect to luminave')
+      luminave.connect()
+    }
+  } else if (fragmentOrder === 100) {
+    //
+    console.log('disconnect from luminave')
+    luminave.disconnect()
+  } else if (fragmentOrder > 1) {
+    // doLuminave Stuff based on order
+    if (luminave.connected) {
+
+    console.log(`do luminave for ${fragmentOrder}`)
+  }
+  } else {
+    // when arrow back goes before luminave calls
+    // kill luminave
+    // killLuminave()
+    console.log('disconnect from luminave')
+    luminave.disconnect()
+  }
+}
+
+const handleSlide = (
+  slideIndex,
+  slideCount
+) => {
+  if (luminaveConnected) {
+
+    if (slides[slideIndex].props.light !== undefined) {
+      console.log(slides[slideIndex].props.light)
+      ws.send(JSON.stringify(slides[slideIndex].props.light))
+    }
+
+  }
+}
+
+
+const Button = styled.button`
+  z-index: 1337;
+`
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {isActive : true}
+    this.toggleIframe = this.toggleIframe.bind(this)
+  }
+
+  toggleIframe() {
+    this.setState(prevState => ({
+      isActive: !prevState.isActive
+    }))
+  }
+
+  render() {
+    return present ? (
+    <SpeakerDeck mixin={baseStyles} timer={50}>
+      <Elements>
+        <Button onClick={this.toggleIframe}>luminave</Button>
+      </Elements>
+
       <Plugins>
+        <Listener onSlide={handleSlide} />
         <Paging />
         <Url />
         <LocalStorage publish />
       </Plugins>
       {slides}
     </SpeakerDeck>
+
   ) : live ? (
     <Deck mixin={baseStyles}>
-      {elements}
+
+      <Elements>
+        <StyledHeader isActive={this.state.isActive}>
+          <iframe src="https://localhost:1337"
+                  allow="midi, usb"
+                  sandbox="allow-same-origin allow-scripts"
+                  style={{width: 100 + "vw", height: 100 + "vh"}}
+                  frameBorder="0" />
+        </StyledHeader>
+      </Elements>
+
       <Plugins>
         <LocalStorage subscribe />
       </Plugins>
       {slides}
     </Deck>
+
   ) : (
     <Deck mixin={baseStyles}>
-      {elements}
       <Plugins>
         <Paging />
         <Url />
@@ -178,6 +280,7 @@ const App = () =>
       {slides}
     </Deck>
   )
+}}
 
 const mountPoint = document.getElementById('mount-point')
 
