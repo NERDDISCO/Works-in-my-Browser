@@ -1,6 +1,7 @@
 /* global window */
 import {Component} from 'react'
 import {isNumeric} from '@dekk/utils'
+import Sockette from 'sockette'
 
 /**
  * @public
@@ -21,13 +22,30 @@ export default class Luminave extends Component {
   constructor(props) {
     super(props)
     this.handleStore = this.handleStore.bind(this)
+    this.handleSlide = this.handleSlide.bind(this)
+
+    this.connected = false
   }
 
   /**
    * @private
    */
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.subscribe) {
+
+      this.ws = new Sockette('ws://localhost:3001/dekk', {
+        timeout: 5e3,
+        maxAttempts: 500,
+        onopen: e => {
+          this.connected = true
+        },
+        onmessage: e => console.log('Received:', e),
+        onreconnect: e => console.log('Reconnecting...', e),
+        onmaximum: e => console.log('Stop Attempting!', e),
+        onclose: e => console.log('Closed!', e),
+        onerror: e => console.log('Error:', e)
+      })
+
       const oldValue = window.localStorage.getItem(this.props.channel)
       try {
         this.handleMessage(JSON.parse(oldValue))
@@ -85,6 +103,38 @@ export default class Luminave extends Component {
     if (typeof message === 'object' && message) {
       const {showFrame} = message
       this.props.handleFrame(showFrame)
+    }
+  }
+
+ /**
+  * Send data rom the slide to luminave
+  */
+ handleSlide(slideIndex) {
+
+    if (this.connected) {
+      // slides were passed in so we can read the
+      // properties
+      const {slides = []} = this.props
+      const slide = slides[slideIndex]
+
+      if (slide) {
+        // We set luminave data on slides
+        // so now e can use it.
+        const {light = null} = slide.props
+        if (light !== null) {
+          this.ws.send(JSON.stringify(light))
+        }
+      }
+    }
+  }
+
+  /**
+   * Check for changes
+   **/
+  componentDidUpdate(newProps) {
+    // When the slide changes we want to trigger luminave
+    if(newProps.slideIndex !== this.props.slideIndex) {
+      this.handleSlide(this.props.slideIndex)
     }
   }
 

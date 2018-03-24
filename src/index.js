@@ -12,29 +12,14 @@ import Url, {search} from '@dekk/url'
 import * as slide from './slides'
 import uuid from 'uuid/v4'
 
-import Sockette from 'sockette'
 import Luminave from './plugins/luminave'
-
-let luminaveConnected = false
-
-const ws = new Sockette('ws://localhost:3001/dekk', {
-  timeout: 5e3,
-  maxAttempts: 500,
-
-  onopen: e => {
-    luminaveConnected = true
-  },
-  onmessage: e => console.log('Received:', e),
-  onreconnect: e => console.log('Reconnecting...', e),
-  onmaximum: e => console.log('Stop Attempting!', e),
-  onclose: e => console.log('Closed!', e),
-  onerror: e => console.log('Error:', e)
-})
 
 const StyledHeader = styled.header`
   background: var(--header-background);
   color: var(--header-color);
-  height: 0;
+  z-index: 1337;
+  height: 100vh;
+  overflow: auto;
   display: flex;
   align-items: center;
   align-content: center;
@@ -44,13 +29,14 @@ const StyledHeader = styled.header`
   right: 0;
   left: 0;
   font-size: 1rem;
-  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+
   ${props => {
     if (props.isActive) {
       return `
-          z-index: 1337;
-          height: 100vh;
-          overflow: auto;
+          pointer-events: all;
+          opacity: 1;
         `
     }
   }};
@@ -169,52 +155,10 @@ const slides = [
 
 const {present, live} = search.parse(window.location.href)
 
-const luminave = {
-  connect() {
-    luminave.connected = true
-  },
-  disconnect() {
-    luminave.connected = false
-  }
-}
-
-const doLuminave = (fragmentIndex, fragmentOrder) => {
-  // talk to luminave
-  if (fragmentOrder === 1) {
-    // Connect luminave
-    if (!luminave.connected) {
-      // connectLuminave()
-      console.log('connect to luminave')
-      luminave.connect()
-    }
-  } else if (fragmentOrder === 100) {
-    //
-    console.log('disconnect from luminave')
-    luminave.disconnect()
-  } else if (fragmentOrder > 1) {
-    // doLuminave Stuff based on order
-    if (luminave.connected) {
-      console.log(`do luminave for ${fragmentOrder}`)
-    }
-  } else {
-    // when arrow back goes before luminave calls
-    // kill luminave
-    // killLuminave()
-    console.log('disconnect from luminave')
-    luminave.disconnect()
-  }
-}
-
-const handleSlide = (slideIndex, slideCount) => {
-  if (luminaveConnected) {
-    if (slides[slideIndex].props.light !== undefined) {
-      console.log(slides[slideIndex].props.light)
-      ws.send(JSON.stringify(slides[slideIndex].props.light))
-    }
-  }
-}
-
 const Button = styled.button`
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1337;
 `
 
@@ -246,7 +190,6 @@ class App extends Component {
         </Elements>
 
         <Plugins>
-          <Listener onSlide={handleSlide} />
           <Paging />
           <Url />
           <LocalStorage publish />
@@ -274,7 +217,7 @@ class App extends Component {
 
         <Plugins>
           <LocalStorage subscribe />
-          <Luminave subscribe handleFrame={this.handleFrame} />
+          <Luminave subscribe handleFrame={this.handleFrame} slides={slides} />
         </Plugins>
         {slides}
       </Deck>
