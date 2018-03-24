@@ -32,6 +32,7 @@
     "@dekk/master-slides": "^1.4.0",
     "@dekk/paging": "^1.4.0",
     "@dekk/slide": "^1.4.0",
+    "@dekk/speaker-deck": "^1.4.0",
     "@dekk/speaker-notes": "^1.4.0",
     "@dekk/text": "^1.4.0",
     "@dekk/url": "^1.4.0",

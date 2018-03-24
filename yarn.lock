@@ -706,6 +706,14 @@
     react-motion "^0.5.2"
     styled-components "^3.2.3"
 
+"@dekk/icon@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@dekk/icon/-/icon-1.4.0.tgz#a1fb766c7cd0a5bb4edcaf95493e3bb15834872f"
+  dependencies:
+    prop-types "^15.6.1"
+    react "^16.2.0"
+    styled-components "^3.2.3"
+
 "@dekk/image@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@dekk/image/-/image-1.4.0.tgz#85a9cc297989eae1ffdfa952c5d2e603fe16effd"
@@ -768,6 +776,23 @@
     prop-types "^15.6.1"
     react "^16.2.0"
     react-motion "^0.5.2"
+    styled-components "^3.2.3"
+
+"@dekk/speaker-deck@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@dekk/speaker-deck/-/speaker-deck-1.4.0.tgz#8759e3dd61c9029bc4d807f4c9d2f00a7d5f25fe"
+  dependencies:
+    "@dekk/countdown" "^1.4.0"
+    "@dekk/deck" "^1.4.0"
+    "@dekk/icon" "^1.4.0"
+    "@dekk/slide" "^1.4.0"
+    "@dekk/text" "^1.4.0"
+    "@dekk/url" "^1.4.0"
+    "@dekk/utils" "^1.4.0"
+    mobx "^4.1.0"
+    mobx-react "^5.0.0"
+    prop-types "^15.6.1"
+    react "^16.2.0"
     styled-components "^3.2.3"
 
 "@dekk/speaker-notes@^1.4.0":

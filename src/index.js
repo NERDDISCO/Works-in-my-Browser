@@ -5,7 +5,9 @@ import styled, {css} from 'styled-components'
 import Deck, {Elements, Plugins} from '@dekk/deck'
 import Slide from '@dekk/slide'
 import Paging from '@dekk/paging'
-import Url from '@dekk/url'
+import LocalStorage from '@dekk/local-storage'
+import SpeakerDeck from '@dekk/speaker-deck'
+import Url, {search} from '@dekk/url'
 import * as slide from './slides'
 import uuid from 'uuid/v4'
 
@@ -77,80 +79,105 @@ const baseStyles = css`
 `
 
 const slides = [
-      cloneElement(slide.worksInMyBrowser, {key: uuid()}),
-      slide.predictTheFuture,
-      slide.inTheNext30s,
-      slide.livePerformance,
-      slide.everythingAtTheSameTime,
-      slide.timeTravelTheories,
-      slide.travelInTime,
+  cloneElement(slide.worksInMyBrowser, {key: uuid()}),
+  slide.predictTheFuture,
+  slide.inTheNext30s,
+  slide.livePerformance,
+  slide.everythingAtTheSameTime,
+  slide.timeTravelTheories,
+  slide.travelInTime,
 
-      /* Maybe this is too much in general? Just show the video of the end, but that's it? */,
-      cloneElement(slide.timeTraveling, {key: uuid()}),
-      /* Should we add more here? Do we switch over to my NoteBook for the performance? */,
+  ,
+  /* Maybe this is too much in general? Just show the video of the end, but that's it? */ cloneElement(
+    slide.timeTraveling,
+    {key: uuid()}
+  ),
+  ,
+  /* Should we add more here? Do we switch over to my NoteBook for the performance? */ slide.gregorAdamsTimPietrusky,
+  slide.bestWayToPredictTheFutureIsToCreateIt,
 
-      slide.gregorAdamsTimPietrusky,
-      slide.bestWayToPredictTheFutureIsToCreateIt,
+  slide.backgroundGregor,
+  slide.drawingsFromGregor,
 
-      slide.backgroundGregor,
-      slide.drawingsFromGregor,
+  slide.backgroundTim,
+  slide.flashingLights,
+  slide.familyTim,
+  slide.nerddisco,
+  slide.jsconfeu2014,
+  slide.jsconfeu2014PerformanceTim,
+  slide.jsconfeu2014FirstContactWithGregor,
+  slide.newYearsEve2017,
+  slide.newYearsEve2017VjAndDjDance,
+  slide.newYearsEve2017PerformanceVideo,
+  slide.loveLightsTim,
 
-      slide.backgroundTim,
-      slide.flashingLights,
-      slide.familyTim,
-      slide.nerddisco,
-      slide.jsconfeu2014,
-      slide.jsconfeu2014PerformanceTim,
-      slide.jsconfeu2014FirstContactWithGregor,
-      slide.newYearsEve2017,
-      slide.newYearsEve2017VjAndDjDance,
-      slide.newYearsEve2017PerformanceVideo,
-      slide.loveLightsTim,
+  slide.letsDoACollaborationTalk,
 
-      slide.letsDoACollaborationTalk,
+  slide.luminave,
+  slide.webmidi,
+  slide.novationLaunchpadMini,
+  slide.webmidiCode,
+  slide.dmx512,
+  slide.newYearsEve2017Performance,
+  slide.dmx512Network,
+  slide.dmx512Plug,
+  slide.dmx512LightForJsfestExplained,
+  slide.dmx512Manual,
+  slide.dmx512HowToControlIt,
+  slide.webusb,
+  slide.webusbDmxControllerConcept,
+  slide.webusbNotAsEasyAsYouThink,
+  slide.webusbCustomDevice,
+  slide.webusbArduino,
+  slide.webusbArduinoDmxShield,
+  slide.webusbArduinoSketch,
+  slide.webusbArduinoSketchIncludeAndDefine,
+  slide.webusbArduinoSketchSetup,
+  slide.webusbArduinoSketchLoop,
+  slide.webusbArduinoSketchUploadDone,
+  slide.webusbDmxController,
+  slide.webusbDmx512Data,
+  slide.luminaveDemo,
+  slide.webusbArduinoHowDoesItWork,
 
-      slide.luminave,
-      slide.webmidi,
-      slide.novationLaunchpadMini,
-      slide.webmidiCode,
-      slide.dmx512,
-      slide.newYearsEve2017Performance,
-      slide.dmx512Network,
-      slide.dmx512Plug,
-      slide.dmx512LightForJsfestExplained,
-      slide.dmx512Manual,
-      slide.dmx512HowToControlIt,
-      slide.webusb,
-      slide.webusbDmxControllerConcept,
-      slide.webusbNotAsEasyAsYouThink,
-      slide.webusbCustomDevice,
-      slide.webusbArduino,
-      slide.webusbArduinoDmxShield,
-      slide.webusbArduinoSketch,
-      slide.webusbArduinoSketchIncludeAndDefine,
-      slide.webusbArduinoSketchSetup,
-      slide.webusbArduinoSketchLoop,
-      slide.webusbArduinoSketchUploadDone,
-      slide.webusbDmxController,
-      slide.webusbDmx512Data,
-      slide.luminaveDemo,
-      slide.webusbArduinoHowDoesItWork,
+  slide.dekkProject,
 
-      slide.dekkProject,
-
-      slide.tryAllTheThings,
-      slide.livePerformance,
-      slide.thankYou
+  slide.tryAllTheThings,
+  slide.livePerformance,
+  slide.thankYou
 ]
 
+const {present, live} = search.parse(window.location.href)
 
-const App = () => (
-  <Deck mixin={baseStyles}>
-    {elements}
-    {plugins}
-    {slides}
-  </Deck>
-)
+const App = () =>
+  present ? (
+    <SpeakerDeck mixin={baseStyles}>
+      {elements}
+      <Plugins>
+        <Paging />
+        <Url />
+        <LocalStorage publish />
+      </Plugins>
+      {slides}
+    </SpeakerDeck>
+  ) : live ? (
+    <Deck mixin={baseStyles}>
+      {elements}
+      <Plugins>
+        <LocalStorage subscribe />
+      </Plugins>
+      {slides}
+    </Deck>
+  ) : (
+    <Deck mixin={baseStyles}>
+      {elements}
+      <Plugins>
+        <Paging />
+        <Url />
+      </Plugins>
+      {slides}
+    </Deck>
+  )
 
 const mountPoint = document.getElementById('mount-point')
 
