@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -17,16 +18,17 @@ const notes = (
   <Notes>
     <h3>What is happening?</h3>
     <p>So what exactly is happening?</p>
+    <p>We know how the WebUSB DMX Controller works</p>
+    <p>So let's look at WebUSB in the browser</p>
   </Notes>
 )
 
 export default (
   <Slide key={uuid()}>
-    <Plugins.Data luminave={['COLOR GREEN', 'JSFest_Static']}></Plugins.Data>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
-      <Title>What is happening?</Title>
       <img src="media/dmx512_controller_communication_webusb.svg"
                   alt="WebUSB DMX Controller communication"
                   style={{height: 60 + "vh"}} />

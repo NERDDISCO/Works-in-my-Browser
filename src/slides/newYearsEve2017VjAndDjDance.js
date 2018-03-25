@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -30,6 +31,9 @@ export default (
     <img
       src="https://media.giphy.com/media/C8oxNfUVi5Mh7kEEi4/giphy.gif"
       alt="Party Hard"/>
+
+      <a href="https://media.giphy.com/media/C8oxNfUVi5Mh7kEEi4/giphy.gif">giphy.com</a>
+
     </A>
 
   </Slide>

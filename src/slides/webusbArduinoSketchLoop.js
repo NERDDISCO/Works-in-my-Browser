@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -39,10 +40,10 @@ void loop() {
   // WebUSB is available
   if (Serial.available() > 0) {
 
-    // Read 512 bytes incoming via WebUSB
+    // Read 512 bytes from WebUSB
     Serial.readBytes(incoming, channels);
 
-    // Iterate over all channels
+    // Iterate over 512 channels
     for (int i = 0; i < channels; i++) {
       // Set the value for each channel
       dmx_master.setChannelValue(i + 1, incoming[i]);

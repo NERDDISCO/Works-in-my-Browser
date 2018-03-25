@@ -56,6 +56,10 @@ class Controller extends Paging {
       }
     }
 
+    const handleLuminave = () => {
+      this.props.handleFrame(true)
+    }
+
     // Switch between left and right arrow buttons
     switch (which) {
       case 40:
@@ -65,6 +69,9 @@ class Controller extends Paging {
       case 38:
       case 33:
         handlePrev()
+        break
+      case 66:
+        handleLuminave()
         break
       default:
         break

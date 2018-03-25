@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -19,7 +20,7 @@ const notes = (
     <p>Talking something about creating his own synth</p>
     <p>Be became best friends instantly</p>
     <p>Doing awesome stuff like CodePenDay together</p>
-    <p>What was missing is a collaboration talk</p>
+    <p>What was missing is a collaboration talk, so we decided that one day we will do it</p>
   </Notes>
 )
 
@@ -29,7 +30,11 @@ export default (
     {notes}
 
     <A>
-      <Title style={{filter: 'drop-shadow(5px 5px 0 red)'}}>#1 contact with Gregor</Title>
+      <Title>#1 contact with Gregor</Title>
+      <Fragment order={1}>
+        <Title>🤓</Title>
+        <Title><Uppercase>Let's do a collaboration talk</Uppercase></Title>
+      </Fragment>
     </A>
 
   </Slide>

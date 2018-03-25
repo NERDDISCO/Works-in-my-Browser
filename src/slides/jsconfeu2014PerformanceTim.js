@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment, {Sequence} from '@dekk/fragment'
@@ -41,7 +42,6 @@ export default (
           )
         }}
       </YouTube>
-        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/tia6iP85Zuk?rel=0&amp;showinfo=0&amp;start=1106" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe> */}
     </A>
 
   </Slide>

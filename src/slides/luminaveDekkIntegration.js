@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -37,6 +38,8 @@ export default (
         <RainbowText time={5} text="luminave"/>
         {' '}+ Dekk
       </Title>
+      <Fragment order={1}><Subtitle>1. Inline iframe</Subtitle></Fragment>
+      <Fragment order={2}><Subtitle>2. WebSocket</Subtitle></Fragment>
     </A>
 
   </Slide>

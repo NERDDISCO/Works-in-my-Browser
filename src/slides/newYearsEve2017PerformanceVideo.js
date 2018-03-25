@@ -1,6 +1,7 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
-import Fragment from '@dekk/fragment'
+import Fragment, {Sequence}  from '@dekk/fragment'
 import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
@@ -9,13 +10,15 @@ import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
+import {YouTube, Video} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
     <h3>New Years Eve 2017 Performance</h3>
-    <p></p>
+    <p>Olli is using luminave to do a performance to the music</p>
+    <p>The room is filled with smoke, so that we can see the light even better</p>
   </Notes>
 )
 
@@ -25,7 +28,19 @@ export default (
     {notes}
 
     <A>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Qq9V5KHAf0s?rel=0&amp;showinfo=0&amp;start=78" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <YouTube videoId="Qq9V5KHAf0s" start={205}>
+        {props => {
+          return (
+            <React.Fragment>
+              <Sequence order={0} steps={3}>
+                {(index, time, timeline) => {
+                  return <Video {...props} isPlaying={index === 1} />
+                }}
+              </Sequence>
+            </React.Fragment>
+          )
+        }}
+      </YouTube>
     </A>
 
   </Slide>

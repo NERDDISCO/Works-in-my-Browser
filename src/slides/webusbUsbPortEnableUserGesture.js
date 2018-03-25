@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -8,43 +9,26 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {CodeJs} from '../components'
+import {LargeImage} from '../components'
 
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>WebMIDI in JS</h3>
-    <p></p>
+    <h3>How does WebUSB work in the browser?</h3>
+    <p>USB configuration: How is the device is powered? What is its maximum power consumption? How many interfaces does it have?</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} background="#f8f8ff">
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
-      <Fragment order={0}>
-        <Code language='javascript' style={colorSchemes.docco}>
-          {`
-navigator.requestMIDIAccess()
-          `}
-        </Code>
-      </Fragment>
-      <Fragment order={1}>
-        <Code language='javascript' style={colorSchemes.docco}>
-          {`
-MIDIMessageEvent
-          `}
-        </Code>
-      </Fragment>
-      {/* <CodeJs>
-        {`
-          console.log('test')
-        `}
-      </CodeJs> */}
+      <LargeImage src="media/webusb_arduino_pair.png"
+                  alt="Pair Arduino using WebUSB" />
     </A>
 
   </Slide>

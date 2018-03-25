@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -28,6 +29,9 @@ export default (
 
     <A>
       <Title>Dekk</Title>
+      <a href="https://github.com/sinnerschrader/dekk">
+        <Subtitle>github.com/sinnerschrader/dekk</Subtitle>
+      </a>
     </A>
 
   </Slide>

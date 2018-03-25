@@ -129,19 +129,18 @@ const slides = [
   slide.newYearsEve2017PerformanceVideo,
   slide.loveLightsTim,
 
-  slide.letsDoACollaborationTalk,
-
   slide.luminave,
   slide.webmidi,
   slide.novationLaunchpadMini,
-  slide.webmidiCode,
+  slide.webmidiEnable,
+  slide.webmidiListen,
   slide.dmx512,
   slide.newYearsEve2017Performance,
   slide.dmx512Network,
   slide.dmx512Plug,
   slide.dmx512LightForJsfestExplained,
   slide.dmx512Manual,
-  slide.dmx512HowToControlIt,
+  // slide.dmx512HowToControlIt,
   slide.webusb,
   slide.webusbDmxControllerConcept,
   slide.webusbNotAsEasyAsYouThink,
@@ -155,6 +154,15 @@ const slides = [
   slide.webusbArduinoSketchLoop,
   slide.webusbArduinoSketchUploadDone,
   slide.webusbArduinoHowDoesItWork,
+  slide.webusbDmxControllerAdded,
+  slide.webusbEnable,
+  slide.webusbUsbPortEnableUserGesture,
+  slide.webusbConnect,
+  slide.webusbUsbPortConnect,
+  slide.webusbUsbPortConnect2,
+  slide.webusbUsbPortDisconnect,
+  slide.webusbUsbPortReadLoop,
+  slide.webusbUsbPortSend,
   slide.webusbDmx512Data,
   slide.luminaveDemo,
   slide.luminaveColor,
@@ -166,6 +174,7 @@ const slides = [
   slide.bestWayToPredictTheFutureIsToCreateIt,
 
   slide.luminaveDekkIntegration,
+  // slide.integrationLuminaveinDekk,
   cloneElement(slide.luminaveColor, {key: uuid()}),
   cloneElement(slide.luminaveColorMoveAround, {key: uuid()}),
   cloneElement(slide.luminaveColorStrobeMoveAround, {key: uuid()}),
@@ -218,7 +227,7 @@ class App extends Component {
         </Elements>
 
         <Plugins>
-          <Controller />
+          <Controller trigger="keydown" handleFrame={this.setFrame} />
           <Paging trigger="keydown" />
           <Url />
           <LocalStorage publish />

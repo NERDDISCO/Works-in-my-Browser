@@ -1,3 +1,4 @@
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
@@ -15,7 +16,8 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Let's do a collaboration talk</h3>
-    <p>The one thing that Gregor and myself are dreaming for many years now is to do a talk together</p>
+    <p>Since then both Gregor and myself wanted to do a collab talk</p>
+    <p>And now we are here</p>
   </Notes>
 )
 
