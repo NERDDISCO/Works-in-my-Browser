@@ -438,6 +438,33 @@ export default (
 
 ######################################
 
+  'rainbowtext':
+    'prefix': 'dekk-rainbowtext'
+    'body': '<RainbowText time={$1} text="$2"/>'
+
+######################################
+
+  'slide-color':
+    'prefix': 'dekk-slide-color'
+    'body': 'mixin="--slide-color: $1"'
+
+######################################
+
+  'slide-background-image':
+    'prefix': 'dekk-slide-background-image'
+    'body': 'background={`url(media/$1)`}'
+
+
+######################################
+
+  'slide-background-color':
+    'prefix': 'dekk-slide-background-color'
+    'body': 'background="$1"'
+
+
+
+######################################
+
   'comment':
     'prefix': 'dekk-comment'
     'body': '{/* $1 */}'

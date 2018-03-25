@@ -8,7 +8,7 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {RainbowText} from '../components'
 
 const {Slide, A} = Main
 
@@ -28,12 +28,15 @@ const notes = (
 
 export default (
   <Slide key={uuid()}>
-    <Plugins.Data luminave={['COLOR RED']}></Plugins.Data>
+    <Plugins.Data luminave={['']}></Plugins.Data>
 
     {notes}
 
     <A>
-      <Title>luminave + Dekk</Title>
+      <Title>
+        <RainbowText time={5} text="luminave"/>
+        {' '}+ Dekk
+      </Title>
     </A>
 
   </Slide>

@@ -8,7 +8,7 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {AnimatedTitle, StrobeTitle} from '../components'
 
 const {Slide, A} = Main
 
@@ -20,12 +20,16 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="green" mixin="--slide-color: white">
-    <Plugins.Data luminave={['COLOR GREEN', 'JSFest_Static']}></Plugins.Data>
+  <Slide key={uuid()} background="#3caee5" mixin="--slide-color: white">
+    <Plugins.Data luminave={['COLOR BLUE', 'JSFest_Strobe', 'JSFest_Static']}></Plugins.Data>
+    {/* <Plugins.Data luminave={['COLOR BLUE']}></Plugins.Data> */}
+
     {notes}
 
     <A>
-      <Title>Move Around</Title>
+      <Title><Uppercase>Blue</Uppercase></Title>
+      <Title>+ <Uppercase><AnimatedTitle>Movement</AnimatedTitle></Uppercase></Title>
+      <Title>+ <Uppercase><StrobeTitle>Strobe</StrobeTitle></Uppercase></Title>
     </A>
 
   </Slide>

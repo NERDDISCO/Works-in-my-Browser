@@ -677,14 +677,14 @@
     react-motion "^0.5.2"
     styled-components "^3.2.3"
 
-"@dekk/countdown@^1.4.0", "@dekk/countdown@^1.5.0":
+"@dekk/countdown@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/countdown/-/countdown-1.5.0.tgz#6c6000fac701bad754e9bca2034d3b0ea40f740f"
   dependencies:
     prop-types "^15.6.1"
     react "^16.2.0"
 
-"@dekk/deck@^1.4.0", "@dekk/deck@^1.5.0":
+"@dekk/deck@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/deck/-/deck-1.5.0.tgz#4379ff90f932f6f152a2b0d82c451f62c0419cb2"
   dependencies:
@@ -696,7 +696,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/fragment@^1.4.0", "@dekk/fragment@^1.5.0":
+"@dekk/fragment@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/fragment/-/fragment-1.5.0.tgz#269e61e82407c1adbccb1af7090dc14a9c487cbc"
   dependencies:
@@ -714,7 +714,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/image@^1.4.0", "@dekk/image@^1.5.0":
+"@dekk/image@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/image/-/image-1.5.0.tgz#fc36eb048b03f9b74088d1cad9854fa7150f21c2"
   dependencies:
@@ -722,7 +722,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/listener@^1.4.0":
+"@dekk/listener@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/listener/-/listener-1.5.0.tgz#b9deecc91618a9dff061b75befb6e21344019ea1"
   dependencies:
@@ -730,7 +730,7 @@
     prop-types "^15.6.1"
     react "^16.2.0"
 
-"@dekk/local-storage@^1.4.0":
+"@dekk/local-storage@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/local-storage/-/local-storage-1.5.0.tgz#c20551364c08b33f6d395760b31e72bb0e10c18c"
   dependencies:
@@ -738,7 +738,7 @@
     prop-types "^15.6.1"
     react "^16.2.0"
 
-"@dekk/master-slides@^1.4.0":
+"@dekk/master-slides@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/master-slides/-/master-slides-1.5.0.tgz#0eb66dace250dbdcb412199ae5d3158119764b8a"
   dependencies:
@@ -748,7 +748,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/master@^1.4.0", "@dekk/master@^1.5.0":
+"@dekk/master@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/master/-/master-1.5.0.tgz#76551c93f367a2d32c5072b66c0a64a50afc0dec"
   dependencies:
@@ -759,7 +759,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/paging@^1.4.0":
+"@dekk/paging@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/paging/-/paging-1.5.0.tgz#c40007215ae05e4dc79357419c9f06796ff33d32"
   dependencies:
@@ -767,7 +767,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/slide@^1.4.0", "@dekk/slide@^1.5.0":
+"@dekk/slide@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/slide/-/slide-1.5.0.tgz#8981473d69f40e246eb4bd107b2da337d16a9095"
   dependencies:
@@ -778,7 +778,7 @@
     react-motion "^0.5.2"
     styled-components "^3.2.3"
 
-"@dekk/speaker-deck@^1.4.0":
+"@dekk/speaker-deck@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/speaker-deck/-/speaker-deck-1.5.0.tgz#0d8f688682a5c22a2a09674d9d549cec6203c0a8"
   dependencies:
@@ -795,7 +795,7 @@
     react "^16.2.0"
     styled-components "^3.2.3"
 
-"@dekk/speaker-notes@^1.4.0", "@dekk/speaker-notes@^1.5.0":
+"@dekk/speaker-notes@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/speaker-notes/-/speaker-notes-1.5.0.tgz#2708d265e3e1e25d35f1207cc4aecfbe0c2935a6"
   dependencies:
@@ -809,7 +809,7 @@
     mobx "^4.1.0"
     uuid "^3.2.1"
 
-"@dekk/text@^1.4.0", "@dekk/text@^1.5.0":
+"@dekk/text@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/text/-/text-1.5.0.tgz#b3d9277485a43633e03e890e661b1522c82dc963"
   dependencies:
@@ -818,7 +818,7 @@
     react-syntax-highlighter "^7.0.2"
     styled-components "^3.2.3"
 
-"@dekk/url@^1.4.0", "@dekk/url@^1.5.0":
+"@dekk/url@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dekk/url/-/url-1.5.0.tgz#523e4515005b610bccee2ac3944f28e761195006"
   dependencies:
@@ -856,6 +856,10 @@
     "@types/tapable" "^0"
     "@types/uglify-js" "*"
     source-map "^0.6.0"
+
+"@types/youtube@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.31.tgz#dbea44373862cbcb6c9a8d974c379e51879aa2b2"
 
 abbrev@1:
   version "1.1.1"
@@ -5487,6 +5491,12 @@ react-syntax-highlighter@^7.0.2:
     lowlight "~1.9.1"
     prismjs "^1.8.4"
     refractor "^2.0.0"
+
+react-yt@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-yt/-/react-yt-0.1.2.tgz#8e2cd315c5c9eae0a529813a09127f4a35ba0ef9"
+  dependencies:
+    "@types/youtube" "^0.0.31"
 
 react@^16.2.0:
   version "16.2.0"

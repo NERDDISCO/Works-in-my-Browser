@@ -25,7 +25,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background={`url(media/interstellar.gif)`}>
+  <Slide key={uuid()} background={`url(media/interstellar.gif)`} mixin="--slide-color: white">
     <Plugins.Data luminave={['COLOR BLUE']}></Plugins.Data>
     {notes}
 

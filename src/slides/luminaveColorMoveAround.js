@@ -8,23 +8,26 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {AnimatedTitle, StrobeTitle} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
     <h3>luminave</h3>
-    <p>change the color to red</p>
+    <p>change the color to green and start blinking with a strobe effect</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} background="red" mixin="--slide-color: white">
-    <Plugins.Data luminave={['COLOR RED']}></Plugins.Data>
+  <Slide key={uuid()} background="#35C964" mixin="--slide-color: white">
+    <Plugins.Data luminave={['COLOR GREEN', 'JSFest_Static']}></Plugins.Data>
+    {/* <Plugins.Data luminave={['COLOR GREEN']}></Plugins.Data> */}
     {notes}
 
     <A>
+      <Title><Uppercase>Green</Uppercase></Title>
+      <Title>+ <Uppercase><AnimatedTitle>Movement</AnimatedTitle></Uppercase></Title>
     </A>
 
   </Slide>

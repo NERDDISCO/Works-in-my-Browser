@@ -9,7 +9,7 @@ import {Plugins} from '@dekk/deck'
 import styled from 'styled-components'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {RainbowText} from '../components'
 
 const {Slide, A} = Main
 
@@ -40,7 +40,7 @@ export default (
     {notes}
 
     <A>
-      <Title>luminave Demo</Title>
+      <Title><Uppercase><RainbowText time={.5} text="demo"/></Uppercase></Title>
       {/* <iframe src="https://localhost:1337"
               allow="midi, usb"
               sandbox="allow-same-origin allow-scripts"

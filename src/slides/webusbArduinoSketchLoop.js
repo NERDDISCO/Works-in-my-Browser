@@ -39,7 +39,7 @@ void loop() {
   // WebUSB is available
   if (Serial.available() > 0) {
 
-    // Read bytes (the # channels) from WebUSB and save them into incoming
+    // Read 512 bytes incoming via WebUSB
     Serial.readBytes(incoming, channels);
 
     // Iterate over all channels

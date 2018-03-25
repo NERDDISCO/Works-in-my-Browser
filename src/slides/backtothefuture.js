@@ -23,7 +23,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background={`url(media/backtothefuture.webp)`}>
+  <Slide key={uuid()} background={`url(media/backtothefuture.webp)`} mixin="--slide-color: white">
     <Plugins.Data luminave={['COLOR GREEN']}></Plugins.Data>
     {notes}
     <A>

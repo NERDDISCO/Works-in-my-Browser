@@ -5,6 +5,7 @@ import styled, {css} from 'styled-components'
 import Deck, {Elements, Plugins} from '@dekk/deck'
 import Slide from '@dekk/slide'
 import Paging from '@dekk/paging'
+import Controller from './plugins/controller'
 import LocalStorage from '@dekk/local-storage'
 import Listener from '@dekk/listener'
 import SpeakerDeck from '@dekk/speaker-deck'
@@ -156,20 +157,18 @@ const slides = [
   slide.webusbArduinoHowDoesItWork,
   slide.webusbDmx512Data,
   slide.luminaveDemo,
-  slide.luminaveChangeColor,
-  slide.luminaveStrobeRed,
-  slide.luminaveMoveAround,
-  slide.luminaveStrobe,
+  slide.luminaveColor,
+  slide.luminaveColorMoveAround,
+  slide.luminaveColorStrobeMoveAround,
 
   slide.dekkProject,
 
   slide.bestWayToPredictTheFutureIsToCreateIt,
 
   slide.luminaveDekkIntegration,
-  cloneElement(slide.luminaveChangeColor, {key: uuid()}),
-  cloneElement(slide.luminaveStrobeRed, {key: uuid()}),
-  cloneElement(slide.luminaveMoveAround, {key: uuid()}),
-  cloneElement(slide.luminaveStrobe, {key: uuid()}),
+  cloneElement(slide.luminaveColor, {key: uuid()}),
+  cloneElement(slide.luminaveColorMoveAround, {key: uuid()}),
+  cloneElement(slide.luminaveColorStrobeMoveAround, {key: uuid()}),
 
   slide.tryAllTheThings,
   slide.livePerformance,
@@ -219,7 +218,8 @@ class App extends Component {
         </Elements>
 
         <Plugins>
-          <Paging />
+          <Controller />
+          <Paging trigger="keydown" />
           <Url />
           <LocalStorage publish />
           <Luminave
@@ -237,7 +237,7 @@ class App extends Component {
             <iframe
               src="https://localhost:1337"
               allow="midi, usb"
-              sandbox="allow-same-origin allow-scripts"
+              sandbox="allow-same-origin allow-scripts allow-forms"
               style={{width: 100 + 'vw', height: 100 + 'vh'}}
               frameBorder="0"
             />

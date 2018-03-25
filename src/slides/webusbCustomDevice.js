@@ -8,7 +8,7 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {RainbowText} from '../components'
 
 const {Slide, A} = Main
 
@@ -28,13 +28,11 @@ export default (
     {notes}
 
     <A>
-      <Title>Custom Device</Title>
+      <Title><RainbowText time={30} text="Arduino"/></Title>
 
-      <Fragment order={1}>
-        <Subtitle>
-          <a href="https://github.com/webusb/arduino">github.com/webusb/arduino</a>
-        </Subtitle>
-      </Fragment>
+      <Subtitle>
+        <a href="https://github.com/webusb/arduino">github.com/webusb/arduino</a>
+      </Subtitle>
     </A>
 
   </Slide>

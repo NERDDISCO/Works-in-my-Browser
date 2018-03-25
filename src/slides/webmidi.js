@@ -8,7 +8,7 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {RainbowText} from '../components'
 
 const {Slide, A} = Main
 
@@ -27,7 +27,7 @@ export default (
     {notes}
 
     <A>
-      <Title>Web MIDI</Title>
+      <Title><RainbowText time={30} text="Web MIDI"/></Title>
     </A>
 
   </Slide>

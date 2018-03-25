@@ -15,19 +15,17 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>luminave</h3>
-    <p>change the color to blue and move around</p>
+    <p>change the color to red</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} background="blue" mixin="--slide-color: white">
-    <Plugins.Data luminave={['COLOR BLUE', 'JSFest_Strobe', 'JSFest_Static']}></Plugins.Data>
+  <Slide key={uuid()} background="#DA4453" mixin="--slide-color: white">
+    <Plugins.Data luminave={['COLOR RED']}></Plugins.Data>
     {notes}
 
     <A>
-      <Title>Move Around</Title>
-      <Title>+</Title>
-      <Title>Strobe</Title>
+      <Title><Uppercase>Red</Uppercase></Title>
     </A>
 
   </Slide>

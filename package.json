@@ -38,6 +38,7 @@
     "@dekk/url": "^1.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-yt": "^0.1.2",
     "sockette": "^2.0.0"
   },
   "devDependencies": {

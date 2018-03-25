@@ -23,7 +23,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background={`url(media/terminator.webp)`}>
+  <Slide key={uuid()} background={`url(media/terminator.webp)`} mixin="--slide-color: white">
     <Plugins.Data luminave={['COLOR RED']}></Plugins.Data>
     {notes}
 

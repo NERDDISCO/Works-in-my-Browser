@@ -14,22 +14,25 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3></h3>
-    <p></p>
+    <h3>Attention</h3>
+    <p>Please listen carefully:</p>
+    <p>There will be a lot of Flashing Lights</p>
+    <p>And movie spoilers</p>
+    <p>And music</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} background="black" mixin="--slide-color: white">
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
-      <Subtitle>⚠️</Subtitle>
-      <Title>
-        <Uppercase>Flashing Lights</Uppercase>
-      </Title>
-      <Subtitle>⚠️</Subtitle>
+      <Title>⚠️</Title>
+      <Title><Uppercase>Flashing Lights</Uppercase></Title>
+      <Fragment order={1}><Title><Uppercase>Loud Music</Uppercase></Title></Fragment>
+      <Fragment order={2}><Title><Uppercase>Movie Spoiler</Uppercase></Title></Fragment>
+      <Title>⚠️</Title>
     </A>
 
   </Slide>
