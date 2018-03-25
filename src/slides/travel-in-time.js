@@ -7,6 +7,7 @@ import {Title, Subtitle, Uppercase} from '@dekk/text'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
 import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
@@ -23,7 +24,8 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>

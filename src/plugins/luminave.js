@@ -111,45 +111,13 @@ export default class Luminave extends Component {
   * Send data rom the slide to luminave
   */
  handleSlide(slideIndex) {
-
     if (this.connected) {
-      // slides were passed in so we can read the
-      // properties
-      const {slides = []} = this.props
-      const slide = slides[slideIndex]
-
-      if (slide) {
-        // We set luminave data on slides
-        // so now e can use it.
-        const {luminave = null} = slide.props
-        if (luminave !== null) {
-          this.ws.send(JSON.stringify(luminave))
-        }
+      const {luminave = null} = this.props
+      if (luminave !== null) {
+        this.ws.send(JSON.stringify(luminave))
       }
     }
   }
-  //
-  // /**
-  //  * Send data rom the fragment to luminave
-  //  */
-  // handleFragment(fragmentIndex) {
-  //
-  //    if (this.connected) {
-  //      // fragments were passed in so we can read the
-  //      // properties
-  //      const {slides = []} = this.props
-  //      const slide = slides[slideIndex]
-  //
-  //      if (slide) {
-  //        // We set luminave data on slides
-  //        // so now e can use it.
-  //        const {luminave = null} = slide.props
-  //        if (luminave !== null) {
-  //          this.ws.send(JSON.stringify(luminave))
-  //        }
-  //      }
-  //    }
-  //  }
 
   /**
    * Check for changes

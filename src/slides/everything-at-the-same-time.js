@@ -6,12 +6,13 @@ import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
 // import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
-import {Cover} from '@dekk/master-slides'
+import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
 
-const {Slide, A, B} = Cover
+const {Slide, A} = Main
 
 const notes = (
   <Notes>
@@ -21,7 +22,8 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
@@ -34,15 +36,12 @@ export default (
       <Fragment order={3}>
         <Title><Uppercase>Future</Uppercase></Title>
       </Fragment>
-    </A>
-
-    <B>
       <Fragment order={4}>
         <Subtitle>
           <Uppercase>Everything at the Same Time</Uppercase>
         </Subtitle>
       </Fragment>
-    </B>
+    </A>
 
   </Slide>
 )

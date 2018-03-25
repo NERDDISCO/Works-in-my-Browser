@@ -7,6 +7,7 @@ import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Main, Half, Collage, Grid, ImageGrid
 import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 
@@ -24,7 +25,8 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>

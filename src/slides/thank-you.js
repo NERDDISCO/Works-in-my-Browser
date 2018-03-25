@@ -6,11 +6,13 @@ import {Title, Subtitle, Text} from '@dekk/text'
 // import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
-import {Chapter} from '@dekk/master-slides'
+import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
+
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 
-const {Slide, A, B} = Chapter
+const {Slide, A} = Main
 
 const notes = (
   <Notes>
@@ -20,16 +22,15 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
       <Title>Thank You!</Title>
+      <Subtitle>❤️❤️❤️❤️❤️❤️❤️❤️❤️</Subtitle>
     </A>
 
-    <B>
-      <Subtitle>❤️❤️❤️❤️❤️❤️❤️❤️❤️</Subtitle>
-    </B>
 
   </Slide>
 )

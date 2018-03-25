@@ -5,6 +5,7 @@ import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
 import styled from 'styled-components'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
@@ -34,7 +35,8 @@ const FocusPoint = styled.a.attrs({href:"#"})`
 `
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>

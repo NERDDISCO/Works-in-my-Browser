@@ -3,9 +3,10 @@ import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
 import {Title, Subtitle} from '@dekk/text'
 import Notes from '@dekk/speaker-notes'
-import {Cover} from '@dekk/master-slides'
+import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
 
-const {Slide, A, B} = Cover
+const {Slide, A} = Main
 
 const notes = (
   <Notes>
@@ -14,7 +15,8 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>

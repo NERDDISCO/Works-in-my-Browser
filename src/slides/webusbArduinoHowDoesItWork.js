@@ -5,6 +5,7 @@ import {Text, Title, Subtitle, Uppercase, Bold, Center, Code, colorSchemes} from
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
+import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {CodeJs} from '../components'
@@ -20,7 +21,8 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} luminave={["JSFest_Static", "COLOR GREEN"]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['COLOR GREEN', 'JSFest_Static']}></Plugins.Data>
     {notes}
 
     <A>
