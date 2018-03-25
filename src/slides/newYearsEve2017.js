@@ -21,7 +21,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background={`url("media/newyearseve2017_neon_fabienne.jpg")`}>
+  <Slide key={uuid()} background={`url("media/newyearseve2017_neon_fabienne.jpg")`} luminave={[]}>
     {notes}
 
     <A>

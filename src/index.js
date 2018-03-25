@@ -83,29 +83,41 @@ const plugins = (
   </Plugins>
 )
 
+// const lightSetting = `
+//   #light1 {
+//     color: rgb(255, 0, 0);
+//     transform: rotateX(20deg);
+//   }
+//
+// `
+
 const baseStyles = css`
   ${'' /* --font-size: calc(var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) * calc(1vw + 1vh); */};
 `
 
 const slides = [
   cloneElement(slide.worksInMyBrowser, {key: uuid()}),
+  slide.flashingLights,
+
   slide.predictTheFuture,
   slide.inTheNext30s,
   slide.livePerformance,
   slide.everythingAtTheSameTime,
-  slide.timeTravelTheories,
+  // slide.timeTravelTheories,
+  slide.terminator,
+  slide.backtothefuture,
+  slide.interstellar,
+  slide.interstellar4dto3dCommunication,
   slide.travelInTime,
   /* Maybe this is too much in general? Just show the video of the end, but that's it? */
-  cloneElement(slide.timeTraveling, {key: uuid()}),
+  // cloneElement(slide.timeTraveling, {key: uuid()}),
   /* Should we add more here? Do we switch over to my NoteBook for the performance? */
   slide.gregorAdamsTimPietrusky,
-  slide.bestWayToPredictTheFutureIsToCreateIt,
 
   slide.backgroundGregor,
   slide.drawingsFromGregor,
 
   slide.backgroundTim,
-  slide.flashingLights,
   slide.familyTim,
   slide.nerddisco,
   slide.jsconfeu2014,
@@ -143,15 +155,32 @@ const slides = [
   slide.webusbArduinoSketchUploadDone,
   slide.webusbArduinoHowDoesItWork,
   slide.webusbDmx512Data,
-
   slide.luminaveDemo,
+  slide.luminaveChangeColor,
+  slide.luminaveStrobeRed,
+  slide.luminaveMoveAround,
+  slide.luminaveStrobe,
 
   slide.dekkProject,
+
+  slide.bestWayToPredictTheFutureIsToCreateIt,
+
+  slide.luminaveDekkIntegration,
+  cloneElement(slide.luminaveChangeColor, {key: uuid()}),
+  cloneElement(slide.luminaveStrobeRed, {key: uuid()}),
+  cloneElement(slide.luminaveMoveAround, {key: uuid()}),
+  cloneElement(slide.luminaveStrobe, {key: uuid()}),
 
   slide.tryAllTheThings,
   slide.livePerformance,
   slide.thankYou
 ]
+
+/*
+ Integrate Luminave into Dekk
+ backlight for your talk
+ set scenes to match your slide mood
+*/
 
 const {present, live} = search.parse(window.location.href)
 

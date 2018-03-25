@@ -20,7 +20,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} light={["COLOR BLUE"]}>
+  <Slide key={uuid()} luminave={["COLOR BLUE"]}>
     {notes}
 
     <A>

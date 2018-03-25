@@ -3,14 +3,14 @@ import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
 // Text, Title, Subtitle, Uppercase, Bold, Center, Code
 import {Title, Subtitle, Text} from '@dekk/text'
-// import {default as MaskedImage, FitImage} from '@dekk/image'
+import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
-// Cover, Chapter, Half, Collage, Grid, ImageGrid
-import {Chapter} from '@dekk/master-slides'
+// Cover, Main, Half, Collage, Grid, ImageGrid
+import {Main} from '@dekk/master-slides'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 
-const {Slide, A, B} = Chapter
+const {Slide, A} = Main
 
 const notes = (
   <Notes>
@@ -24,16 +24,21 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} luminave={[]}>
     {notes}
 
     <A>
+      <img src="media/gregoradams.jpeg"
+                alt="Gregor Adams"
+                style={{height: 25 + "vh"}} />
       <Title>Gregor Adams</Title>
 
-      <Fragment order={1}>
-        <Title>&</Title>
+      <hr />
+
+        <img src="media/timpietrusky.jpg"
+                  alt="Tim Pietrusky"
+                  style={{height: 25 + "vh"}} />
         <Title>Tim Pietrusky</Title>
-      </Fragment>
     </A>
 
   </Slide>

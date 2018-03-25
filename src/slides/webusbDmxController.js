@@ -20,7 +20,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background={`url("media/webusb_dmx_controller.jpg")`}>
+  <Slide key={uuid()} background={`url("media/webusb_dmx_controller.jpg")`} luminave={[]}>
     {notes}
   </Slide>
 )

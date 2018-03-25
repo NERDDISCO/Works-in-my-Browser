@@ -19,7 +19,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background={`#14171e`}>
+  <Slide key={uuid()} background={`#14171e`} luminave={[]}>
     {notes}
 
     <A>

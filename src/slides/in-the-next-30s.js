@@ -26,7 +26,7 @@ const handleRest = (fragmentIndex, fragmentOrder) => {
 }
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} luminave={[]}>
     {notes}
 
     <A>

@@ -9,6 +9,8 @@ import {Main} from '@dekk/master-slides'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
 import {LargeImage} from '../components'
+import novationLaunchpadMini from '../media/novationLaunchpadMini.jpg'
+
 
 const {Slide, A} = Main
 
@@ -20,11 +22,11 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} luminave={[]}>
     {notes}
 
     <A>
-      <LargeImage src="media/novationLaunchpadMini.jpg"
+      <LargeImage src={novationLaunchpadMini}
                   alt="Novation LaunchPad Mini" />
     </A>
 

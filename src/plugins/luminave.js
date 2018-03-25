@@ -23,6 +23,7 @@ export default class Luminave extends Component {
     super(props)
     this.handleStore = this.handleStore.bind(this)
     this.handleSlide = this.handleSlide.bind(this)
+    // this.handleFragment = this.handleFragment.bind(this)
 
     this.connected = false
   }
@@ -120,22 +121,50 @@ export default class Luminave extends Component {
       if (slide) {
         // We set luminave data on slides
         // so now e can use it.
-        const {light = null} = slide.props
-        if (light !== null) {
-          this.ws.send(JSON.stringify(light))
+        const {luminave = null} = slide.props
+        if (luminave !== null) {
+          this.ws.send(JSON.stringify(luminave))
         }
       }
     }
   }
+  //
+  // /**
+  //  * Send data rom the fragment to luminave
+  //  */
+  // handleFragment(fragmentIndex) {
+  //
+  //    if (this.connected) {
+  //      // fragments were passed in so we can read the
+  //      // properties
+  //      const {slides = []} = this.props
+  //      const slide = slides[slideIndex]
+  //
+  //      if (slide) {
+  //        // We set luminave data on slides
+  //        // so now e can use it.
+  //        const {luminave = null} = slide.props
+  //        if (luminave !== null) {
+  //          this.ws.send(JSON.stringify(luminave))
+  //        }
+  //      }
+  //    }
+  //  }
 
   /**
    * Check for changes
    **/
-  componentDidUpdate(newProps) {
+  componentDidUpdate(prevProps) {
     // When the slide changes we want to trigger luminave
-    if(newProps.slideIndex !== this.props.slideIndex) {
+    if (prevProps.slideIndex !== this.props.slideIndex) {
       this.handleSlide(this.props.slideIndex)
+    } else {
+      if (prevProps.fragmentIndex !== this.props.fragmentIndex) {
+        // this.handleFragment(this.props.fragmentIndex)
+      }
     }
+
+
   }
 
   /**

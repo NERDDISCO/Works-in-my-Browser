@@ -27,7 +27,7 @@ const FancyTable = styled.table`
 `
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} luminave={[]}>
     {notes}
 
     <A>
