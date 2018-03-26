@@ -13,13 +13,13 @@ import {Plugins} from '@dekk/deck'
 import {LargeImage} from '../components'
 import novationLaunchpadMini from '../media/novationLaunchpadMini.jpg'
 
-
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3></h3>
-    <p></p>
+    <h3>Novation LaunchPad Mini</h3>
+    <p>I have a Novation LaunchPad, which is a MIDI controller that can be attachted over USB to the computer</p>
+    <p>It has 80 buttons and every one can be identified using the MIDI note</p>
   </Notes>
 )
 

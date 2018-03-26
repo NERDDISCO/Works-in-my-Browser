@@ -677,6 +677,17 @@
     react-motion "^0.5.2"
     styled-components "^3.2.3"
 
+"@dekk/code@^1.5.1-0":
+  version "1.5.1-0"
+  resolved "https://registry.yarnpkg.com/@dekk/code/-/code-1.5.1-0.tgz#f4ac38bed3b726745e432a314739a39ef84b190c"
+  dependencies:
+    "@dekk/fragment" "^1.5.1-0"
+    codemirror "^5.36.0"
+    prop-types "^15.6.1"
+    react "^16.2.0"
+    react-codemirror2 "^4.2.1"
+    styled-components "^3.2.3"
+
 "@dekk/countdown@^1.5.1-0":
   version "1.5.1-0"
   resolved "https://registry.yarnpkg.com/@dekk/countdown/-/countdown-1.5.1-0.tgz#2bc86a2ce3824c8f6881fda116baf34af0bf6a3d"
@@ -2206,6 +2217,10 @@ co@^4.6.0:
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
+
+codemirror@^5.36.0:
+  version "5.36.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.36.0.tgz#1172ad9dc298056c06e0b34e5ccd23825ca15b40"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -5465,6 +5480,10 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-codemirror2@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-4.2.1.tgz#4ad3c5c60ebbcb34880f961721b51527324ec021"
+
 react-dom@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
@@ -6822,6 +6841,10 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.3.tgz#c1d8d149316d3ea852848895cb6a0bfe887b87df"
   dependencies:
     minimalistic-assert "^1.0.0"
+
+webmidi@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/webmidi/-/webmidi-2.0.4.tgz#e7e0a429cbfdd7a1622e346bde30664335d7bbe3"
 
 webpack-addons@^1.1.5:
   version "1.1.5"

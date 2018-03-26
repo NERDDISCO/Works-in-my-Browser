@@ -2,45 +2,38 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, Code, colorSchemes} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
+import 'codemirror/mode/javascript/javascript'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
-
+// import {} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>Get data from USB</h3>
+    <h3>WebMIDI: Demo</h3>
+    <p>So when I hit a button on my MidiController, we see which note it has</p>
     <p></p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
-      <Subtitle>USBPort</Subtitle>
-      <ViewportSize>
-        <Code language='arduino' style={colorSchemes.docco}>
-{`read() {
-  // Receive 512 bytes on Endpoint 5
-  device.transferIn(5, 512).then({data} => {
-    // Use data
-    read()
-  }, error => {
-    onReceiveError(error)
-  })
-}`}
-        </Code>
-      </ViewportSize>
+
+      <iframe src="http://localhost:8080/demos/webmidi/"
+              allow="midi"
+              sandbox="allow-same-origin allow-scripts allow-forms"
+              style={{width: 100 + "vw", height: 100 + "vh"}}
+              frameBorder="0" />
     </A>
 
   </Slide>

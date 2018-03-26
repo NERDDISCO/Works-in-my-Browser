@@ -16,8 +16,16 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does WebUSB work in the browser?</h3>
-    <p>USB configuration: How is the device is powered? What is its maximum power consumption? How many interfaces does it have?</p>
+    <p>Open a connection to the device</p>
+    <p>When ok: Select the first configuration if the OS didn't do this already</p>
+    <p>There can be <a href="http://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors">multiple configurations</a> for every USB device and they can control:
+      <ul>
+        <li>power consumption</li>
+        <li>self or bus powered</li>
+        <li>amount of interfaces</li>
+      </ul>
+    </p>
+    <p>When ok: Claim interface, so that only you can interact with it. Interface = One of the functionalities that the USB device provides</p>
   </Notes>
 )
 
@@ -33,18 +41,28 @@ export default (
 {`connect() {
   return device.open()
 
-  // OS did not select a USB configuration yet
   .then(() => {
     if (device.configuration === null) {
-      // Select USB configuration
+      // Select #1 USB configuration
       return device.selectConfiguration(1)
     }
   })
 
-  // Get exclusive access to the interface
+  // Get exclusive access to the #2 interface
   .then(() => device.claimInterface(2))
 
-  // ...
+  // Declare that we are ready to receive data
+  .then(() => device.controlTransferOut({
+    'requestType': 'class',
+    'recipient': 'interface',
+    'request': 0x22,
+    'value': 0x01, // Endpoint: 2
+    'index': 0x02 // Interface #2
+  }))
+
+  .then(() => {
+    read()
+  })
 }`}
         </Code>
       </ViewportSize>

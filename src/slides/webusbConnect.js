@@ -16,13 +16,14 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does WebUSB work in the browser?</h3>
-    <p></p>
+    <h3>Connect to USBPort</h3>
+    <p>After selecting a USB device, the connect function is triggered on the selected port</p>
+    <p>Then we execute connect, which is a method from USBPort (which is a helper to work with USB)</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 

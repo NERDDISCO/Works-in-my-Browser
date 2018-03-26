@@ -18,7 +18,7 @@ const notes = (
     <h3>Web MIDI</h3>
     <p>stands for Musical Instrument Digital Interface</p>
     <p>Use MIDI devices in the browser</p>
-    <p>https://github.com/livejs/frankenjs-2017/blob/master/script.md#1-midi</p>
+    <p>I recommend you to use WebMidi.js to make handling the WebMIDI API even more awesome and simple</p>
   </Notes>
 )
 
@@ -29,6 +29,8 @@ export default (
 
     <A>
       <Title><RainbowText time={30} text="Web MIDI"/></Title>
+      <Subtitle><a href="https://www.w3.org/TR/webmidi/">w3.org/TR/webmidi</a></Subtitle>
+      <Fragment order={1}><Subtitle><a href="https://github.com/cotejp/webmidi">WebMidi.js</a></Subtitle></Fragment>
     </A>
 
   </Slide>

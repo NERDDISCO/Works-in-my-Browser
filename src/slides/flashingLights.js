@@ -29,11 +29,11 @@ export default (
     {notes}
 
     <A>
-      <Title>⚠️</Title>
-      <Title><Uppercase>Flashing Lights</Uppercase></Title>
-      <Fragment order={1}><Title><Uppercase>Loud Music</Uppercase></Title></Fragment>
-      <Fragment order={2}><Title><Uppercase>Movie Spoiler</Uppercase></Title></Fragment>
-      <Title>⚠️</Title>
+      <Title>⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️</Title>
+      <Fragment order={1}><Title><Uppercase>Flashing Lights</Uppercase></Title></Fragment>
+      <Fragment order={2}><Title><Uppercase>Loud Music</Uppercase></Title></Fragment>
+      <Fragment order={3}><Title><Uppercase>Movie Spoiler</Uppercase></Title></Fragment>
+      <Title>⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️</Title>
     </A>
 
   </Slide>

@@ -2,7 +2,7 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, Code, colorSchemes} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
@@ -14,23 +14,40 @@ import {ViewportSize} from '../components'
 
 const {Slide, A} = Main
 
-const notes = (
-  <Notes>
-    <h3>WebMIDI in JS</h3>
-    <p></p>
-  </Notes>
-)
+import Code from '@dekk/code'
+import {select} from '../utils'
 
-export default (
-  <Slide key={uuid()} background="#f8f8ff">
-    <Plugins.Data luminave={['']}></Plugins.Data>
-    {notes}
+const ranges = [
+  [ // listen
+    select([0, 0], [0, 6])
+  ],
+  [ // port deconstruct
+    select([1, 10], [1, 22]),
+    select([1, 24], [1, 28]),
+    select([1, 30], [1, 32]),
+    select([1, 34], [1, 38])
+  ],
 
-    <A>
-      <Subtitle>WebMidiConnection.js</Subtitle>
-      <ViewportSize>
-        <Code language='javascript' style={colorSchemes.docco}>
-{`listen(port) {
+  [ // type is input
+    select([3, 2], [3, 25])
+  ],
+  [ // addListener
+    select([5, 4], [6, 40])
+  ],
+  [ // event deconstruct
+    select([8, 13], [8, 20]),
+    select([8, 22], [8, 26]),
+    select([8, 28], [8, 36])
+  ],
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'javascript',
+  theme: 'neo'
+}
+
+const code = `listen(port) {
   const { manufacturer, name, id, type } = port
 
   if (type === 'input') {
@@ -44,9 +61,31 @@ export default (
       // Trigger actions when a specific note is hit
     })
   }
-}`}
-        </Code>
-      </ViewportSize>
+}`
+
+
+
+const notes = (
+  <Notes>
+    <h3>Listen to MidiMessageEvents</h3>
+    <p>Port contains useful information: manufacturer, name, id & type</p>
+    <p>There are two differnt types: Input ports & output ports</p>
+    <p>Everything that the MIDI controller sends to our computer is coming from the input port</p>
+    <p>Everything that our computer is sending to the MIDI controller on the output port</p>
+    <p>Listen to all "noteon" (which would be a "keydown" on the keyboard)</p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
+    {notes}
+
+    <A>
+      <Subtitle>WebMidiConnection.js</Subtitle>
+      <Code ranges={ranges} options={codeOptions} style={{width: "auto"}}>
+          {code}
+      </Code>
     </A>
 
   </Slide>

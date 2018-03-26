@@ -13,6 +13,7 @@ import Url, {search} from '@dekk/url'
 import * as slide from './slides'
 import uuid from 'uuid/v4'
 
+import "./styles/codemirror"
 import Luminave from './plugins/luminave'
 
 const StyledHeader = styled.header`
@@ -130,10 +131,14 @@ const slides = [
   slide.loveLightsTim,
 
   slide.luminave,
+  slide.luminaveNameExplained,
+  slide.luminaveFundament,
+  slide.webcomponents,
   slide.webmidi,
-  slide.novationLaunchpadMini,
   slide.webmidiEnable,
   slide.webmidiListen,
+  slide.novationLaunchpadMini,
+  slide.webmidiDemo,
   slide.dmx512,
   slide.newYearsEve2017Performance,
   slide.dmx512Network,
@@ -142,6 +147,7 @@ const slides = [
   slide.dmx512Manual,
   // slide.dmx512HowToControlIt,
   slide.webusb,
+  slide.usbInANutshell,
   slide.webusbDmxControllerConcept,
   slide.webusbNotAsEasyAsYouThink,
   slide.webusbCustomDevice,
@@ -159,10 +165,10 @@ const slides = [
   slide.webusbUsbPortEnableUserGesture,
   slide.webusbConnect,
   slide.webusbUsbPortConnect,
-  slide.webusbUsbPortConnect2,
   slide.webusbUsbPortDisconnect,
   slide.webusbUsbPortReadLoop,
   slide.webusbUsbPortSend,
+  slide.usbExplained,
   slide.webusbDmx512Data,
   slide.luminaveDemo,
   slide.luminaveColor,
@@ -171,16 +177,22 @@ const slides = [
 
   slide.dekkProject,
 
-  slide.bestWayToPredictTheFutureIsToCreateIt,
-
   slide.luminaveDekkIntegration,
   // slide.integrationLuminaveinDekk,
   cloneElement(slide.luminaveColor, {key: uuid()}),
   cloneElement(slide.luminaveColorMoveAround, {key: uuid()}),
   cloneElement(slide.luminaveColorStrobeMoveAround, {key: uuid()}),
 
-  slide.tryAllTheThings,
+  slide.modv,
+  slide.modvLuminaveDekk,
+
+  cloneElement(slide.everythingAtTheSameTime, {key : uuid()}),
+  slide.presenter,
+
   slide.livePerformance,
+
+  slide.bestWayToPredictTheFutureIsToCreateIt,
+  slide.tryAllTheThings,
   slide.thankYou
 ]
 

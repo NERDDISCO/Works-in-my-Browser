@@ -16,8 +16,12 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does WebUSB work in the browser?</h3>
-    <p></p>
+    <h3>Enable WebUSB</h3>
+    <p>enable() function has to be triggered by the user</p>
+    <p>In order to be able to interact with the USB device</p>
+    <p>Set filters to only get the elements that we want and not every element that is attachted to the computer</p>
+    <p>Request access</p>
+    <p>If that is granted: connect to the selectedPort</p>
   </Notes>
 )
 

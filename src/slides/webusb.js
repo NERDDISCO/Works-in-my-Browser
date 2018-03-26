@@ -17,6 +17,7 @@ const notes = (
   <Notes>
     <h3>WebUSB</h3>
     <p>Use USB directly from the browser</p>
+    <p>If you want to really understand how USB works, I recommend reading "USB in a NutShell". Really helped me to get the concepts into my head.</p>
   </Notes>
 )
 
@@ -27,6 +28,8 @@ export default (
 
     <A>
       <Title><RainbowText time={30} text="WebUSB"/></Title>
+      <Subtitle><a href="https://wicg.github.io/webusb">wicg.github.io/webusb</a></Subtitle>
+      <Fragment order={1}><Subtitle><a href="http://www.beyondlogic.org/usbnutshell/">USB in a NutShell</a></Subtitle></Fragment>
     </A>
 
   </Slide>

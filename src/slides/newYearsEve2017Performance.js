@@ -19,7 +19,16 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>New Years Eve 2017: Setup</h3>
-    <p>All the lights that I used for my New Years Eve party where controlled using DMX512</p>
+    <p>All the lights that I used for my New Years Eve party where controlled using DMX512:</p>
+    <p>
+      <ul>
+        <li>Spot lights </li>
+        <li>A laser in the top center</li>
+        <li>Two moving heads</li>
+        <li>A bowl of lights</li>
+        <li>Smoke Machine</li>
+      </ul>
+    </p>
   </Notes>
 )
 

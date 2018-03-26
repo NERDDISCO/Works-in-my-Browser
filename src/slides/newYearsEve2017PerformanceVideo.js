@@ -28,7 +28,7 @@ export default (
     {notes}
 
     <A>
-      <YouTube videoId="Qq9V5KHAf0s" start={205}>
+      <YouTube videoId="Qq9V5KHAf0s" start={223}>
         {props => {
           return (
             <React.Fragment>

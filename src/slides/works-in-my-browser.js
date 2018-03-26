@@ -27,11 +27,13 @@ export default (
 
     <A>
       <Title>
-         <Uppercase>Works in my Browser</Uppercase>
+         <Uppercase>Works in my</Uppercase>
        </Title>
 
       <img src="media/JSfest2018_logo.png"
               alt="JS Fest 2018 Logo" />
+
+      <Title><Uppercase>Browser</Uppercase></Title>
     </A>
 
   </Slide>

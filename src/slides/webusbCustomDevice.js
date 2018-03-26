@@ -31,9 +31,13 @@ export default (
     <A>
       <Title><RainbowText time={30} text="Arduino"/></Title>
 
-      <Subtitle>
-        <a href="https://github.com/webusb/arduino">github.com/webusb/arduino</a>
-      </Subtitle>
+      <Subtitle><a href="https://en.wikipedia.org/wiki/Arduino">wikipedia.org/wiki/Arduino</a></Subtitle>
+
+      <Fragment order={1}>
+        <Subtitle>
+          <a href="https://github.com/webusb/arduino">github.com/webusb/arduino</a>
+        </Subtitle>
+      </Fragment>
     </A>
 
   </Slide>

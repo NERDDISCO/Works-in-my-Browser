@@ -16,8 +16,11 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Lights for JSFest</h3>
-    <p>This is a Moving Head from Eurlite called TMH-8</p>
-    <p>Moving head means that is can move around</p>
+    <p>This is a fixture</p>
+    <p>It's type is called "moving head", because the light can be pointed in various directions</p>
+    <p>Eurlite called TMH-8</p>
+    <p>It has 14 channels</p>
+    <p>Every fixture has a manual that explains everything about it</p>
   </Notes>
 )
 

@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/NERDDISCO/Works-in-my-Browser#readme",
   "dependencies": {
+    "@dekk/code": "^1.5.1-0",
     "@dekk/countdown": "^1.5.1-0",
     "@dekk/deck": "^1.5.1-0",
     "@dekk/fragment": "^1.5.1-0",
@@ -36,10 +37,12 @@
     "@dekk/speaker-notes": "^1.5.1-0",
     "@dekk/text": "^1.5.1-0",
     "@dekk/url": "^1.5.1-0",
+    "codemirror": "^5.36.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-yt": "^0.1.2",
-    "sockette": "^2.0.0"
+    "sockette": "^2.0.0",
+    "webmidi": "^2.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.42",

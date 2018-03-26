@@ -16,13 +16,13 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does WebUSB work in the browser?</h3>
-    <p>USB configuration: How is the device is powered? What is its maximum power consumption? How many interfaces does it have?</p>
+    <h3>Disconnect</h3>
+    <p>Disconnect from the USB device</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
@@ -31,13 +31,13 @@ export default (
       <ViewportSize>
         <Code language='arduino' style={colorSchemes.docco}>
 {`disconnect() {
-  // @TODO: What is this?
+  // Declare that we don't want to receive data anymore
   return device.controlTransferOut({
     'requestType': 'class',
     'recipient': 'interface',
     'request': 0x22,
-    'value': 0x00,
-    'index': 0x02
+    'value': 0x00, // Endpoint: 1
+    'index': 0x02 // Interface #2
   }).
   then(() => device.close())
 }`}

@@ -22,7 +22,7 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
@@ -41,7 +41,7 @@ export default (
     'value': 0x01,
     'index': 0x02
   }))
-  
+
   .then(() => {
     read()
   })

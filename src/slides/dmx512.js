@@ -29,6 +29,7 @@ export default (
 
     <A>
       <Title><RainbowText time={30} text="DMX512"/></Title>
+      <Subtitle><a href="https://en.wikipedia.org/wiki/DMX512">en.wikipedia.org/wiki/DMX512</a></Subtitle>
     </A>
 
   </Slide>

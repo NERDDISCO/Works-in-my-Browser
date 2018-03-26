@@ -16,8 +16,8 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Manuel + Channels</h3>
-    <p>Every fixture has one or more pre-defined set of channels</p>
-    <p>In this case we have 14 channels</p>
+    <p>You find the amount of channels in the manual. Also: What is the task of each channel?</p>
+    <p>My moving head has 14 channels</p>
     <p>Each channel can control a specific property of the fixture</p>
   </Notes>
 )

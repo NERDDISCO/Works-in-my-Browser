@@ -26,32 +26,36 @@
   'main':
     'prefix': 'dekk-main'
     'body': """
+import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
+import 'codemirror/mode/javascript/javascript'
+import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+// import {} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
     <h3>$2</h3>
-    <p></p>
+    <p>$3</p>
   </Notes>
 )
 
 export default (
-  <Slide key={uuid()} luminave={[]}>
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
-      <Title>$1</Title>
+      $1
     </A>
 
   </Slide>
@@ -429,6 +433,42 @@ export default (
 <LargeImage src="$1"
             alt="$2" />
     """
+
+
+
+######################################
+
+  'codemirror':
+    'prefix': 'dekk-codemirror'
+    'body': """
+import Code from '@dekk/code'
+import {select} from '../utils'
+
+const ranges = [
+  [ // line 0, character 0 => line 0, character 7
+    select([0, 0], [0, 7])
+  ],
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'javascript',
+  theme: 'neo'
+}
+
+const code = ``
+
+      <Code ranges={ranges} options={codeOptions} style={{width: "auto"}}>
+          {code}
+      </Code>
+    """
+
+######################################
+
+  'codemirror-select':
+    'prefix': 'dekk-select'
+    'body': 'select([$1, $2], [$1, $3])'
+
 
 ######################################
 

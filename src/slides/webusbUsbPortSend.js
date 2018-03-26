@@ -16,8 +16,8 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does WebUSB work in the browser?</h3>
-    <p>USB configuration: How is the device is powered? What is its maximum power consumption? How many interfaces does it have?</p>
+    <h3>Send data to USB device</h3>
+    <p>transferOut = Send data to USB device on Endpoint 4</p>
   </Notes>
 )
 

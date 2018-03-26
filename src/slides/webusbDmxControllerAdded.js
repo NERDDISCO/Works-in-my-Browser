@@ -16,8 +16,9 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>How does WebUSB work in the browser?</h3>
-    <p>USB configuration: How is the device is powered? What is its maximum power consumption? How many interfaces does it have?</p>
+    <h3>WebUSB DMX Controller added</h3>
+    <p>When you attach the controler via USB to the computer</p>
+    <p>Message in the browser that the device was added with the URL we specified in the Arduino Sketch</p>
   </Notes>
 )
 
