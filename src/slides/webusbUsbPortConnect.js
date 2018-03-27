@@ -55,13 +55,13 @@ const code = `connect() {
   // Get exclusive access to the #2 interface
   .then(() => device.claimInterface(2))
 
-  // We are ready to receive data
+  // We are ready to receive data on Endpoint 1 of Interface #2
   .then(() => device.controlTransferOut({
     'requestType': 'class',
     'recipient': 'interface',
     'request': 0x22,
-    'value': 0x01, // Endpoint: 2
-    'index': 0x02 // Interface #2
+    'value': 0x01, // Endpoint: 1
+    'index': 0x02 // Interface: #2
   }))
 
   .then(() => { read() })
@@ -88,9 +88,9 @@ export default (
     {notes}
 
     <A>
-      <Subtitle>USBPort</Subtitle>
+      <Subtitle>WebUsbPort.js</Subtitle>
 
-      <Code2 ranges={ranges} options={codeOptions}>
+      <Code2 ranges={ranges} options={codeOptions} order={-1}>
           {code}
       </Code2>
     </A>

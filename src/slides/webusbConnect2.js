@@ -17,11 +17,17 @@ const {Slide, A} = Main
 import {select} from '../utils'
 
 const ranges = [
-  [ // Connect
-    select([0, 0], [1, 0])
-  ],
   [ // USB connection established
     select([1, 0], [3, 0])
+  ],
+  [ // Receive data
+    select([3, 0], [8, 0])
+  ],
+  [ // Receive error
+    select([9, 0], [14, 0])
+  ],
+  [ // error
+    select([15, 0], [19, 0])
   ]
 ]
 

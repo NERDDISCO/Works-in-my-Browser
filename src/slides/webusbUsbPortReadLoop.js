@@ -21,7 +21,7 @@ const ranges = [
     select([0, 0], [1, 0])
   ],
   [ // Receive 512 bytes
-    select([2, 0], [4, 0])
+    select([1, 0], [3, 0])
   ],
   [ // read()
     select([4, 0], [6, 0])
@@ -35,10 +35,11 @@ const codeOptions = {
 }
 
 const code = `read() {
-
   // Receive 512 bytes on Endpoint 5
   device.transferIn(5, 512).then(({ data }) => {
-    // Use data
+    // Do something with the data here
+
+    // Call read again
     read()
 
   }, error => {
@@ -59,7 +60,7 @@ export default (
     {notes}
 
     <A>
-      <Subtitle>USBPort</Subtitle>
+      <Subtitle>WebUsbPort.js</Subtitle>
 
       <Code2 ranges={ranges} options={codeOptions} order={-1}>
           {code}

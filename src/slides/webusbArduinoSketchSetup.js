@@ -66,6 +66,8 @@ export default (
     {notes}
 
     <A>
+      <Subtitle>Arduino Sketch</Subtitle>
+
         <Code2 ranges={ranges} options={codeOptions}>
             {code}
         </Code2>

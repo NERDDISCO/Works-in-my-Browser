@@ -29,6 +29,8 @@ export default (
     {notes}
 
     <A>
+      <Subtitle>Sketch Statistics</Subtitle>
+
       <Fragment order={0}>
 
         <ViewportSize>

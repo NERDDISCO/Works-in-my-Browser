@@ -18,6 +18,7 @@ const notes = (
   <Notes>
     <h3>Arduino Sketch</h3>
     <p>Use the Arduino IDE to upload code, the code is inspiried by C</p>
+    <p>Sketch defines what happens on the Arduino</p>
     <p>Code gets uploaded via USB to the Arduino</p>
     <p>Let's break this down in detail</p>
   </Notes>

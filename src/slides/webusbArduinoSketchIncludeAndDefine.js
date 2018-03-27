@@ -71,6 +71,8 @@ export default (
     {notes}
 
     <A>
+      <Subtitle>Arduino Sketch</Subtitle>
+      
       <Fragment order={0}>
         <Code2 ranges={ranges} options={codeOptions}>
             {code}
