@@ -9,33 +9,37 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
+import {select} from '../utils'
 
-const notes = (
-  <Notes>
-    <p>The second important part of an Arduino sketch is the loop method</p>
-    <p>Once setup is done this is executed over and over again</p>
-    <p>In this case we also wait until WebUSB is available</p>
-    <p>Then we read the incoming bytes from WebUSB</p>
-    <p>And iterate over every of the 512 channel values, to set them on the DMXMaster</p>
-  </Notes>
-)
+const ranges = [
+  [ // loop
+    select([0, 0], [2, 0])
+  ],
+  [ // WebUsb available
+    select([2, 0], [4, 0])
+  ],
+  [ // Read 512 bytes from WebUSB
+    select([5, 0], [7, 0])
+  ],
+  [ // terate over 512 channels
+    select([8, 0], [13, 0])
+  ],
+  [ // Set channel
+    select([10, 0], [12, 0])
+  ]
+]
 
-export default (
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'clike',
+  theme: 'neo'
+}
 
-  <Slide key={uuid()} background="#f8f8ff">
-    <Plugins.Data luminave={['']}></Plugins.Data>
-    {notes}
-
-    <A>
-      <Fragment order={0}>
-
-        <ViewportSize>
-          <Code language='arduino' style={colorSchemes.docco}>
-          {`// Run over and over again
+const code = `// Run over and over again
 void loop() {
   // WebUSB is available
   if (Serial.available() > 0) {
@@ -49,11 +53,29 @@ void loop() {
       dmx_master.setChannelValue(i + 1, incoming[i]);
     }
   }
-}`}
-          </Code>
-        </ViewportSize>
+}
+`
 
-      </Fragment>
+const notes = (
+  <Notes>
+    <p>The second important part of an Arduino sketch is the loop method</p>
+    <p>Once setup is done this is executed over and over again</p>
+    <p>In this case we also wait until WebUSB is available</p>
+    <p>Then we read the incoming bytes from WebUSB</p>
+    <p>And iterate over every of the 512 channel values, to set them on the DMXMaster</p>
+  </Notes>
+)
+
+export default (
+
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
+    {notes}
+
+    <A>
+      <Code2 ranges={ranges} options={codeOptions}>
+          {code}
+      </Code2>
     </A>
 
   </Slide>

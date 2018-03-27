@@ -17,7 +17,9 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>What does luminave mean?</h3>
-    <p></p>
+    <p>iluminado = light in Esperanto</p>
+    <p>nave = hub of a wheel</p>
+    <p>luminave connects you to the world of lights and visualisations, it's the central hub that integrated everything else</p>
   </Notes>
 )
 
@@ -27,12 +29,16 @@ export default (
     {notes}
 
     <A>
-      <Title><RainbowText time={5} text="lumi"/> — <RainbowText time={5} text="nave"/></Title>
+      <Title><Fragment order={0}><RainbowText time={5} text="lumi"/></Fragment> <Fragment order={3}>— <RainbowText time={5} text="nave"/></Fragment></Title>
 
       <LayoutAB>
-        <div><Subtitle>i<RainbowText time={3} text="lumi"/>nado <br />=<br /><Bold>light</Bold><br />(Esperanto)</Subtitle></div>
+        <Fragment order={1}>
+          <div><Subtitle>i<RainbowText time={3} text="lumi"/>nado <br /><Fragment order={2}>=<br /><Bold>light</Bold><br />(Esperanto)</Fragment></Subtitle></div>
+        </Fragment>
         <Spacer />
-        <div><Subtitle><RainbowText time={3} text="nave"/> <br />=<br /><Bold>A hub of a wheel</Bold><br />(English)</Subtitle></div>
+        <Fragment order={4}>
+          <div><Subtitle><RainbowText time={3} text="nave"/> <br /> <Fragment order={5}>=<br /><Bold>A hub of a wheel</Bold><br />(English)</Fragment></Subtitle></div>
+        </Fragment>
       </LayoutAB>
 
     </A>

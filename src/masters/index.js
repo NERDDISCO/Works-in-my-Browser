@@ -1,12 +1,46 @@
-import React from 'react'
-import styled, {css, injectGlobal} from 'styled-components'
-import createMaster, {Master, Static, Slot} from '@dekk/master'
+import React from "react";
+import layouts, { vertical } from "@dekk/master-slides/lib/layouts";
+import { createStyledMaster, Master, Slot } from "@dekk/master";
 
-injectGlobal`
-  :root {
-    --title-font-size: 4em;
+export const Half = createStyledMaster(
+  <Master>
+    <Slot name="A" />
+    <Slot name="B" />
+  </Master>
+)`
+    ${layouts.AB.leftRight};
+    [data-slot='A'],
+    [data-slot='B'] {
+        ${vertical.base};
+    }
+`;
+
+/**
+ * A collage slide. (two images)
+ * @type {Slide}
+ */
+export const Collage = createStyledMaster(
+  <Master>
+    <Slot name="A" />
+    <Slot name="B" />
+    <Slot name="C" />
+  </Master>
+)`
+  ${layouts.ABC.right};
+  [data-slot='A'] {
+    ${vertical.start};
+    box-sizing: border-box;
+    padding: 0 2rem;
   }
-`
+`;
 
-export {default as Cover, CoverSlide} from './cover'
-export {Chapter, ChapterSlide} from './chapter'
+export const Grid = createStyledMaster(
+  <Master>
+    <Slot name="A" />
+    <Slot name="B" />
+    <Slot name="C" />
+    <Slot name="D" />
+  </Master>
+)`
+  ${layouts.ABCD};
+`;

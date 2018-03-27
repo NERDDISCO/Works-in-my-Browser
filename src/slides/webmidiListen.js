@@ -9,17 +9,16 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
 
-import Code from '@dekk/code'
 import {select} from '../utils'
 
 const ranges = [
   [ // listen
-    select([0, 0], [0, 6])
+    select([0, 0], [1, 0])
   ],
   [ // port deconstruct
     select([1, 10], [1, 22]),
@@ -29,10 +28,10 @@ const ranges = [
   ],
 
   [ // type is input
-    select([3, 2], [3, 25])
+    select([3, 0], [4, 0])
   ],
   [ // addListener
-    select([5, 4], [6, 40])
+    select([5, 0], [7, 0])
   ],
   [ // event deconstruct
     select([8, 13], [8, 20]),
@@ -83,9 +82,10 @@ export default (
 
     <A>
       <Subtitle>WebMidiConnection.js</Subtitle>
-      <Code ranges={ranges} options={codeOptions} style={{width: "auto"}}>
+
+      <Code2 ranges={ranges} options={codeOptions}>
           {code}
-      </Code>
+      </Code2>
     </A>
 
   </Slide>

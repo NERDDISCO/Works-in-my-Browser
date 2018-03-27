@@ -17,14 +17,11 @@ const {Slide, A} = Main
 import {select} from '../utils'
 
 const ranges = [
-  [ // enable
-    select([0, 0], [1, 0])
+  [ // create new device
+    select([9, 0], [11, 0])
   ],
-  [ // filter
-    select([1, 0], [6, 0])
-  ],
-  [ // request access
-    select([7, 0], [9, 0])
+  [ // connect to selected
+    select([12, 0], [16, 0])
   ]
 ]
 
@@ -59,10 +56,7 @@ const code = `enable() {
 const notes = (
   <Notes>
     <h3>Enable WebUSB</h3>
-    <p>enable() function has to be triggered by the user</p>
-    <p>In order to be able to interact with the USB device</p>
-    <p>Set filters to only get the elements that we want and not every element that is attachted to the computer</p>
-    <p>Request access</p>
+    <p>If that is granted: connect to the selectedPort</p>
   </Notes>
 )
 
@@ -74,7 +68,7 @@ export default (
     <A>
       <Subtitle>WebUsbConnection.js</Subtitle>
 
-      <Code2 ranges={ranges} options={codeOptions}>
+      <Code2 ranges={ranges} options={codeOptions} order={-1}>
           {code}
       </Code2>
     </A>

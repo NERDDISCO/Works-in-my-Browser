@@ -9,7 +9,7 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {SuperTimer} from '../components'
+import {LargeImage} from '../components'
 
 const {Slide, A} = Main
 
@@ -23,11 +23,15 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()}>
+  <Slide key={uuid()} mixin="--slide-color: #e20078">
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
+      <img src="media/jsconfeu.png"
+                  alt="JSConf EU Logo"
+                style={{height: 50 + "vh"}} />
+
       <Title>
         JSConf EU 2014
       </Title>

@@ -9,10 +9,47 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
+import {select} from '../utils'
+
+const ranges = [
+  [ // setup
+    select([0, 0], [2, 0])
+  ],
+  [ // memset incoming
+    select([3, 0], [5, 0])
+  ],
+  [ // Wait until Serial ready
+    select([6, 0], [10, 0])
+  ],
+  [ // Start DMXMaster
+    select([11, 0], [13, 0])
+  ]
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'clike',
+  theme: 'neo'
+}
+
+const code = `// Run once on startup
+void setup() {
+
+  // Initialize incoming with 0
+  memset(incoming, 0, sizeof(incoming));
+
+  // Wait until WebUSB connection is established
+  while (!Serial) {
+    ;
+  }
+
+  // Start DMXMaster & transmission to DMXShield
+  dmx_master.enable();
+}`
 
 const notes = (
   <Notes>
@@ -24,32 +61,14 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
-      <Fragment order={0}>
-
-        <ViewportSize>
-          <Code language='arduino' style={colorSchemes.docco}>
-          {`// Run once on startup
-void setup() {
-  // Initialize incoming with 0
-  memset(incoming, 0, sizeof(incoming));
-
-  // Wait until WebUSB connection is established
-  while (!Serial) {
-    ;
-  }
-
-  // Start DMXMaster & transmission to DMXShield
-  dmx_master.enable();
-}`}
-          </Code>
-        </ViewportSize>
-
-      </Fragment>
+        <Code2 ranges={ranges} options={codeOptions}>
+            {code}
+        </Code2>
     </A>
 
   </Slide>

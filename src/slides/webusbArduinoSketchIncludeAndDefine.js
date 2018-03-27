@@ -2,17 +2,60 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, Code, colorSchemes} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
+import {select} from '../utils'
+
+const ranges = [
+  [ // Include WebUSB
+    select([0, 10], [0, 16])
+  ],
+  [ // Conceptinetics
+    select([1, 10], [1, 24])
+  ],
+  [ // localhost:1337
+    select([3, 24], [3, 38])
+  ],
+  [ // channels
+    select([6, 0], [8, 0])
+  ],
+  [ // Initialize dmx_master with channels
+    select([9, 0], [11, 0])
+  ],
+  [ // incoming bytes
+    select([12, 0], [14, 0])
+  ],
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'clike',
+  theme: 'neo'
+}
+
+const code = `#include <WebUSB.h>
+#include <Conceptinetics.h>
+
+WebUSB WebUSBSerial(1, "localhost:1337");
+#define Serial WebUSBSerial
+
+// Amount of DMX channels
+#define channels 512
+
+// Configure DMX shield (2 = Arduino I/O pin)
+DMX_Master dmx_master(channels, 2);
+
+// Amount of incoming bytes via WebUSB
+byte incoming[channels];`
 
 const notes = (
   <Notes>
@@ -23,33 +66,15 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
       <Fragment order={0}>
-        <ViewportSize>
-          <Code language='arduino' style={colorSchemes.docco}>
-{`#include <WebUSB.h>
-#include <Conceptinetics.h>
-
-WebUSB WebUSBSerial(1, "localhost:1337");
-#define Serial WebUSBSerial
-
-// Amount of DMX channels
-#define channels 512
-
-// dmx_master(channels , pin);
-// channels: Amount of DMX channels
-// pin: Pin to do read / write operations on the DMX shield
-DMX_Master dmx_master(channels, 2);
-
-// Amount of incoming bytes via WebUSB
-byte incoming[channels];`}
-          </Code>
-        </ViewportSize>
-
+        <Code2 ranges={ranges} options={codeOptions}>
+            {code}
+        </Code2>
       </Fragment>
     </A>
 

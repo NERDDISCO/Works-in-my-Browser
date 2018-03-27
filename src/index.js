@@ -108,6 +108,7 @@ const slides = [
   // slide.timeTravelTheories,
   slide.terminator,
   slide.backtothefuture,
+  slide.excellentAdventure,
   slide.interstellar,
   slide.interstellar4dto3dCommunication,
   slide.travelInTime,
@@ -128,7 +129,8 @@ const slides = [
   slide.newYearsEve2017,
   slide.newYearsEve2017VjAndDjDance,
   slide.newYearsEve2017PerformanceVideo,
-  slide.loveLightsTim,
+
+  // slide.loveLightsTim,
 
   slide.luminave,
   slide.luminaveNameExplained,
@@ -163,11 +165,12 @@ const slides = [
   slide.webusbDmxControllerAdded,
   slide.webusbEnable,
   slide.webusbUsbPortEnableUserGesture,
+  slide.webusbEnableSelectedPort,
   slide.webusbConnect,
   slide.webusbUsbPortConnect,
-  slide.webusbUsbPortDisconnect,
   slide.webusbUsbPortReadLoop,
   slide.webusbUsbPortSend,
+  slide.webusbUsbPortDisconnect,
   slide.usbExplained,
   slide.webusbDmx512Data,
   slide.luminaveDemo,
@@ -186,13 +189,22 @@ const slides = [
   slide.modv,
   slide.modvLuminaveDekk,
 
+  /* TODO: modV to Dekk integration */
   cloneElement(slide.everythingAtTheSameTime, {key : uuid()}),
   slide.presenter,
 
   slide.livePerformance,
 
-  slide.bestWayToPredictTheFutureIsToCreateIt,
+
+  slide.itsOkToUseJustOneBrowser,
   slide.tryAllTheThings,
+  slide.codeAndBreak,
+  slide.workTogether,
+  slide.spreadYourKnowledge,
+  slide.dontReinventTheWheel,
+  slide.everythingYouKnowIsResultOfPast,
+
+  slide.bestWayToPredictTheFutureIsToCreateIt,
   slide.thankYou
 ]
 

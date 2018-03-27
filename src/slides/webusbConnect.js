@@ -9,29 +9,38 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
 
-const notes = (
-  <Notes>
-    <h3>Connect to USBPort</h3>
-    <p>After selecting a USB device, the connect function is triggered on the selected port</p>
-    <p>Then we execute connect, which is a method from USBPort (which is a helper to work with USB)</p>
-  </Notes>
-)
+import {select} from '../utils'
 
-export default (
-  <Slide key={uuid()}>
-    <Plugins.Data luminave={['']}></Plugins.Data>
-    {notes}
+const ranges = [
+  [ // Connect
+    select([0, 0], [1, 0])
+  ],
+  [ // USB connection established
+    select([1, 0], [3, 0])
+  ],
+  [ // Receive data
+    select([3, 0], [8, 0])
+  ],
+  [ // Receive error
+    select([9, 0], [14, 0])
+  ],
+  [ // error
+    select([15, 0], [19, 0])
+  ]
+]
 
-    <A>
-      <Subtitle>WebUsbConnection.js</Subtitle>
-      <ViewportSize>
-        <Code language='arduino' style={colorSchemes.docco}>
-{`connect(port) {
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'javascript',
+  theme: 'neo'
+}
+
+const code = `connect(port) {
   // USB connection is established
   port.connect().then(() => {
     // Receive data
@@ -50,9 +59,28 @@ export default (
     // USB is disconnected
     console.error(error)
   })
-}`}
-        </Code>
-      </ViewportSize>
+}`
+
+const notes = (
+  <Notes>
+    <h3>Connect to USBPort</h3>
+    <p>After selecting a USB device, the connect function is triggered on the selected port</p>
+    <p>Then we execute connect, which is a method from USBPort (which is a helper to work with USB)</p>
+  </Notes>
+)
+
+export default (
+  <Slide key={uuid()}>
+    <Plugins.Data luminave={['']}></Plugins.Data>
+    {notes}
+
+    <A>
+      <Subtitle>WebUsbConnection.js</Subtitle>
+
+      <Code2 ranges={ranges} options={codeOptions}>
+          {code}
+      </Code2>
+
     </A>
 
   </Slide>

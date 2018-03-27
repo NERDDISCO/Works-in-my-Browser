@@ -10,15 +10,16 @@ import 'codemirror/mode/javascript/javascript'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-// import {} from '../components'
+import {Code2} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>WebMIDI: Demo</h3>
-    <p>So when I hit a button on my MidiController, we see which note it has</p>
-    <p></p>
+    <h3>Don't reinvent the wheel</h3>
+    <p>Use what the Web already has to offer</p>
+    <p>Support open source software</p>
+    <p>Report problems and tell them why you love to use their software</p>
   </Notes>
 )
 
@@ -28,14 +29,8 @@ export default (
     {notes}
 
     <A>
-      <br />
-      <Subtitle>WebMIDI Console</Subtitle>
-      <br />
-      <iframe src="http://localhost:8080/demos/webmidi/"
-              allow="midi"
-              sandbox="allow-same-origin allow-scripts allow-forms"
-              style={{width: 90 + "vw", height: 90 + "vh"}}
-              frameBorder="0" />
+      <Title><Uppercase>Don't reinvent the wheel</Uppercase></Title>
+      <Fragment order={1}><Subtitle>over & over & over & over & over & over & over & over & over & over & over & over</Subtitle></Fragment>
     </A>
 
   </Slide>

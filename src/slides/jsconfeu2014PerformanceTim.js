@@ -33,9 +33,9 @@ export default (
         {props => {
           return (
             <React.Fragment>
-              <Sequence order={0} steps={3}>
+              <Sequence order={1} steps={2}>
                 {(index, time, timeline) => {
-                  return <Video {...props} isPlaying={index === 1} />
+                  return <Video {...props} isPlaying={index===0} />
                 }}
               </Sequence>
             </React.Fragment>

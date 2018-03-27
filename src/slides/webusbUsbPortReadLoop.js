@@ -9,10 +9,42 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
+
+import {select} from '../utils'
+
+const ranges = [
+  [ // read
+    select([0, 0], [1, 0])
+  ],
+  [ // Receive 512 bytes
+    select([2, 0], [4, 0])
+  ],
+  [ // read()
+    select([4, 0], [6, 0])
+  ]
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'javascript',
+  theme: 'neo'
+}
+
+const code = `read() {
+
+  // Receive 512 bytes on Endpoint 5
+  device.transferIn(5, 512).then(({ data }) => {
+    // Use data
+    read()
+
+  }, error => {
+    onReceiveError(error)
+  })
+}`
 
 const notes = (
   <Notes>
@@ -22,25 +54,16 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
       <Subtitle>USBPort</Subtitle>
-      <ViewportSize>
-        <Code language='arduino' style={colorSchemes.docco}>
-{`read() {
-  // Receive 512 bytes on Endpoint 5
-  device.transferIn(5, 512).then({data} => {
-    // Use data
-    read()
-  }, error => {
-    onReceiveError(error)
-  })
-}`}
-        </Code>
-      </ViewportSize>
+
+      <Code2 ranges={ranges} options={codeOptions} order={-1}>
+          {code}
+      </Code2>
     </A>
 
   </Slide>

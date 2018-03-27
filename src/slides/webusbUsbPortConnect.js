@@ -9,10 +9,63 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
+
+import {select} from '../utils'
+
+const ranges = [
+  [ // connect
+    select([0, 0], [1, 0])
+  ],
+  [ // device.open
+    select([1, 0], [2, 0])
+  ],
+  [ // set default configuration
+    select([3, 0], [7, 0])
+  ],
+  [ // Access to #2 interface
+    select([9, 0], [11, 0])
+  ],
+  [ // Ready to receive data
+    select([12, 0], [20, 0])
+  ],
+  [ // Read
+    select([21, 0], [22, 0])
+  ]
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'javascript',
+  theme: 'neo'
+}
+
+const code = `connect() {
+  return device.open()
+  .then(() => {
+    if (device.configuration === null) {
+      // Select #1 USB configuration
+      return device.selectConfiguration(1)
+    }
+  })
+
+  // Get exclusive access to the #2 interface
+  .then(() => device.claimInterface(2))
+
+  // We are ready to receive data
+  .then(() => device.controlTransferOut({
+    'requestType': 'class',
+    'recipient': 'interface',
+    'request': 0x22,
+    'value': 0x01, // Endpoint: 2
+    'index': 0x02 // Interface #2
+  }))
+
+  .then(() => { read() })
+}`
 
 const notes = (
   <Notes>
@@ -30,42 +83,16 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
       <Subtitle>USBPort</Subtitle>
-      <ViewportSize>
-        <Code language='arduino' style={colorSchemes.docco}>
-{`connect() {
-  return device.open()
 
-  .then(() => {
-    if (device.configuration === null) {
-      // Select #1 USB configuration
-      return device.selectConfiguration(1)
-    }
-  })
-
-  // Get exclusive access to the #2 interface
-  .then(() => device.claimInterface(2))
-
-  // Declare that we are ready to receive data
-  .then(() => device.controlTransferOut({
-    'requestType': 'class',
-    'recipient': 'interface',
-    'request': 0x22,
-    'value': 0x01, // Endpoint: 2
-    'index': 0x02 // Interface #2
-  }))
-
-  .then(() => {
-    read()
-  })
-}`}
-        </Code>
-      </ViewportSize>
+      <Code2 ranges={ranges} options={codeOptions}>
+          {code}
+      </Code2>
     </A>
 
   </Slide>

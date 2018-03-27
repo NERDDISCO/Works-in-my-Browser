@@ -9,10 +9,32 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
+
+import {select} from '../utils'
+
+const ranges = [
+  [ // write
+    select([0, 0], [1, 0])
+  ],
+  [ // send data to USB device
+    select([1, 0], [3, 0])
+  ]
+]
+
+const codeOptions = {
+  lineNumbers: true,
+  mode: 'javascript',
+  theme: 'neo'
+}
+
+const code = `write(data) {
+  // Send data to the USB device
+  return device.transferOut(4, data)
+}`
 
 const notes = (
   <Notes>
@@ -22,20 +44,15 @@ const notes = (
 )
 
 export default (
-  <Slide key={uuid()} background="#f8f8ff">
+  <Slide key={uuid()}>
     <Plugins.Data luminave={['']}></Plugins.Data>
     {notes}
 
     <A>
       <Subtitle>USBPort</Subtitle>
-      <ViewportSize>
-        <Code language='arduino' style={colorSchemes.docco}>
-{`write(data) {
-  // Send data to the USB device
-  return device.transferOut(4, data)
-}`}
-        </Code>
-      </ViewportSize>
+      <Code2 ranges={ranges} options={codeOptions}>
+          {code}
+      </Code2>
     </A>
 
   </Slide>

@@ -8,13 +8,31 @@
       body {
         font: 3em sans-serif;
       }
-      div {
+      span {
         margin: 0;
         border-bottom: 5px solid #ccc;
+        display: block;
+      }
+
+      #container {
+        display: flex;
+      }
+
+      #deviceLog {
+        width: 50vw;
+      }
+
+      #noteonLog {
+        width: 50vw;
       }
     </style>
   </head>
   <body>
+
+    <article id="container">
+      <div id="deviceLog"></div>
+      <div id="noteonLog"></div>
+    </article>
 
   </body>
 </html>

@@ -7,12 +7,12 @@ window.WebMidi.enable(err => {
     WebMidi.addListener('connected', ({ port }) => {
       listen(port)
       const { manufacturer, name, type, id } = port
-      write(`Added ${name} from "${manufacturer}" with ID "${id}" and type "${type}`)
+      write(`Added ${name} from "${manufacturer}" with ID "${id}" and type "${type}`, 'device')
     })
 
     WebMidi.addListener('disconnected', ({ port }) => {
       const { manufacturer, name, type, id } = port
-      write(`Removed ${name} from "${manufacturer}" with ID "${id}" and type "${type}`)
+      write(`Removed ${name} from "${manufacturer}" with ID "${id}" and type "${type}`, 'device')
     })
   }
 })
@@ -29,14 +29,27 @@ function listen(port) {
 
     }) => {
       console.log(`noteon: ${note}`)
-      write(`noteon: ${note}`)
+      write(`noteon: ${note}`, 'note')
     })
   }
 }
 
-function write(message) {
-  let elem = document.createElement('div')
+function write(message, type) {
+  let elem = document.createElement('span')
   elem.innerHTML = message
 
-  document.body.appendChild(elem)
+  switch (type) {
+    case 'note':
+      document.getElementById('noteonLog').appendChild(elem)
+      break;
+    case 'device':
+      document.getElementById('deviceLog').appendChild(elem)
+      break;
+    default:
+
+  }
+
+
+
+  // document.body.appendChild(elem)
 }

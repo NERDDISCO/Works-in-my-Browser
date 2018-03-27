@@ -10,26 +10,22 @@ import 'codemirror/mode/javascript/javascript'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {ViewportSize} from '../components'
+import {ViewportSize, Code2} from '../components'
 
 
 const {Slide, A} = Main
 
-import Code from '@dekk/code'
 import {select} from '../utils'
 
 const ranges = [
-  [ // WebMidi
-    select([0, 0], [0, 7])
-  ],
-  [ // enable
-    select([0, 8], [0, 14])
+  [ // WebMidi.enable
+    select([0, 0], [1, 0])
   ],
   [ // Listen for MIDI controller that are connecting
-    select([5, 4], [8, 11])
+    select([5, 0], [9, 0])
   ],
   [ // listen(port)
-    select([7, 6], [7, 20]),
+    select([7, 0], [8, 0]),
   ]
 ]
 
@@ -68,9 +64,10 @@ export default (
 
     <A>
       <Subtitle>WebMidiConnection.js</Subtitle>
-      <Code ranges={ranges} options={codeOptions} style={{width: "auto"}}>
+
+      <Code2 ranges={ranges} options={codeOptions}>
           {code}
-      </Code>
+      </Code2>
     </A>
   </Slide>
 )

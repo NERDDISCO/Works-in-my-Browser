@@ -12,7 +12,19 @@ export class Video extends Component {
     super(props)
   }
 
+  componentDidMount() {
+    if (this.props.quiet) return true
+
+    if (this.props.isPlaying) {
+      this.props.playVideo()
+    } else {
+      this.props.pauseVideo()
+    }
+  }
+
   componentDidUpdate(oldProps) {
+    if (this.props.quiet) return true
+
     if (oldProps.isPlaying !== this.props.isPlaying) {
       if (this.props.quiet) return
 
@@ -23,9 +35,11 @@ export class Video extends Component {
       }
     }
   }
+
   shouldComponentUpdate(nextProps) {
     if (this.props.quiet) return true
 
+    console.log(nextProps)
     if (nextProps.getPlayerState() > -1) {
       return true
     }
