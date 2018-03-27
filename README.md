@@ -1,6 +1,7 @@
 # Works in my Browser
 
-Collaboration talk from Gregor and Tim
+[Open the slides for the collaboration talk from Gregor and Tim](https://nerddisco.github.io/Works-in-my-Browser)
+
 
 ## Setup
 
@@ -22,4 +23,4 @@ To generate a static version that can be used with GitHub-Pages use:
 yarn build
 ```
 
-This will put everything into the `docs` folder. 
+This will put everything into the `docs` folder.
