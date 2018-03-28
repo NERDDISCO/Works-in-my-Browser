@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>luminave - WebUSB</title>
-    <script src="./WebUsbConnection.js"></script>
     <style>
       body {
         font: 3em sans-serif;
@@ -25,19 +24,19 @@
         width: 50vw;
       }
 
-      #activateWebUsb {
-
+      #activateWebUsb, #sendWebUsb {
+        width: 50vw;
+        height: 50vh;
       }
     </style>
   </head>
   <body>
 
     <button id="activateWebUsb">Activate WebUSB</button>
-
-    <article id="container">
-      <div id="deviceLog"></div>
-      <div id="noteonLog"></div>
-    </article>
+    <button id="sendWebUsb">Send WebUSB</button>
 
   </body>
+
+  <!-- <script src="./test.js"></script> -->
+  <script src="./WebUsbConnection.js"></script>
 </html>

@@ -2,7 +2,7 @@ import React, {cloneElement, Component} from 'react'
 import {render} from 'react-dom'
 import styled, {css} from 'styled-components'
 
-import Deck, {Elements, Plugins} from '@dekk/deck'
+import Deck, {Elements, Plugins} from '@dekk/dekk'
 import Slide from '@dekk/slide'
 import Paging from '@dekk/paging'
 import Controller from './plugins/controller'
@@ -119,6 +119,7 @@ const slides = [
 
   slide.backgroundGregor,
   slide.drawingsFromGregor,
+  slide.dekkProject,
 
   slide.backgroundTim,
   slide.familyTim,
@@ -162,24 +163,24 @@ const slides = [
   slide.webusbArduinoSketchLoop,
   slide.webusbArduinoSketchUploadDone,
   slide.webusbArduinoHowDoesItWork,
+
+  slide.usbExplained,
   slide.webusbDmxControllerAdded,
+
   slide.webusbEnable,
   slide.webusbUsbPortEnableUserGesture,
   slide.webusbEnableSelectedPort,
   slide.webusbConnect,
-  slide.webusbUsbPortConnect,
-  slide.webusbUsbPortReadLoop,
-  slide.webusbConnect2,
   slide.webusbUsbPortDisconnect,
   slide.webusbUsbPortSend,
-  slide.usbExplained,
+
+
+
   slide.webusbDmx512Data,
   slide.luminaveDemo,
   slide.luminaveColor,
   slide.luminaveColorMoveAround,
   slide.luminaveColorStrobeMoveAround,
-
-  slide.dekkProject,
 
   slide.luminaveDekkIntegration,
   // slide.integrationLuminaveinDekk,
@@ -245,28 +246,9 @@ class App extends Component {
   }
 
   render() {
-    return present ? (
-      <SpeakerDeck mixin={baseStyles} timer={50}>
-        <Elements>
-          <Button onClick={this.setFrame}>luminave</Button>
-        </Elements>
-
-        <Plugins>
-          <Controller trigger="keydown" handleFrame={this.setFrame} />
-          <Paging trigger="keydown" />
-          <Url />
-          <LocalStorage publish />
-          <Luminave
-            publish
-            showFrame={this.state.showFrame}
-            handleFrame={this.setFrame}
-          />
-        </Plugins>
-        {slides}
-      </SpeakerDeck>
-    ) : live ? (
-      <Deck mixin={baseStyles}>
-        <Elements>
+    return (
+      <Deck mixin={baseStyles} timer={50}>
+        <Elements mode={["live"]}>
           <StyledHeader isActive={this.state.showFrame}>
             <iframe
               src="https://localhost:1337"
@@ -278,17 +260,15 @@ class App extends Component {
           </StyledHeader>
         </Elements>
 
-        <Plugins>
+        <Plugins mode={["present"]}>
+          <Controller trigger="keydown" handleFrame={this.setFrame} />
+          <Luminave publish showFrame={this.state.showFrame} bhandleFrame={this.setFrame}
+          />
+        </Plugins>
+
+        <Plugins mode={["live"]}>
           <LocalStorage subscribe />
           <Luminave subscribe handleFrame={this.handleFrame} slides={slides} />
-        </Plugins>
-        {slides}
-      </Deck>
-    ) : (
-      <Deck mixin={baseStyles}>
-        <Plugins>
-          <Paging />
-          <Url />
         </Plugins>
         {slides}
       </Deck>

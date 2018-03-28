@@ -11,6 +11,7 @@ import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
+import {LayoutAB, Spacer} from '../components'
 
 const {Slide, A} = Main
 
@@ -31,17 +32,23 @@ export default (
     {notes}
 
     <A>
-      <img src="media/gregoradams.jpeg"
+      <LayoutAB>
+        <Fragment order={0}>
+          <img src="media/gregoradams.jpeg"
                 alt="Gregor Adams"
                 style={{height: 25 + "vh"}} />
-      <Title>Gregor Adams</Title>
+          <Title>Gregor Adams</Title>
+        </Fragment>
 
-      <hr />
+        <Spacer />
 
-        <img src="media/timpietrusky.jpg"
-                  alt="Tim Pietrusky"
-                  style={{height: 25 + "vh"}} />
-        <Title>Tim Pietrusky</Title>
+        <Fragment order={1}>
+          <img src="media/timpietrusky.jpg"
+                    alt="Tim Pietrusky"
+                    style={{height: 25 + "vh"}} />
+          <Title>Tim Pietrusky</Title>
+        </Fragment>
+      </LayoutAB>
     </A>
 
   </Slide>

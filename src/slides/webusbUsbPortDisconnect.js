@@ -40,8 +40,8 @@ const code = `disconnect() {
     'requestType': 'class',
     'recipient': 'interface',
     'request': 0x22,
-    'value': 0x00, // Endpoint: 1
-    'index': 0x02 // Interface #2
+    'value': 0x00, // Endpoint: 0
+    'index': 0x02 // Interface: #2
   })
   .then(() => device.close())
 }`
@@ -50,7 +50,7 @@ const notes = (
   <Notes>
     <h3>Disconnect</h3>
     <p>Disconnect from the USB device</p>
-    <p>Tell the USB device that we want to disconnect</p>
+    <p>Again using a control command to tell the USB device that we don't want to be connected anymore</p>
     <p>When ok: Close the connection to the device</p>
   </Notes>
 )
@@ -61,7 +61,7 @@ export default (
     {notes}
 
     <A>
-      <Subtitle>USBPort</Subtitle>
+      <Subtitle>WebUsbConnection.js</Subtitle>
 
       <Code2 ranges={ranges} options={codeOptions}>
           {code}

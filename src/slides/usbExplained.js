@@ -30,6 +30,8 @@ export default (
     {notes}
 
     <A>
+      <Subtitle>USB</Subtitle>
+
       <LargeImage src="media/usb_configurations_interfaces_endpoints.svg"
                   alt="USB device with configurations, interfaces and endpoints"
                 style={{height: 60 + "vh"}} />

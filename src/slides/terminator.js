@@ -19,7 +19,7 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Terminator</h3>
-    <p></p>
+    <p>Time traveling in Terminator was to change the past</p>
   </Notes>
 )
 

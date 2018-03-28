@@ -34,13 +34,7 @@ export default (
 
     <A>
       <Title>
-        <Fragment order={0} plain>
-          {(t, a) => {
-            return <SuperTimer isPlaying={a} timer={0.5} />
-          }}
-        </Fragment>
-
-        <Fragment order={0} plain onRest={handleRest}>
+        <Fragment order={1} plain>
           {(t, a) => {
             return <SuperTimer isPlaying={a} timer={0.5} />
           }}

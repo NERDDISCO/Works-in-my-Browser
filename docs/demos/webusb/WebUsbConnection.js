@@ -1,25 +1,3 @@
-function write(message, type) {
-  let elem = document.createElement('span')
-  elem.innerHTML = message
-
-  switch (type) {
-    case 'note':
-      document.getElementById('noteonLog').appendChild(elem)
-      break;
-    case 'device':
-      document.getElementById('deviceLog').appendChild(elem)
-      break;
-    default:
-  }
-}
-
-
-
-
-
-
-
-
 class WebUsbConnection {
   constructor() {
     this.device = null
@@ -34,21 +12,24 @@ class WebUsbConnection {
 
     // Request access to the USB device
     navigator.usb.requestDevice({ filters })
-      // Create a new USB device
-      .then(device => device.open())
+      // Open session to selected USB device
+      .then(selectedDevice => {
+        this.device = selectedDevice
+        return this.device.open()
+      })
 
-      .then(device => {
-        if (device.configuration === null) {
-          // Select #1 USB configuration
-          return device.selectConfiguration(1)
+      // Select #1 configuration if not automatially set by OS
+      .then(() => {
+        if (this.device.configuration === null) {
+          return this.device.selectConfiguration(1)
         }
       })
 
       // Get exclusive access to the #2 interface
-      .then(device => device.claimInterface(2))
+      .then(() => this.device.claimInterface(2))
 
       // We are ready to receive data on Endpoint 1 of Interface #2
-      .then(device => device.controlTransferOut({
+      .then(() => this.device.controlTransferOut({
         'requestType': 'class',
         'recipient': 'interface',
         'request': 0x22,
@@ -58,23 +39,16 @@ class WebUsbConnection {
 
 
       // Receive 512 bytes on Endpoint 5
-      .then(device => device.transferIn(5, 512))
-
-      .then(this.assign)
+      .then(() => this.device.transferIn(5, 512))
 
       .then(({ data }) => {
         let decoder = new TextDecoder()
-        console.log('Received: ' + decoder.decode(result.data))
+        console.log('Received: ' + decoder.decode(data))
       })
 
       .catch(error => {
         console.log(error)
       })
-  }
-
-  assign(device) {
-    this.device = device
-    return Promise.resolve(device)
   }
 
   disconnect() {
@@ -92,7 +66,7 @@ class WebUsbConnection {
     .then(() => this.device.close())
   }
 
-  write(data) {
+  send(data) {
     if (this.device === null) {
       throw new Error(`device has not been enabled. Cannot write undefined`)
     }
@@ -101,7 +75,15 @@ class WebUsbConnection {
   }
 }
 
-
 const webusbConnection = new WebUsbConnection()
+const enableWebusb = document.getElementById('activateWebUsb')
+const sendWebusb = document.getElementById('sendWebUsb')
 
-webusbConnection.enable()
+enableWebusb.addEventListener('click', e => {
+  webusbConnection.enable()
+})
+
+sendWebusb.addEventListener('click', e => {
+  const buffer = Uint8Array.from([255, 255, 0])
+  webusbConnection.write(buffer)
+})

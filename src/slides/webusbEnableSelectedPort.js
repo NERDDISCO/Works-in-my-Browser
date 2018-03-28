@@ -17,12 +17,13 @@ const {Slide, A} = Main
 import {select} from '../utils'
 
 const ranges = [
-  [ // create new device
-    select([9, 0], [11, 0])
+  [ // open session
+    select([2, 0], [7, 0])
   ],
-  [ // connect to selected
-    select([12, 0], [16, 0])
-  ]
+  [ // Select #1 configuration
+    select([8, 0], [14, 0])
+  ],
+  [ select([15, 0], [17, 0])] // access to interface #2
 ]
 
 const codeOptions = {
@@ -31,32 +32,52 @@ const codeOptions = {
   theme: 'neo'
 }
 
-const code = `enable() {
-  // Only request the port for specific devices
-  const filters = [
-    // Arduino LLC (10755), Leonardo ETH (32832)
-    { vendorId: 0x2a03, productId: 0x8040 }
-  ]
-
-  // Request access to the USB device
+const code = `  // Request access to the USB device
   navigator.usb.requestDevice({ filters })
-    // Create a new USB device
-    .then(device => new USBPort({ device }))
+    // Open session to selected USB device
+    .then(selectedDevice => {
+      device = selectedDevice
+      return device.open()
+    })
 
-    // Connect to the selected USB device
-    .then(selectedPort => {
-      connect(selectedPort)
+    // Select #1 configuration if not automatially set by OS
+    .then(() => {
+      if (device.configuration === null) {
+        return device.selectConfiguration(1)
+      }
+    })
+
+    // Get exclusive access to the #2 interface
+    .then(() => device.claimInterface(2))
+
+    // We are ready to receive data
+    .then(() => device.controlTransferOut({
+      'requestType': 'class',
+      'recipient': 'interface',
+      'request': 0x22,
+      'value': 0x01, // Endpoint: 1
+      'index': 0x02 // Interface: #2
+    }))
+
+    // Receive 512 bytes on Endpoint 5
+    .then(() => device.transferIn(5, 512))
+
+    .then(({ data }) => {
+      let decoder = new TextDecoder()
+      console.log('Received: ' + decoder.decode(data))
     })
 
     .catch(error => {
-      console.error(error)
+      console.log(error)
     })
 }`
 
 const notes = (
   <Notes>
     <h3>Enable WebUSB</h3>
-    <p>If that is granted: connect to the selectedPort</p>
+    <p>Connect to the selectedPort and open a session to the device</p>
+    <p>Use configuration #1 if no configuration was automatially applied by the Operating System</p>
+    <p>Get exclusive access to interface #2</p>
   </Notes>
 )
 

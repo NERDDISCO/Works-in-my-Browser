@@ -83,7 +83,7 @@ export default (
     <A>
       <Subtitle>WebMidiConnection.js</Subtitle>
 
-      <Code2 ranges={ranges} options={codeOptions}>
+      <Code2 ranges={ranges} options={codeOptions} order={-1}>
           {code}
       </Code2>
     </A>

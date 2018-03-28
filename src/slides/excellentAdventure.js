@@ -19,7 +19,7 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Bill & Ted's: Excellent Adventure</h3>
-    <p>Travel in the same universe</p>
+    <p>Travel in the same dimension</p>
     <p>Different versions in time are talking with Bill & Ted</p>
     <p>In this scene Bill & Ted meet a future version of each other. They ask: What number we have in our head? And they say: 69, dudes</p>
   </Notes>

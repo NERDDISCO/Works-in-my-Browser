@@ -21,7 +21,11 @@ const ranges = [
     select([0, 0], [1, 0])
   ],
   [ // send data to USB device
-    select([1, 0], [3, 0])
+    select([1, 0], [2, 0]),
+    select([3, 0], [4, 0])
+  ],
+  [ // ArrayBuffer
+    select([2, 0], [3, 0])
   ]
 ]
 
@@ -31,15 +35,17 @@ const codeOptions = {
   theme: 'neo'
 }
 
-const code = `write(data) {
-  // Send data to the USB device
+const code = `send(data) {
+  // Send data to the USB device on Endpoint 4
+  // Must be ArrayBuffer like Uint8Array
   return device.transferOut(4, data)
 }`
 
 const notes = (
   <Notes>
     <h3>Send data to USB device</h3>
-    <p>transferOut = Send data to USB device on Endpoint 4</p>
+    <p>Send data to USB device on Endpoint 4</p>
+    <p>data must be an ArrayBuffer, for example an Uint8Array</p>
   </Notes>
 )
 
@@ -49,7 +55,7 @@ export default (
     {notes}
 
     <A>
-      <Subtitle>USBPort</Subtitle>
+      <Subtitle>WebUsbConnection.js</Subtitle>
       <Code2 ranges={ranges} options={codeOptions}>
           {code}
       </Code2>

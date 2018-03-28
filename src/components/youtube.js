@@ -39,7 +39,6 @@ export class Video extends Component {
   shouldComponentUpdate(nextProps) {
     if (this.props.quiet) return true
 
-    console.log(nextProps)
     if (nextProps.getPlayerState() > -1) {
       return true
     }

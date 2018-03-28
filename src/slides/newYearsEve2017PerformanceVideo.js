@@ -6,7 +6,7 @@ import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
-import {Plugins} from '@dekk/deck'
+import {Plugins, Live} from '@dekk/dekk'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
 // import {SuperTimer} from '../components'
@@ -34,7 +34,7 @@ export default (
             <React.Fragment>
               <Sequence order={0} steps={3}>
                 {(index, time, timeline) => {
-                  return <Video {...props} isPlaying={index === 1} />
+                  return <Live><Video {...props} isPlaying={index === 1} /></Live>
                 }}
               </Sequence>
             </React.Fragment>

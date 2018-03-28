@@ -19,7 +19,7 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Back to the Future</h3>
-    <p>Infinite universes, he has to find a way to contact the 3th dimension</p>
+    <p>Travling into the past and the future, but in the same dimension</p>
   </Notes>
 )
 

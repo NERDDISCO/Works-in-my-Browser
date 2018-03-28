@@ -33,13 +33,13 @@ export default (
       <Title><RainbowText time={30} text="Fundamentals"/></Title>
 
       <LayoutAB>
-        <div><Fragment order={1}><Subtitle>Web Components</Subtitle></Fragment></div>
+        <div><Fragment order={0}><Subtitle>Web Components</Subtitle></Fragment></div>
         <Spacer />
-        <div><Fragment order={2}><Subtitle>WebMIDI</Subtitle></Fragment></div>
+        <div><Fragment order={0}><Subtitle>WebMIDI</Subtitle></Fragment></div>
         <Spacer />
-        <div><Fragment order={3}><Subtitle>DMX512</Subtitle></Fragment></div>
+        <div><Fragment order={0}><Subtitle>DMX512</Subtitle></Fragment></div>
         <Spacer />
-        <div><Fragment order={4}><Subtitle>WebUSB</Subtitle></Fragment></div>
+        <div><Fragment order={0}><Subtitle>WebUSB</Subtitle></Fragment></div>
       </LayoutAB>
 
     </A>

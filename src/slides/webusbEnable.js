@@ -17,15 +17,10 @@ const {Slide, A} = Main
 import {select} from '../utils'
 
 const ranges = [
-  [ // enable
-    select([0, 0], [1, 0])
-  ],
-  [ // filter
-    select([1, 0], [6, 0])
-  ],
-  [ // request access
-    select([7, 0], [9, 0])
-  ]
+  [ select([0, 0], [1, 0]) ], // let device
+  [ select([2, 0], [3, 0]) ], // enable
+  [ select([4, 0], [8, 0]) ], // filters
+  [ select([10, 0], [11, 0]) ] // request access
 ]
 
 const codeOptions = {
@@ -34,7 +29,9 @@ const codeOptions = {
   theme: 'neo'
 }
 
-const code = `enable() {
+const code = `let device = undefined
+
+enable() {
   // Only request the port for specific devices
   const filters = [
     // Arduino LLC (10755), Leonardo ETH (32832)
@@ -43,16 +40,41 @@ const code = `enable() {
 
   // Request access to the USB device
   navigator.usb.requestDevice({ filters })
-    // Create a new USB device
-    .then(device => new USBPort({ device }))
+    // Open session to selected USB device
+    .then(selectedDevice => {
+      device = selectedDevice
+      return device.open()
+    })
 
-    // Connect to the selected USB device
-    .then(selectedPort => {
-      connect(selectedPort)
+    // Select #1 configuration if not automatially set by OS
+    .then(() => {
+      if (device.configuration === null) {
+        return device.selectConfiguration(1)
+      }
+    })
+
+    // Get exclusive access to the #2 interface
+    .then(() => device.claimInterface(2))
+
+    // We are ready to receive data on Endpoint 1 of Interface #2
+    .then(() => device.controlTransferOut({
+      'requestType': 'class',
+      'recipient': 'interface',
+      'request': 0x22,
+      'value': 0x01, // Endpoint: 1
+      'index': 0x02 // Interface: #2
+    }))
+
+    // Receive 512 bytes on Endpoint 5
+    .then(() => device.transferIn(5, 512))
+
+    .then(({ data }) => {
+      let decoder = new TextDecoder()
+      console.log('Received: ' + decoder.decode(data))
     })
 
     .catch(error => {
-      console.error(error)
+      console.log(error)
     })
 }`
 

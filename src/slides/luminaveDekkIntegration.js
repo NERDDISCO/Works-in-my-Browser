@@ -17,13 +17,10 @@ const notes = (
   <Notes>
     <h3>luminave + Dekk</h3>
     <p>luminave is running on localhost:1337</p>
-    <p>Plugin for Dekk that handles a WebSocket connection to the luminave WebSocket integration</p>
-    <p>This integration can be used to remote control luminave</p>
-    <p>Giving Dekk the power to set the DMX512 fixtures</p>
-    <p>MIRROR SCREEN</p>
-    <p>luminave can be activated from the SpeakerDeck</p>
     <p>luminave is integrated as an iframe into Dekk</p>
-    <p>it is running the whole time, but is invisible</p>
+    <p>iframe is hidden, but can be activated using the presenter</p>
+    <p>Dekk is sending data back to luminave using a WebSocket connection, WebSocket server provided by luminave</p>
+    <p>Giving Dekk the power to set the DMX512 fixtures</p>
   </Notes>
 )
 

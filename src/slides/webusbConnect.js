@@ -17,12 +17,14 @@ const {Slide, A} = Main
 import {select} from '../utils'
 
 const ranges = [
-  [ // Connect
-    select([0, 0], [1, 0])
+  [ // ready to receive data
+    select([0, 0], [8, 0])
   ],
-  [ // USB connection established
-    select([1, 0], [3, 0])
-  ]
+  [ // Receive 512 bytes
+    select([9, 0], [11, 0])
+  ],
+  [ select([12, 0], [16, 0])], // textdecoder
+  [ select([17, 0], [20, 0])]
 ]
 
 const codeOptions = {
@@ -31,32 +33,35 @@ const codeOptions = {
   theme: 'neo'
 }
 
-const code = `connect(port) {
-  // USB connection is established
-  port.connect().then(() => {
-    // Receive data
-    port.onReceive = data => {
-      const textDecoder = new TextDecoder()
-      console.log(textDecoder.decode(data))
-    }
+const code = `    // We are ready to receive data
+    .then(() => device.controlTransferOut({
+      'requestType': 'class',
+      'recipient': 'interface',
+      'request': 0x22,
+      'value': 0x01, // Endpoint: 1
+      'index': 0x02 // Interface: #2
+    }))
 
-    // Receive error
-    port.onReceiveError = error => {
-      // USB is disconnected
+    // Receive 512 bytes on Endpoint 5
+    .then(() => device.transferIn(5, 512))
+
+    .then(({ data }) => {
+      let decoder = new TextDecoder()
+      console.log('Received: ' + decoder.decode(data))
+    })
+
+    .catch(error => {
       console.log(error)
-    }
-
-  }, error => {
-    // USB is disconnected
-    console.error(error)
-  })
+    })
 }`
 
 const notes = (
   <Notes>
-    <h3>Connect to USBPort</h3>
-    <p>After selecting a USB device, the connect function is triggered on the selected port</p>
-    <p>Then we execute connect, which is a method from USBPort (which is a helper to work with USB)</p>
+    <h3>Receive data</h3>
+    <p>We are ready to receive data on Interface #2 using a controlTransferOut -> Send control commands to the USB device</p>
+    <p>Receive 512 bytes on Endpoint 5</p>
+    <p>Convert the received data into a String by using a TextDecoder (decodes encodings)</p>
+    <p>Catch all the errors</p>
   </Notes>
 )
 
@@ -68,7 +73,7 @@ export default (
     <A>
       <Subtitle>WebUsbConnection.js</Subtitle>
 
-      <Code2 ranges={ranges} options={codeOptions}>
+      <Code2 ranges={ranges} options={codeOptions} order={-1}>
           {code}
       </Code2>
 
