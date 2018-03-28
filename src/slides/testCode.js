@@ -75,13 +75,13 @@ const codeOptions = {
 const notes = (
   <Notes>
     <h3>Back to the Future</h3>
-    <p>Infinite universes, he has to find a way to contact the 3th dimension</p>
+    <p>One dimension, jump into the past and future, trying to avoid to see the other self</p>
   </Notes>
 )
 
 export default (
   <Slide key={uuid()}>
-    <Plugins.Data luminave={['COLOR GREEN']}></Plugins.Data>
+    <Plugins.Data luminave={['0position 1', 'color green']}></Plugins.Data>
     {notes}
     <A>
       <Code ranges={ranges} options={codeOptions}>

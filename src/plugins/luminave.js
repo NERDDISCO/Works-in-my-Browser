@@ -48,6 +48,8 @@ export default class Luminave extends Component {
       })
 
       const oldValue = window.localStorage.getItem(this.props.channel)
+      console.log(0, oldValue)
+
       try {
         this.handleMessage(JSON.parse(oldValue))
       } finally {
@@ -89,7 +91,11 @@ export default class Luminave extends Component {
    * @private
    */
   handleStore({key, oldValue, newValue}) {
+
     if (key === this.props.channel && oldValue !== newValue) {
+
+// console.log(oldValue, newValue)
+
       this.handleMessage(JSON.parse(newValue))
     }
   }
@@ -114,6 +120,7 @@ export default class Luminave extends Component {
     if (this.connected) {
       const {luminave = null} = this.props
       if (luminave !== null) {
+        console.log(JSON.stringify(luminave, null, 2))
         this.ws.send(JSON.stringify(luminave))
       }
     }
@@ -131,8 +138,6 @@ export default class Luminave extends Component {
         // this.handleFragment(this.props.fragmentIndex)
       }
     }
-
-
   }
 
   /**

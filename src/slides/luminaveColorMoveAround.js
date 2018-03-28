@@ -16,14 +16,13 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>luminave</h3>
-    <p>change the color to green and start blinking with a strobe effect</p>
+    <p>change the color to green and move around</p>
   </Notes>
 )
 
 export default (
   <Slide key={uuid()} background="#35C964" mixin="--slide-color: white">
-    <Plugins.Data luminave={['COLOR GREEN', 'JSFest_Static']}></Plugins.Data>
-    {/* <Plugins.Data luminave={['COLOR GREEN']}></Plugins.Data> */}
+    <Plugins.Data luminave={['0position 1', 'color green', 'movement 1']}></Plugins.Data>
     {notes}
 
     <A>

@@ -6,6 +6,14 @@ export default styled.div`
   justify-content: center;
 `
 
+export const Column = styled.div`
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+`
+
 export const Spacer = styled.div`
   width: 5vw;
 `

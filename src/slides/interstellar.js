@@ -19,15 +19,14 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Interstellar</h3>
-    <p>Exposed in the 4th dimension</p>
-    <p>In the last 15 minutes of the film we enter the 4th dimension</p>
-    <p>Infinite universes, he has to find a way to contact the 3th dimension</p>
+    <p>Tries to visualize the 4th dimension</p>
+    <p>How you can interact inbetween dimensions</p>
   </Notes>
 )
 
 export default (
   <Slide key={uuid()} background={`url(media/interstellar.gif)`} mixin="--slide-color: white">
-    <Plugins.Data luminave={['COLOR BLUE']}></Plugins.Data>
+    <Plugins.Data luminave={['0position 1', 'color blue']}></Plugins.Data>
     {notes}
 
     <A>

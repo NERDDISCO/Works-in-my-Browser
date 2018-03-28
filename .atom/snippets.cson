@@ -473,7 +473,7 @@ const code = ``
 
   'cloneElement':
     'prefix': 'dekk-cloneelement'
-    'body': '{cloneElement(slide.$1, {key : uuid()})}'
+    'body': 'cloneElement(slide.$1, {key : uuid(), animation: $2})'
 
 ######################################
 

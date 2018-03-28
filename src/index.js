@@ -12,6 +12,7 @@ import SpeakerDeck from '@dekk/speaker-deck'
 import Url, {search} from '@dekk/url'
 import * as slide from './slides'
 import uuid from 'uuid/v4'
+import {fadeSlide, fade, flip, cube} from '@dekk/animation'
 
 import "./styles/codemirror"
 import Luminave from './plugins/luminave'
@@ -134,7 +135,8 @@ const slides = [
   // slide.loveLightsTim,
 
   slide.luminave,
-  slide.luminaveNameExplained,
+  cloneElement(slide.luminaveNameExplained, {key : uuid(), animation: fade.out}),
+  cloneElement(slide.luminavePurpose, { key : uuid(), animationIn: fade.in }),
   slide.luminaveFundament,
   slide.webcomponents,
   slide.webmidi,
@@ -149,9 +151,8 @@ const slides = [
   slide.dmx512LightForJsfestExplained,
   slide.dmx512Manual,
   // slide.dmx512HowToControlIt,
-  slide.webusb,
-  slide.usbInANutshell,
   slide.webusbDmxControllerConcept,
+  slide.webusb,
   slide.webusbNotAsEasyAsYouThink,
   slide.webusbCustomDevice,
   slide.webusbArduino,
@@ -173,6 +174,7 @@ const slides = [
   slide.webusbConnect,
   slide.webusbUsbPortDisconnect,
   slide.webusbUsbPortSend,
+  slide.webusbUserGesture,
 
 
 
@@ -188,13 +190,11 @@ const slides = [
   cloneElement(slide.luminaveColorMoveAround, {key: uuid()}),
   cloneElement(slide.luminaveColorStrobeMoveAround, {key: uuid()}),
 
-  slide.modv,
-  slide.modvLuminaveDekk,
-
-  /* TODO: modV to Dekk integration */
   cloneElement(slide.everythingAtTheSameTime, {key : uuid()}),
   slide.presenter,
 
+  slide.modv,
+  slide.modvLuminaveDekk,
   slide.livePerformance,
 
 

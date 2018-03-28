@@ -16,11 +16,12 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>USB explained</h3>
-    <p>We have an USB device</p>
-    <p>The device can have multiple configurations, we have to choose one: device.selectConfiguration</p>
-    <p>A configuration can have multiple interfaces, we have to claim one: device.claimInterface</p>
-    <p>An interface can have multiple endpoints, for example to send data from the USB device to the browser: transferIn on Endpoint 4</p>
+    <h3>USB descriptors</h3>
+    <p>A USB device is made out of many different descriptors. Each of them helps our computer to understand how the USB device works</p>
+    <p>Device: basic information like USB version, vendor and product id</p>
+    <p>Configuration: The device can have multiple configurations, like how the device is powered, maximum power consumption</p>
+    <p>Interface: A configuration can have multiple interfaces, combines the endpoints into functional groups to perform a single feature of the device</p>
+    <p>Endpoints: An interface can have multiple endpoints (types: control, interrupt, isochronous, bulk)</p>
   </Notes>
 )
 
@@ -30,7 +31,7 @@ export default (
     {notes}
 
     <A>
-      <Subtitle>USB</Subtitle>
+      <Subtitle>USB Descriptions</Subtitle>
 
       <LargeImage src="media/usb_configurations_interfaces_endpoints.svg"
                   alt="USB device with configurations, interfaces and endpoints"

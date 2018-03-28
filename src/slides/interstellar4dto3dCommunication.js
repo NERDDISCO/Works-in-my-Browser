@@ -25,7 +25,7 @@ const notes = (
 
 export default (
   <Slide key={uuid()} background={`url(media/interstellar_4d_to_3d_communication.gif)`}>
-    <Plugins.Data luminave={['COLOR BLUE']}></Plugins.Data>
+    <Plugins.Data luminave={['0position 1', 'color blue']}></Plugins.Data>
     {notes}
 
     <A>

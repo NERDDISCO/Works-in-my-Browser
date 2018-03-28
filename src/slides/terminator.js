@@ -19,13 +19,13 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>Terminator</h3>
-    <p>Time traveling in Terminator was to change the past</p>
+    <p>Skynet is trying to save its future by changing the past. Leading into creating it's own death</p>
   </Notes>
 )
 
 export default (
   <Slide key={uuid()} background={`url(media/terminator.webp)`} mixin="--slide-color: white">
-    <Plugins.Data luminave={['COLOR RED']}></Plugins.Data>
+    <Plugins.Data luminave={['0position 1', 'color red']}></Plugins.Data>
     {notes}
 
     <A>

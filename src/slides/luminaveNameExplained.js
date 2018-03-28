@@ -10,16 +10,15 @@ import 'codemirror/mode/javascript/javascript'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
-import {RainbowText, LayoutAB, Spacer} from '../components'
+import {RainbowText, LayoutAB, Spacer, Column} from '../components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
     <h3>What does luminave mean?</h3>
-    <p>iluminado = light in Esperanto</p>
+    <p>lumi = light in many languages (illumination in english, iluminando in spanish) and lumi many other languages</p>
     <p>nave = hub of a wheel</p>
-    <p>luminave connects you to the world of lights and visualisations, it's the central hub that integrated everything else</p>
   </Notes>
 )
 
@@ -29,16 +28,33 @@ export default (
     {notes}
 
     <A>
-      <Title><Fragment order={0}><RainbowText time={5} text="lumi"/></Fragment> <Fragment order={3}>— <RainbowText time={5} text="nave"/></Fragment></Title>
 
       <LayoutAB>
-        <Fragment order={1}>
-          <div><Subtitle>i<RainbowText time={3} text="lumi"/>nado <br /><Fragment order={2}>=<br /><Bold>light</Bold><br />(Esperanto)</Fragment></Subtitle></div>
-        </Fragment>
-        <Spacer />
-        <Fragment order={4}>
-          <div><Subtitle><RainbowText time={3} text="nave"/> <br /> <Fragment order={5}>=<br /><Bold>A hub of a wheel</Bold><br />(English)</Fragment></Subtitle></div>
-        </Fragment>
+        <Column>
+          <Fragment order={0}><Title><RainbowText time={5} text="lumi"/></Title></Fragment>
+
+          <Fragment order={1}>
+              <Subtitle>= <Bold>light</Bold></Subtitle>
+              <ul>
+                <li>luminado 🇪🇸</li>
+                <li>illumination 🇬🇧</li>
+                <li>lumière 🇫🇷</li>
+              </ul>
+          </Fragment>
+        </Column>
+
+        <Column>
+          <Fragment order={2}><Title><RainbowText time={5} text="nave"/></Title></Fragment>
+
+          <Fragment order={3}>
+              <Subtitle>
+                <Bold>= hub of a wheel</Bold>
+              </Subtitle>
+              <ul>
+                <li>nave 🇬🇧</li>
+              </ul>
+          </Fragment>
+        </Column>
       </LayoutAB>
 
     </A>
