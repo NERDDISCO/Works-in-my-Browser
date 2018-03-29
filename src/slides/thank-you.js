@@ -3,12 +3,13 @@ import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
 // Text, Title, Subtitle, Uppercase, Bold, Center, Code
-import {Title, Subtitle, Text} from '@dekk/text'
+import {Title, Subtitle, Text, Uppercase} from '@dekk/text'
 // import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 // Cover, Chapter, Half, Collage, Grid, ImageGrid
 import {Main} from '@dekk/master-slides'
 import {Plugins} from '@dekk/deck'
+import {RainbowText} from '../components'
 
 // import * as wimbAnimation from '../animation'
 // import * as dekkAnimation from '@dekk/animation'
@@ -24,12 +25,11 @@ const notes = (
 
 export default (
   <Slide key={uuid()}>
-    <Plugins.Data luminave={['']}></Plugins.Data>
+    <Plugins.Data luminave={['0position 1', 'color rainbow', 'movement 2']}></Plugins.Data>
     {notes}
 
     <A>
-      <Title>Thank You!</Title>
-      <Subtitle>❤️❤️❤️❤️❤️❤️❤️❤️❤️</Subtitle>
+      <Title><Uppercase><RainbowText time={3.5} text="Thank You!"/></Uppercase></Title>
     </A>
 
 

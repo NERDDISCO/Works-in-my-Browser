@@ -16,7 +16,8 @@ const {Slide, A} = Main
 const notes = (
   <Notes>
     <h3>luminave</h3>
-    <p>change the color to green and move around</p>
+    <p>change the color to green</p>
+    <p>Movement: Lights are moving around</p>
   </Notes>
 )
 

@@ -2,7 +2,7 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, Code} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, Code, Quote} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
@@ -27,7 +27,11 @@ export default (
     {notes}
 
     <A>
-      <Title>The best way to predict your future is to create it</Title>
+      <Title>
+      <Quote>
+        The best way to predict your future is to create it
+      </Quote>
+      </Title>
       <Subtitle>Abraham Lincoln</Subtitle>
     </A>
 

@@ -2,7 +2,7 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes, Quote} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
@@ -31,7 +31,7 @@ export default (
     {notes}
 
     <A>
-      <Title><Uppercase>Work Together</Uppercase></Title>
+      <Title><Quote>Work together</Quote></Title>
     </A>
 
   </Slide>

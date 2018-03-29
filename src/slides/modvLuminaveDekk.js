@@ -16,7 +16,7 @@ const {Slide, A} = Main
 
 const notes = (
   <Notes>
-    <h3>modV + luminave + dekk</h3>
+    <h3>modV + luminave</h3>
     <p>Integrate modV into luminave</p>
     <p>OPEN LUMINAVE</p>
     <p>CONNECT MODV (TODO: ADD to presenter)</p>
@@ -29,9 +29,8 @@ export default (
     {notes}
 
     <A>
-      <Title>modV</Title>
-      <Title>+ <RainbowText time={5} text="luminave"/></Title>
-      <Title>+ Dekk</Title>
+      <Title><RainbowText time={5} text="luminave"/></Title>
+      <Title>+ modV</Title>
     </A>
 
   </Slide>

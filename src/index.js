@@ -1,6 +1,6 @@
 import React, {cloneElement, Component} from 'react'
 import {render} from 'react-dom'
-import styled, {css} from 'styled-components'
+import styled, {css, keyframes} from 'styled-components'
 
 import Deck, {Elements, Plugins} from '@dekk/dekk'
 import Slide from '@dekk/slide'
@@ -98,6 +98,30 @@ const baseStyles = css`
   ${'' /* --font-size: calc(var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) * calc(1vw + 1vh); */};
 `
 
+
+const lightshow = keyframes`
+  0% {
+    background: #35c9a4;
+  }
+  25% {
+    background: #DA4453;
+  }
+  50% {
+    background: #FFCE54;
+  }
+  75% {
+    background: #3caee5;
+  }
+  100% {
+    background: #35c9a4;
+  }
+`
+
+const mymixin = css`
+  animation: ${lightshow} linear 20s infinite backwards;
+  color: white !important;
+`
+
 const slides = [
   cloneElement(slide.worksInMyBrowser, {key: uuid()}),
   slide.flashingLights,
@@ -135,7 +159,7 @@ const slides = [
   // slide.loveLightsTim,
 
   slide.luminave,
-  cloneElement(slide.luminaveNameExplained, {key : uuid(), animation: fade.out}),
+  cloneElement(slide.luminaveNameExplained, {key : uuid(), animationOut: fade.in }),
   cloneElement(slide.luminavePurpose, { key : uuid(), animationIn: fade.in }),
   slide.luminaveFundament,
   slide.webcomponents,
@@ -165,20 +189,17 @@ const slides = [
   slide.webusbArduinoSketchUploadDone,
   slide.webusbArduinoHowDoesItWork,
 
-  slide.usbExplained,
   slide.webusbDmxControllerAdded,
+  slide.usbExplained,
 
-  slide.webusbEnable,
-  slide.webusbUsbPortEnableUserGesture,
-  slide.webusbEnableSelectedPort,
-  slide.webusbConnect,
+  cloneElement(slide.webusbEnable, {key : uuid(), animationOut: fade.in }),
+  cloneElement(slide.webusbUsbPortEnableUserGesture, {key : uuid(), animationIn: fade.in, animationOut: fade.in }),
+  cloneElement(slide.webusbEnableSelectedPort, {key : uuid(), animationIn: fade.in}),
   slide.webusbUsbPortDisconnect,
   slide.webusbUsbPortSend,
   slide.webusbUserGesture,
 
-
-
-  slide.webusbDmx512Data,
+  cloneElement(slide.webusbDmx512Data, {key : uuid(), background: 'rgb(248, 248, 255)'}),
   slide.luminaveDemo,
   slide.luminaveColor,
   slide.luminaveColorMoveAround,
@@ -207,7 +228,7 @@ const slides = [
   slide.everythingYouKnowIsResultOfPast,
 
   slide.bestWayToPredictTheFutureIsToCreateIt,
-  slide.thankYou
+  cloneElement(slide.thankYou, {key: uuid(), background: 'black', mixin: mymixin})
 ]
 
 /*

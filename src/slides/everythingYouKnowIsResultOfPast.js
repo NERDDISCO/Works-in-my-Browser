@@ -2,7 +2,7 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes, Quote} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
@@ -28,8 +28,7 @@ export default (
     {notes}
 
     <A>
-      <Title><Uppercase>Everything you know now</Uppercase></Title>
-      <Fragment order={1}><Title><Uppercase>is the result of your Past</Uppercase></Title></Fragment>
+      <Title><Quote>Everything you know now is the result of your past</Quote></Title>
     </A>
 
   </Slide>

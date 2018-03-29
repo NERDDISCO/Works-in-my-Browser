@@ -18,12 +18,16 @@ import {select} from '../utils'
 
 const ranges = [
   [ // open session
-    select([2, 0], [7, 0])
+    select([11, 0], [16, 0])
   ],
   [ // Select #1 configuration
-    select([8, 0], [14, 0])
+    select([17, 0], [23, 0])
   ],
-  [ select([15, 0], [17, 0])] // access to interface #2
+  [ select([24, 0], [26, 0])], // access to interface #2
+  [ select([27, 0], [35, 0])], // We are ready to receive data on Endpoint 1 of Interface #2
+  [ select([36, 0], [38, 0])], // Receive 512 bytes on Endpoint 5
+  [ select([39, 0], [43, 0])], // TextDecoder
+  [ select([44, 0], [47, 0])], // catch error
 ]
 
 const codeOptions = {
@@ -32,7 +36,16 @@ const codeOptions = {
   theme: 'neo'
 }
 
-const code = `  // Request access to the USB device
+const code = `let device = undefined
+
+enable() {
+  // Only request the port for specific devices
+  const filters = [
+    // Arduino LLC (10755), Leonardo ETH (32832)
+    { vendorId: 0x2a03, productId: 0x8040 }
+  ]
+
+  // Request access to the USB device
   navigator.usb.requestDevice({ filters })
     // Open session to selected USB device
     .then(selectedDevice => {
@@ -50,7 +63,7 @@ const code = `  // Request access to the USB device
     // Get exclusive access to the #2 interface
     .then(() => device.claimInterface(2))
 
-    // We are ready to receive data
+    // We are ready to receive data on Endpoint 1 of Interface #2
     .then(() => device.controlTransferOut({
       'requestType': 'class',
       'recipient': 'interface',

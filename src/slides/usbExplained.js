@@ -2,28 +2,61 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
+import Text, {Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
 import 'codemirror/mode/javascript/javascript'
 import {Plugins} from '@dekk/deck'
 // import * as wimbAnimation from '../animation'
-// import * as dekkAnimation from '@dekk/animation'
-import {LargeImage} from '../components'
+import {slide} from '@dekk/animation'
+import {LargeImage, Spacer} from '../components'
+import styled from 'styled-components'
 
 const {Slide, A} = Main
 
 const notes = (
   <Notes>
     <h3>USB descriptors</h3>
-    <p>A USB device is made out of many different descriptors. Each of them helps our computer to understand how the USB device works</p>
+    <p>Before we can jump into the next part we have to get some USB terms sorted out</p>
     <p>Device: basic information like USB version, vendor and product id</p>
-    <p>Configuration: The device can have multiple configurations, like how the device is powered, maximum power consumption</p>
-    <p>Interface: A configuration can have multiple interfaces, combines the endpoints into functional groups to perform a single feature of the device</p>
-    <p>Endpoints: An interface can have multiple endpoints (types: control, interrupt, isochronous, bulk)</p>
+    <p>Configuration: how the device is powered, maximum power consumption</p>
+    <p>Interface: Combines the endpoints into functional groups to perform a single feature of the device</p>
+    <p>Endpoints: An interface can have multiple endpoints (send control messages or transfer data)</p>
   </Notes>
 )
+
+
+const StyledBox = styled.div`
+  --h: ${({hue}) => hue};
+  --color: ${({color}) => color};
+  --width: ${({width}) => width};
+
+  background-color: hsl(var(--h), 80%, 60%);
+  color: var(--color);
+  padding: .25em;
+  border: 0.2em solid hsl(var(--h), 80%, 50%);
+  width: var(--width);
+  margin: 0 0 .25em 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
+StyledBox.defaultProps = {
+  hue: 0,
+  color: 'white'
+}
+
+const Rapppper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
+`
+
 
 export default (
   <Slide key={uuid()}>
@@ -31,11 +64,44 @@ export default (
     {notes}
 
     <A>
-      <Subtitle>USB Descriptions</Subtitle>
+      <Subtitle>USB descriptors</Subtitle>
 
-      <LargeImage src="media/usb_configurations_interfaces_endpoints.svg"
-                  alt="USB device with configurations, interfaces and endpoints"
-                style={{height: 60 + "vh"}} />
+      <br />
+      <Rapppper>
+
+        <Fragment order={1} animation={slide.normal}>
+          <StyledBox width="100vw">
+            <Subtitle>Device</Subtitle>
+            <Spacer />
+            <Text>USB Version, vendor, productid</Text>
+          </StyledBox>
+        </Fragment>
+
+        <Fragment order={2} animation={slide.normal}>
+          <StyledBox width="80vw" hue="50">
+            <Subtitle>Configurations</Subtitle>
+            <Spacer />
+            <Text>How to power the device, max power consumption</Text>
+          </StyledBox>
+        </Fragment>
+
+        <Fragment order={3} animation={slide.normal}>
+          <StyledBox width="60vw" hue="100">
+            <Subtitle>Interfaces</Subtitle>
+            <Spacer />
+            <Text>Combination of Endpoints</Text>
+          </StyledBox>
+        </Fragment>
+
+        <Fragment order={4} animation={slide.normal}>
+          <StyledBox width="40vw" hue="150">
+            <Subtitle>Endpoints</Subtitle>
+            <Spacer />
+            <Text>A feature</Text>
+          </StyledBox>
+        </Fragment>
+
+      </Rapppper>
     </A>
 
   </Slide>

@@ -2,7 +2,7 @@ import Config from './config'
 import React from 'react'
 import uuid from 'uuid/v4'
 import Fragment from '@dekk/fragment'
-import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes} from '@dekk/text'
+import {Text, Title, Subtitle, Uppercase, Bold, Center, colorSchemes, Quote} from '@dekk/text'
 import {default as MaskedImage, FitImage} from '@dekk/image'
 import Notes from '@dekk/speaker-notes'
 import {Main} from '@dekk/master-slides'
@@ -29,8 +29,7 @@ export default (
     {notes}
 
     <A>
-      <Title><Uppercase>Don't reinvent the wheel</Uppercase></Title>
-      <Fragment order={1}><Subtitle>over & over & over & over & over & over & over & over & over & over & over & over</Subtitle></Fragment>
+      <Title><Quote>Don't reinvent the wheel</Quote></Title>
     </A>
 
   </Slide>

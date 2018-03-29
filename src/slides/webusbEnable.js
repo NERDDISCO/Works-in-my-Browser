@@ -38,7 +38,7 @@ enable() {
     { vendorId: 0x2a03, productId: 0x8040 }
   ]
 
-  // Request access to the USB device
+  // Request access to the USB device 
   navigator.usb.requestDevice({ filters })
     // Open session to selected USB device
     .then(selectedDevice => {
